@@ -7,15 +7,15 @@ int main() {
     POINT P1, P2;
 
 
-    printf("// Prosedur BacaPOINT // Masukkan sebuah absis dan ordinat (Untuk P1)\n");
+    // printf("// Prosedur BacaPOINT // Masukkan sebuah absis dan ordinat (Untuk P1)\n");
     BacaPOINT(&P1);
-    printf("// Prosedur TulisPOINT // Koordinat yang dibentuk dari apa yang anda tulis adalah(dalam bentuk desimal 2 angka dibelakang koma, Untuk P1):\n");
+    // printf("// Prosedur TulisPOINT // Koordinat yang dibentuk dari apa yang anda tulis adalah(dalam bentuk desimal 2 angka dibelakang koma, Untuk P1):\n");
     TulisPOINT(P1);
     printf("\n");
 
-    printf("// Prosedur BacaPOINT // Masukkan sebuah absis dan ordinat (Untuk P2)\n");
+    // printf("// Prosedur BacaPOINT // Masukkan sebuah absis dan ordinat (Untuk P2)\n");
     BacaPOINT(&P2);
-    printf("// Prosedur TulisPOINT // Koordinat yang dibentuk dari apa yang anda tulis adalah(dalam bentuk desimal 2 angka dibelakang komaUntuk P2):\n");
+    // printf("// Prosedur TulisPOINT // Koordinat yang dibentuk dari apa yang anda tulis adalah(dalam bentuk desimal 2 angka dibelakang komaUntuk P2):\n");
     TulisPOINT(P2);
     printf("\n");
 
@@ -27,6 +27,12 @@ int main() {
         printf("P1 dan P2 bernilai beda yaitu,\n");
         printf("Untuk P1(%.f,%.f) dan P2(%.f,%.f)\n", Absis(P1), Ordinat(P1), Absis(P2), Ordinat(P2));
     }
+
+    float jarak1 = Jarak0(P1);
+    float jarak2 = Jarak0(P2);
+    float panjang = Panjang(P1,P2);
+    printf("Jarak dari titik origin,, Untuk P1 = %.2f dan Untuk P2 = %.2f\n", jarak1, jarak2);
+    printf("Panjang dari P1 ke P2 adalah %.2f\n", panjang);
 }
 
 
