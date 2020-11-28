@@ -28,8 +28,10 @@ void Push(Stack *S, infotype X)
 /* I.S. S mungkin kosong, S tidak penuh */
 /*F.S. X menjadi element TOP yang baru, TOP bertambah 1 */
 {
-    S->T[S->TOP] = X;
-    S->TOP++;
+    if (!IsFull(*S)) {
+        S->T[S->TOP] = X;
+        S->TOP++;
+    }
 }
 void Pop(Stack *S, infotype *X)
 /* Menghapus X dari Stack S. */
@@ -60,5 +62,24 @@ void ForcePush(Stack *S, infotype X)
             S->T[idx] = S->T[idx + 1];
         }
         S->T[S->TOP - 1] = X;
+    }
+}
+
+void PrintStack(Stack *S) 
+/* Mencetak elemen stack dengan urutan TOP paling bawah */
+{
+    Stack S1, S2; infotype isi;
+
+    S1 = *S;
+    CreateEmpty(&S2);
+    while (!IsEmpty(S1)) {
+        Pop(&S1, &isi);
+        Push(&S2, isi);
+    }
+    int i = 1;
+    while(!IsEmpty(S2)) {
+        Pop(&S2, &isi);
+        printf("%d. %c\n", i, isi);
+        i++;
     }
 }

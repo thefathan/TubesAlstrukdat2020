@@ -11,7 +11,7 @@ TOP adalah alamat elemen puncak*/
 #define false 0
 #define true 1
 #define Nil 0
-#define MaxEl 10
+#define MaxEl 8
 
 typedef int bool;
 typedef char infotype;
@@ -61,5 +61,8 @@ void ForcePush(Stack *S, infotype X);
         Apabila S penuh, buang element paling bawah dari S dan masukkan X sebagai TOP
         Contoh: S berisi a b c d e f g h i j, setelah melakukan ForcePush(S, "k")
         S berisi b c d e f g h i j k */
+
+void PrintStack(Stack *S);
+
 
 #endif
