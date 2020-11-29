@@ -2,14 +2,15 @@
 #define __DYNAMIC_LIST__
 #include "boolean.h"
 
-#define InitialSize 10
+#define InitialSize 999
 
 typedef int IdxType;
-typedef int ElType;
+typedef char ElType[50];
 typedef struct {
     ElType *A;
     int Capacity;
     int Neff;
+    int TipeKomponen;
 } List;
 
 /**
@@ -42,7 +43,7 @@ int Length(List list);
  * Mengembalikan elemen list L yang ke-I (indeks lojik).
  * Prekondisi: list tidak kosong, i di antara 0..Length(list).
  */
-ElType Get(List list, IdxType i);
+// ElType Get(List list, IdxType i);
 
 /**
  * Fungsi untuk mendapatkan kapasitas yang tersedia.

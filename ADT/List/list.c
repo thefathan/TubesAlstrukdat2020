@@ -11,6 +11,7 @@ List MakeList() {
     list.A = (ElType *) malloc(InitialSize * sizeof(ElType));
     list.Capacity = InitialSize;
     list.Neff = 0;
+    list.TipeKomponen = 0;
     return list;
 }
 
@@ -38,9 +39,9 @@ int Length(List list) {
  * Mengembalikan elemen list L yang ke-I (indeks lojik).
  * Prekondisi: list tidak kosong, i di antara 0..Length(list).
  */
-ElType Get(List list, IdxType i) {
+/* ElType Get(List list, IdxType i) {
     return list.A[i];
-}
+} */
 
 /**
  * Fungsi untuk mendapatkan kapasitas yang tersedia.
@@ -54,7 +55,7 @@ int GetCapacity(List list) {
  * Fungsi untuk menambahkan elemen baru di index ke-i
  * Prekondisi: list terdefinisi, i di antara 0..Length(list).
  */
-void InsertAt(List *list, ElType el, IdxType i) {
+/* void InsertAt(List *list, ElType el, IdxType i) {
     int length = Length(*list);
     int capacity = GetCapacity(*list);
 
@@ -76,7 +77,7 @@ void InsertAt(List *list, ElType el, IdxType i) {
 
     list->A[i] = el;
     list->Neff++;
-}
+} */
 
 /**
  * Fungsi untuk menambahkan elemen baru di akhir list.
