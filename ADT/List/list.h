@@ -5,7 +5,7 @@
 #define InitialSize 999
 
 typedef int IdxType;
-typedef char ElType[50];
+typedef char ElType[255];
 typedef struct {
     ElType *A;
     int Capacity;
@@ -68,5 +68,8 @@ void InsertLast(List *list, ElType el);
  * Prekondisi: list terdefinisi
  */
 void InsertFirst(List *list, ElType el);
+
+
+void PrintList(List list);
 
 #endif

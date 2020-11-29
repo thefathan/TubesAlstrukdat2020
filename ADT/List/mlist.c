@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include "boolean.h"
 #include <string.h>
+#include "list.c"
 
 
-boolean checker(char input[],char check[]);
+/* boolean checker(char input[],char check[]);
 int strcmp (const char* str1, const char* str2);
 
 int main() {
@@ -22,7 +23,7 @@ int main() {
     }  // read string
     return 0;
 } 
-
+*/
 
 /* #include <stdio.h>
 #include <string.h>
@@ -42,3 +43,15 @@ int main() {
 
     return 0;
 } */
+
+int main() {
+    List L; const char* komponen[255]; int tipe;
+    
+    L = MakeList();
+    // L.A = "Coba Coba";
+    L.TipeKomponen = 2;
+
+    printf("%d", L.TipeKomponen);
+    PrintList(L);
+    printf("kjadjkka");
+}

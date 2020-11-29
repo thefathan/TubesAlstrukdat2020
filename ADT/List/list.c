@@ -1,4 +1,6 @@
 #include "list.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 
 /**
@@ -55,8 +57,8 @@ int GetCapacity(List list) {
  * Fungsi untuk menambahkan elemen baru di index ke-i
  * Prekondisi: list terdefinisi, i di antara 0..Length(list).
  */
-/* void InsertAt(List *list, ElType el, IdxType i) {
-    int length = Length(*list);
+void InsertAt(List *list, ElType el, IdxType i) {
+    /* int length = Length(*list);
     int capacity = GetCapacity(*list);
 
     if (length == capacity) {
@@ -76,8 +78,8 @@ int GetCapacity(List list) {
     }
 
     list->A[i] = el;
-    list->Neff++;
-} */
+    list->Neff++; */
+}
 
 /**
  * Fungsi untuk menambahkan elemen baru di akhir list.
@@ -94,4 +96,11 @@ void InsertLast(List *list, ElType el) {
  */
 void InsertFirst(List *list, ElType el) {
     InsertAt(list, el, 0);
+}
+
+void PrintList(List list) {
+    int i = 1;
+    while (i < list.Neff) {
+        printf("%s, %d", list.A, list.TipeKomponen);
+    }
 }
