@@ -2,8 +2,8 @@
 #define __DYNAMIC_LIST__
 #include "boolean.h"
 
-#define IdxMax 999
-#define InitialSize 50
+#define IdxMax 9999
+#define InitialSize 5000
 
 typedef char Komponen[255];
 typedef struct {

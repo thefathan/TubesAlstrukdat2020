@@ -4,54 +4,33 @@
 #include "list.c"
 
 
-/* boolean checker(char input[],char check[]);
-int strcmp (const char* str1, const char* str2);
-
 int main() {
-    char name[100];
-    char cond1[] = "kjhasjhksfjkf";
-    char cond2[] = "Ananta";
-    int result;
-    result = strcmp(cond2, cond1);
-    if (result >= 0) {
-        printf("%d",result);
-        printf("True\n");
-    }
-    else if(result < 0) {
-        printf("%d",result);
-        printf("false\n");
-    }  // read string
-    return 0;
-} 
-*/
-
-/* #include <stdio.h>
-#include <string.h>
-
- int main()
-{
-    char str1[] = "abcd", str2[] = "abCd", str3[] = "abcd";
-    int result;
-
-    // comparing strings str1 and str2
-    result = strcmp(str1, str2);
-    printf("strcmp(str1, str2) = %d\n", result);
-
-    // comparing strings str1 and str3
-    result = strcmp(str1, str3);
-    printf("strcmp(str1, str3) = %d\n", result);
-
-    return 0;
-} */
-
-int main() {
-    TabInv L;
+    TabInv L; int i;
     
     L = MakeList();
-    NamaKomponen NK = {"AMD Ryzen 13 1000GB", 6};
-    // L.A = "Coba Coba";
-    InsertLast(&L, NK);
+    for (i=0; i<12; i++) {
+        NamaKomponen NK = {"AMD Ryzen 13 1000GB", 6};
+        InsertLast(&L, NK);
+    }
 
-    printf("%s", Get(L,1));
+    printf("%d\n", Length(L));
+    printf("%d\n", GetCapacity(L));
+    // printf("%s,%d\n", Get(L,1).Nama, Get(L,1).kodeJenis);
     PrintList(L);
 }
+
+/* OUTPUT
+
+1. AMD Ryzen 13 1000GB, 6
+2. AMD Ryzen 13 1000GB, 6
+3. AMD Ryzen 13 1000GB, 6
+4. AMD Ryzen 13 1000GB, 6
+5. AMD Ryzen 13 1000GB, 6
+6. AMD Ryzen 13 1000GB, 6
+7. AMD Ryzen 13 1000GB, 6
+8. AMD Ryzen 13 1000GB, 6
+9. AMD Ryzen 13 1000GB, 6
+10. AMD Ryzen 13 1000GB, 6
+11. AMD Ryzen 13 1000GB, 6
+12. AMD Ryzen 13 1000GB, 6
+*/

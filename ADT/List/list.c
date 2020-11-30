@@ -41,7 +41,7 @@ int Length(TabInv list) {
  * Prekondisi: list tidak kosong, i di antara 0..Length(list).
  */
 NamaKomponen Get(TabInv list, int i) {
-    return list.TI[i];
+    return list.TI[i-1];
 }
 
 /**
@@ -61,7 +61,7 @@ void InsertAt(TabInv *list, NamaKomponen el, int i) {
     int capacity = GetCapacity(*list);
 
     if (length == capacity) {
-        int desiredCapacity = capacity + InitialSize;
+        int desiredCapacity = 2*capacity;
         NamaKomponen *array = (NamaKomponen *) malloc(desiredCapacity * sizeof(NamaKomponen));
         for (int a = 0; a < length; a++) {
             array[a] = Get(*list, a);
@@ -98,8 +98,9 @@ void InsertFirst(TabInv *list, NamaKomponen el) {
 }
 
 void PrintList(TabInv list) {
-    int i = 1;
+    int i = 0;
     while (i < list.Neff) {
-        printf("%s, %d", list.TI[i].Nama, list.TI[i].kodeJenis);
+        printf("%d. %s, %d\n", i+1, Get(list,1).Nama, Get(list,1).kodeJenis);
+        i++;
     }
 }
