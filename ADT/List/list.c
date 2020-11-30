@@ -24,7 +24,7 @@ void DeallocateList(TabInv *list) {
  * Fungsi untuk mengetahui apakah suatu list kosong.
  * Prekondisi: list terdefinisi
  */
-boolean IsEmpty(TabInv list) {
+boolean IsListEmpty(TabInv list) {
     return list.Neff == 0;
 }
 

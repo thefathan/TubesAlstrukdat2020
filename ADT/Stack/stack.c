@@ -1,6 +1,6 @@
 #include "stack.h"
 
-void CreateEmpty(Stack *S)
+void CreateEmptyStack(Stack *S)
 /* I.S. Sembarang */
 /* F.S. Membuat sebuah stack S yang kosong berkapasitas MaxEl */
 /* Ciri stack kosong : TOP bernilai Nil */
@@ -9,31 +9,31 @@ void CreateEmpty(Stack *S)
 }
 
 /* ********* Predikat Untuk test keadaan KOLEKSI ********* */
-bool IsEmpty(Stack S)
+bool IsStackEmpty(Stack S)
 /* Mengirim true jika Stack kosong*/
 /* Ciri stack kosong : TOP bernilai Nil */
 {
     return S.TOP == Nil;
 }
 
-bool IsFull(Stack S)
+bool IsStackFull(Stack S)
 /* Mengirim true jika stack S penuh */
 /* Ciri stack penuh : TOP bernilai MaxEl */
 {
     return S.TOP == MaxEl;
 }
 /* ********** Operator Dasar Stack ********* */
-void Push(Stack *S, infotype X)
+void Push(Stack *S, Sinfotype X)
 /* Menambahkan X sebagai elemen Stack S. */
 /* I.S. S mungkin kosong, S tidak penuh */
 /*F.S. X menjadi element TOP yang baru, TOP bertambah 1 */
 {
-    if (!IsFull(*S)) {
+    if (!IsStackFull(*S)) {
         S->T[S->TOP] = X;
         S->TOP++;
     }
 }
-void Pop(Stack *S, infotype *X)
+void Pop(Stack *S, Sinfotype *X)
 /* Menghapus X dari Stack S. */
 /* I.S. S tidak kosong */
 /* F.S. X adalah nilai elemen TOP yang lama, TOP berkurang 1 */
@@ -42,7 +42,7 @@ void Pop(Stack *S, infotype *X)
     (*X) = S->T[S->TOP];
 }
 
-void ForcePush(Stack *S, infotype X)
+void ForcePush(Stack *S, Sinfotype X)
 /* Menambahkan X sebagai elemen Stack S. */
 /* I.S. S mungkin kosong, S mungkin penuh */
 /* F.S. X menjadi element TOP yang baru, TOP bertambah 1
@@ -51,7 +51,7 @@ void ForcePush(Stack *S, infotype X)
         S berisi b c d e f g h i j k */
 {
     int idx;
-    if (!IsFull(*S))
+    if (!IsStackFull(*S))
     {
         Push(S, X);
     }
@@ -65,21 +65,26 @@ void ForcePush(Stack *S, infotype X)
     }
 }
 
+
+Sinfotype GetElmtStack(Stack S) {
+    return S.T[S.TOP];
+}
+
 void PrintStack(Stack *S) 
 /* Mencetak elemen stack dengan urutan TOP paling bawah */
 {
-    Stack S1, S2; infotype isi;
+    Stack S1, S2; Sinfotype isi;
 
     S1 = *S;
-    CreateEmpty(&S2);
-    while (!IsEmpty(S1)) {
+    CreateEmptyStack(&S2);
+    while (!IsStackEmpty(S1)) {
         Pop(&S1, &isi);
         Push(&S2, isi);
     }
     int i = 1;
-    while(!IsEmpty(S2)) {
+    while(!IsStackEmpty(S2)) {
+        printf("%d. %s, %d\n", i, GetElmtStack(S2).Nama, GetElmtStack(S2).kodeJenis);
         Pop(&S2, &isi);
-        printf("%d. %c\n", i, isi);
         i++;
     }
 }

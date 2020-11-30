@@ -2,26 +2,32 @@
 #include "stack.c"
 
 int main() {
-    Stack S; int i = 1; infotype input;
-    char mark = '.';
+   Stack S; int i = 1;
+   char mark = '.';
 
-    CreateEmpty(&S);
-    while (input != mark) {
-        i++; 
-        scanf("%c", &input);
-        Push(&S, input);
-    }
-    char buang;
-    if (i < MaxEl+2) {
-        Pop(&S, &buang);
-    }
-    PrintStack(&S);
+   CreateEmptyStack(&S);
+   //for (i=0; i<8; i++) {
+   printf("cekcek\n");
+   Sinfotype input = {"AMD Ryzen 13 1000GB", 6};
+   printf("%d %s", input.kodeJenis, input.Nama);
+   printf("%d\n", IsStackEmpty(S));
+   Push(&S, input);
+   //}
+   printf("%d\n", IsStackEmpty(S));
 
-    printf("Disini mulai sekali pop\n");
-    char buang2;
-    Pop(&S, &buang2);
-    PrintStack(&S);
-    return 0;
+   printf("cekcek");
+   Sinfotype buang;
+   if (i < MaxEl+2) {
+      Pop(&S, &buang);
+   }
+   PrintStack(&S);
+
+   printf("Disini mulai sekali pop\n");
+   Sinfotype buang2;
+   Pop(&S, &buang2);
+   PrintStack(&S);
+   printf("cekcek");
+   return 0;
 }
 
 

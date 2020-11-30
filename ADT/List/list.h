@@ -36,7 +36,7 @@ void DeallocateList(TabInv *list);
  * Fungsi untuk mengetahui apakah suatu list kosong.
  * Prekondisi: list terdefinisi
  */
-boolean IsEmpty(TabInv list);
+boolean IsListEmpty(TabInv list);
 
 /**
  * Fungsi untuk mendapatkan banyaknya elemen efektif list, 0 jika tabel kosong.
