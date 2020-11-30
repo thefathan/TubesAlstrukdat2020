@@ -45,13 +45,13 @@ int main() {
 } */
 
 int main() {
-    List L; const char* komponen[255]; int tipe;
+    TabInv L;
     
     L = MakeList();
+    NamaKomponen NK = {"AMD Ryzen 13 1000GB", 6};
     // L.A = "Coba Coba";
-    L.TipeKomponen = 2;
+    InsertLast(&L, NK);
 
-    printf("%d", L.TipeKomponen);
+    printf("%s", Get(L,1));
     PrintList(L);
-    printf("kjadjkka");
 }
