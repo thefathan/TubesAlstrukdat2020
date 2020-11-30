@@ -1,0 +1,13 @@
+
+    [  ] == === == >>> MAIN MENU <<< == === == [  ]
+    ||                                           ||
+    ||  KETIKAN SALAH SATU DARI COMMAND BERIKUT  ||
+    ||                                           ||
+    ||              >>  PLAY                     ||
+    ||              >>  OVERVIEW                 ||
+    ||              >>  CREDITS                  ||
+    ||              >>  QUIT                     ||
+    ||                                           ||
+    [  ] == === == === ==== ==== === == === == [  ]
+
+        Enter Menu : 

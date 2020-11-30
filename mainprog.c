@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
+#include "assets/assets.c"
 #include "ADT/boolean.h"
 #include "string.h"
 
@@ -17,10 +18,11 @@ int main() {
     do {
         Exit = false;
         puts("");
-        printf("MENDING RAKIR PC!\n");
+        MainProgram();
+        printf("\n");
         do {
             ExitMenu = false;
-            printf("MENU UTAMA: TUTORIAL, QUIT, CREDITS, PLAY <== ketikkan salah satu dr tulisan tsb.\n");
+            MainMenu();
             // * Lakukan Input dengan 'mesinkata'
             int idxMenu = 0;
             do {
@@ -29,15 +31,24 @@ int main() {
             menu[--idxMenu] = '\0';
 
                 // $ ######### TUTORIAL ########
-            if (strcmp(menu,"TUTORIAL") == 0) {
+            if (strcmp(menu,"OVERVIEW") == 0) {
                 printf("\n");
                 // todo Tutorial1();
                 puts("");
-                printf("#TUT1 PLACEHOLDER#\n");
+                printf("#COBA TEKAN ENTER#\n");
                 getchar();
                 puts("");
+                printf("Pak Santo adalah seorang mahasiswa informatika yang sangat senang memprogram. Selama\n");
+                printf("berkuliah, beliau sangat menikmati berbagai aktivitas belajar dan sangat berniat mengerjakan\n");
+                printf("tugas. Namun, seiring berjalannya waktu, beliau lelah terhadap berbagai tugas yang diberikan\n");
+                printf("karena tidak sesuai dengan minat asli beliau. Oleh sebab itu, pada tahun terakhir kuliahnya, beliau\n");
+                printf("memutuskan untuk mengerjakan skripsi dengan seadanya dan fokus untuk lulus secepat mungkin.\n");
+                printf("Setelah Pak Santo lulus, beliau pun memutuskan untuk membuka toko komputer saja karena\n");
+                printf("sudah terlanjur kehilangan minat terhadap dunia pemrograman.\n");
+                sleep(1);
+                puts("");
                 // todo Tutorial2();
-                printf("#TUT2 PLACEHOLDER#\n");
+                printf("#TEKAN ENTER LAGI UNTUK KEMBALI#\n");
                 getchar();
                 puts("");
                 ExitMenu = true;
@@ -45,51 +56,45 @@ int main() {
             }   // $ ######### CREDITS ########
             else if (strcmp(menu, "CREDITS") == 0) {
                 puts("");
-                printf("ini credit cok\n");
-                printf("\n");
-                printf("Press enter to go back to the main menu...");
+                Credits();
                 getchar();
                 ExitMenu = true;
 
             }   // $ ######### QUIT ########
             else if (strcmp(menu, "QUIT") == 0) {
-                printf("sayonara\n");
+                Quit();
                 ExitMenu = true;
                 Exit = true;
             }
             // ######### PLAY #########
             else if (strcmp(menu, "PLAY") == 0) {
                 puts("");
-                printf("\n              Loading game...\n\n");
+                Loading();
                 sleep(1);
-                printf("              ||");
+                printf("||||||||||");
+                sleep(1);
+                printf("|||||||||||||||||||||||||");
                 sleep(1);
                 printf("|||");
                 sleep(1);
-                printf("|||");
+                printf("||||||||||||||||");
+                sleep(1);
+                printf("||||||||||||||||||||");
                 sleep(1);
                 printf("|||||");
                 sleep(1);
-                printf("||||||");
+                printf("\n\nLoading complete!\n\n");
                 sleep(1);
-                printf("||||||||");
+                printf("Tekan enter untuk melanjutkan.\n\n");
                 sleep(1);
-                printf("|||");
-                sleep(1);
-                printf("|||||\n\n");
-                sleep(1);
-                printf("              Loading complete!\n\n");
-                sleep(1);
-                printf("              Tekan enter untuk melanjutkan.\n\n");
-                sleep(1);
-                printf("              Programnya belum ada isinya cuy aokwokowakowa. enter lagi sana.\n\n");
+                printf("Programnya belum ada isinya cuy aokwokowakowa. enter lagi sana.\n\n");
                 puts("");
                 getchar();
                 ExitMenu = true;
             }
 
             else {
-                printf("invalid, klik enter lagi\n");
+                Invalid();
                 getchar();
             }
 

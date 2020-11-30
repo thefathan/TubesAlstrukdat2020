@@ -1,0 +1,13 @@
+
+
+    [  ] == === == >>>  CREDITS  <<< == === == [  ]
+    ||                                           ||
+    ||         18219008	Fathan Ananta N          ||
+    ||	       18219009	Ardhana Putra W          ||
+    ||	       18219037	Christopher Davin L      ||
+    ||	       18219068	Naufal Anas N            ||
+    ||	       18219069	Muhammad Vito I          ||
+    ||                                           ||
+    [  ] == === == === ==== ==== === == === == [  ]
+
+    Tekan enter untuk kembali ke Menu Utama.
