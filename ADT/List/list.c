@@ -8,24 +8,23 @@
  * I.S. sembarang
  * F.S. Terbentuk List kosong dengan ukuran InitialSize
  */
-List MakeList() {
-    List list;
-    list.A = (ElType *) malloc(InitialSize * sizeof(ElType));
+TabInv MakeList() {
+    TabInv list;
+    list.TI  = (NamaKomponen *) malloc(InitialSize * sizeof(NamaKomponen));
     list.Capacity = InitialSize;
     list.Neff = 0;
-    list.TipeKomponen = 0;
     return list;
 }
 
-void DeallocateList(List *list) {
-    free(list->A);
+void DeallocateList(TabInv *list) {
+    free(list->TI);
 }
 
 /**
  * Fungsi untuk mengetahui apakah suatu list kosong.
  * Prekondisi: list terdefinisi
  */
-boolean IsEmpty(List list) {
+boolean IsEmpty(TabInv list) {
     return list.Neff == 0;
 }
 
@@ -33,7 +32,7 @@ boolean IsEmpty(List list) {
  * Fungsi untuk mendapatkan banyaknya elemen efektif list, 0 jika tabel kosong.
  * Prekondisi: list terdefinisi
  */
-int Length(List list) {
+int Length(TabInv list) {
     return list.Neff;
 }
 
@@ -41,15 +40,15 @@ int Length(List list) {
  * Mengembalikan elemen list L yang ke-I (indeks lojik).
  * Prekondisi: list tidak kosong, i di antara 0..Length(list).
  */
-/* ElType Get(List list, IdxType i) {
-    return list.A[i];
-} */
+NamaKomponen Get(TabInv list, int i) {
+    return list.TI[i];
+}
 
 /**
  * Fungsi untuk mendapatkan kapasitas yang tersedia.
  * Prekondisi: list terdefinisi
  */
-int GetCapacity(List list) {
+int GetCapacity(TabInv list) {
     return list.Capacity;
 }
 
@@ -57,35 +56,35 @@ int GetCapacity(List list) {
  * Fungsi untuk menambahkan elemen baru di index ke-i
  * Prekondisi: list terdefinisi, i di antara 0..Length(list).
  */
-void InsertAt(List *list, ElType el, IdxType i) {
-    /* int length = Length(*list);
+void InsertAt(TabInv *list, NamaKomponen el, int i) {
+    int length = Length(*list);
     int capacity = GetCapacity(*list);
 
     if (length == capacity) {
         int desiredCapacity = capacity + InitialSize;
-        ElType *array = (ElType *) malloc(desiredCapacity * sizeof(ElType));
+        NamaKomponen *array = (NamaKomponen *) malloc(desiredCapacity * sizeof(NamaKomponen));
         for (int a = 0; a < length; a++) {
             array[a] = Get(*list, a);
         }
-        free(list->A);
+        free(list->TI);
         
-        list->A = array;
+        list->TI = array;
         list->Capacity = desiredCapacity;
     }
 
     for (int a = length - 1; a >= i; a--) {
-        list->A[a + 1] = list->A[a];
+        list->TI[a + 1] = list->TI[a];
     }
 
-    list->A[i] = el;
-    list->Neff++; */
+    list->TI[i] = el;
+    list->Neff++;
 }
 
 /**
  * Fungsi untuk menambahkan elemen baru di akhir list.
  * Prekondisi: list terdefinisi
  */
-void InsertLast(List *list, ElType el) {
+void InsertLast(TabInv *list, NamaKomponen el) {
     int insertAt = Length(*list);
     InsertAt(list, el, insertAt);
 }
@@ -94,13 +93,13 @@ void InsertLast(List *list, ElType el) {
  * Fungsi untuk menambahkan elemen baru di awal list.
  * Prekondisi: list terdefinisi
  */
-void InsertFirst(List *list, ElType el) {
+void InsertFirst(TabInv *list, NamaKomponen el) {
     InsertAt(list, el, 0);
 }
 
-void PrintList(List list) {
+void PrintList(TabInv list) {
     int i = 1;
     while (i < list.Neff) {
-        printf("%s, %d", list.A, list.TipeKomponen);
+        printf("%s, %d", list.TI[i].Nama, list.TI[i].kodeJenis);
     }
 }

@@ -1,4 +1,4 @@
-#include "mesinkar.h"
+#include "mesinkarakter.h"
 #include <stdio.h>
 
 char CC;        /* bisa diakses dimana saja */
