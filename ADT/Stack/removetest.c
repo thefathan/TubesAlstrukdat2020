@@ -8,10 +8,11 @@ int main() {
    //for (i=0; i<8; i++) {
    printf("cekcek\n");
    for (i=0; i<8; i++) {
-      Sinfotype input = {"AMD Ryzen 13 1000GB", i+1};    
+      Sinfotype input = {"AMD Ryzen 13 1000GB", 10000, i+1};    
       Push(&S, input);
    }
    PrintStack(&S);
+   PrintStackAddComponent(&S);
 
    // printf("cekcek\n");
    // Sinfotype buang;
@@ -24,6 +25,7 @@ int main() {
    Sinfotype buang2;
    Pop(&S, &buang2);
    PrintStack(&S);
+   PrintStackAddComponent(&S);
    printf("cekcek");
    return 0;
 }

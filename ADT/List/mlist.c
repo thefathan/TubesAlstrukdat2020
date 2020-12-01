@@ -8,7 +8,7 @@ int main() {
     TabInv L; int i;
     
     L = MakeList();
-    for (i=0; i<50; i++) {
+    for (i=0; i<15; i++) {
         NamaKomponen NK = {"AMD Ryzen 13 1000GB", 10000, i};
         InsertLast(&L, NK);
     }
@@ -17,6 +17,8 @@ int main() {
     printf("%d\n", GetCapacity(L));
     // printf("%s,%d\n", Get(L,1).Nama, Get(L,1).kodeJenis);
     PrintList(L);
+    PrintListInventory(L);
+    PrintListShop(L);
 }
 
 /* OUTPUT

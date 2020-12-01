@@ -78,4 +78,8 @@ void InsertFirst(TabInv *list, NamaKomponen el);
 
 void PrintList(TabInv list);
 
+void PrintListInventory(TabInv list);
+
+void PrintListShop(TabInv list);
+
 #endif

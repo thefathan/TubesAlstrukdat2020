@@ -2,6 +2,7 @@
 #ifndef stack_H
 #define stack_H
 #include <stdio.h>
+#include "../List/list.h"
 
 /* MODUL STACK
 Deklarasi stack yang diimplementasi dengan tabel kontigu alokasi statik
@@ -18,10 +19,7 @@ typedef int bool;
 typedef int address;
 
 typedef char Komponen[255];
-typedef struct {
-    Komponen Nama;
-    int kodeJenis;
-} Sinfotype;
+typedef NamaKomponen Sinfotype;
 
 typedef struct
 {
@@ -71,6 +69,8 @@ void ForcePush(Stack *S, Sinfotype X);
 Sinfotype GetElmtStack(Stack S);
 
 void PrintStack(Stack *S);
+
+void PrintStackAddComponent(Stack *S);
 
 
 #endif

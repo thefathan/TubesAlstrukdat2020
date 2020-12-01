@@ -104,3 +104,19 @@ void PrintList(TabInv list) {
         i++;
     }
 }
+
+void PrintListInventory(TabInv list) {
+    int i = 0;
+    while (i < list.Neff) {
+        printf("%d. %s\n", i+1, Get(list,i).Nama);
+        i++;
+    }
+}
+
+void PrintListShop(TabInv list) {
+    int i = 0;
+    while (i < list.Neff) {
+        printf("%d. %s - $%d\n", i+1, Get(list,i).Nama, Get(list,i).harga);
+        i++;
+    }
+}

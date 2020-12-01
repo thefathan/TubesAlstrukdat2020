@@ -88,7 +88,26 @@ void PrintStack(Stack *S)
     }
     int i = 1;
     while(!IsStackEmpty(S2)) {
-        printf("%d. %s, %d\n", i, GetElmtStack(S2).Nama, GetElmtStack(S2).kodeJenis);
+        printf("%d. %s, %d, %d\n", i, GetElmtStack(S2).Nama, GetElmtStack(S2).harga, GetElmtStack(S2).kodeJenis);
+        Pop(&S2, &isi);
+        i++;
+    }
+}
+
+void PrintStackAddComponent(Stack *S) 
+/* Mencetak elemen stack dengan urutan TOP paling bawah */
+{
+    Stack S1, S2; Sinfotype isi;
+
+    S1 = *S;
+    S2 = CreateEmptyStack();
+    while (!IsStackEmpty(S1)) {
+        Pop(&S1, &isi);
+        Push(&S2, isi);
+    }
+    int i = 1;
+    while(!IsStackEmpty(S2)) {
+        printf("%d. %s\n", i, GetElmtStack(S2).Nama);
         Pop(&S2, &isi);
         i++;
     }

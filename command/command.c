@@ -5,10 +5,11 @@
 #include "string.h"
 
 
-Stack BuildKomponen;
-Sinfotype isiStack; 
-NamaKomponen isiInventory;
-TabInv Inventory, Toko;
+Stack BuildKomponen; // Stack yang ada pada saat merakit komponen komputer
+Sinfotype isiStack;  // Isi dari stack BuildKomponen
+NamaKomponen isiInventory; // Isi dari List Inventory (Tipenya sama kayak Sinfotype)
+TabInv Inventory, Toko; // List Inventory merupakan sebuah kumpulan komponen komputer, digunakan di Shop/Toko
+int duitPemain;
 
 void MOVE() {
 
@@ -31,21 +32,38 @@ void FINISHBUILD() {
 }
 
 void ADDCOMPONENT() {
+    int opt;
+
     printf("Komponen yang telah terpasang: \n");
     PrintStack(&BuildKomponen);
     printf("Komponen yang tersedia: \n");
     PrintList(Inventory);
-    Push(&BuildKomponen, isiStack);
+    printf("Komponen yang ingin dipasang: ");
+    scanf("%d", opt);
+    Sinfotype komponenDipilih = Get(Inventory, opt-1);
+    Push(&BuildKomponen, komponenDipilih);
     getchar();
 }
 
 void REMOVECOMPONENT() {
     Pop(&BuildKomponen, &isiStack);
+    printf("Komponen %s berhasil dicopot!\n", isiStack.Nama);
     getchar();
 }
 
 void SHOP() {
+    int optbeli, jumlahbeli, hargatotal;
 
+    printf("Komponen yang tersedia: \n");
+    PrintListShop(Toko);
+    printf("Komponen yang ingin dibeli: ");
+    scanf("%d", optbeli);
+    NamaKomponen komponenDibeli = Get(Toko, optbeli-1);
+    printf("Masukkan jumlah yang ingin dibeli: ");
+    scanf("%d", jumlahbeli);
+
+    harga
+    if ()
 }
 
 void DELIVER() {
