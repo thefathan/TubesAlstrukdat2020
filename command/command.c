@@ -31,55 +31,55 @@ void FINISHBUILD() {
 
 }
 
-void ADDCOMPONENT(Stack BuildKomponen, TabInv Inventory) {
+void ADDCOMPONENT(Stack *BuildKomponen, TabInv *Inventory) {
 
     printf("Komponen yang telah terpasang: \n");
-    PrintStackAddComponent(&BuildKomponen);
+    PrintStackAddComponent(BuildKomponen);
     printf("Komponen yang tersedia: \n");
-    PrintListInventory(Inventory);
+    PrintListInventory(*Inventory);
     printf("Komponen yang ingin dipasang: ");
     int opt;
     scanf("%d", &opt);
     printf("setelah scan\n");
-    Sinfotype komponenDipilih = Get(Inventory, opt-1);
-    Push(&BuildKomponen, komponenDipilih);
-    PrintStack(&BuildKomponen);
+    Sinfotype komponenDipilih = Get(*Inventory, opt-1);
+    Push(BuildKomponen, komponenDipilih);
+    PrintStack(BuildKomponen);
     getchar();
 }
 
-void REMOVECOMPONENT(Stack BuildKomponen) {
-    Pop(&BuildKomponen, &isiStack);
+void REMOVECOMPONENT(Stack *BuildKomponen) {
+    Pop(BuildKomponen, &isiStack);
     printf("Komponen %s berhasil dicopot!\n", isiStack.Nama);
-    PrintStack(&BuildKomponen);
+    PrintStack(BuildKomponen);
     getchar();
     printf("done");
 }
 
-void SHOP(TabInv Toko, TabInv Inventory, int duitPemain) {
+void SHOP(TabInv *Toko, TabInv *Inventory, int duitPemain) {
     int optbeli, jumlahbeli, hargatotal;
 
     printf("Komponen yang tersedia: \n");
-    PrintListShop(Toko);
+    PrintListShop(*Toko);
     printf("Komponen yang ingin dibeli: ");
     scanf("%d", &optbeli);
 
-    NamaKomponen komponenDibeli = Get(Toko, optbeli-1);
+    NamaKomponen komponenDibeli = Get(*Toko, optbeli-1);
     printf("Masukkan jumlah yang ingin dibeli: ");
 
     scanf("%d", &jumlahbeli);
 
-    hargatotal = jumlahbeli*Get(Toko, optbeli-1).harga;
+    hargatotal = jumlahbeli*Get(*Toko, optbeli-1).harga;
     if (hargatotal <= duitPemain) {
         printf("Komponen berhasil dibeli!\n");
         for (int i=0; i < jumlahbeli; i++) {
-            InsertLast(&Inventory, komponenDibeli);
+            InsertLast(Inventory, komponenDibeli);
         }
         duitPemain = duitPemain - hargatotal;
     }
     else {
         printf("Uang tidak cukup!\n");
     }
-    PrintList(Inventory);
+    PrintList(*Inventory);
     printf("%d", duitPemain);
     getchar();
 }

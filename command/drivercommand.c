@@ -44,17 +44,17 @@ int main() {
         printf("%s\n", command);
         if (strcmp(command, "A") == 0) {
             printf("void addcomp\n");
-            ADDCOMPONENT(buildkomp, invent);
+            ADDCOMPONENT(&buildkomp, &invent);
             getchar();
         }
         else if (strcmp(command, "R") == 0) {
             printf("void removecomp\n");
-            REMOVECOMPONENT(buildkomp);
+            REMOVECOMPONENT(&buildkomp);
             getchar();
         }
         else if (strcmp(command, "S") == 0) {
             printf("void shop\n");
-            SHOP(toko, invent, duite);
+            SHOP(&toko, &invent, duite);
             getchar();
         }
         else {

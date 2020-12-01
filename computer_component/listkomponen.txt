@@ -44,3 +44,72 @@
 "Corsair DDR4 Vengeance LPX PC19200 4GB (1X4GB) - CMK4GX4M1A2400C16R",20,3
 "Gigabyte DDR4 PC21000 2666Mhz Single Channel 8GB (1x8GB)",30,3
 "Gigabyte DDR4 Aorus RGB PC25600 3200Mhz Dual Channel 16GB (2x8GB)",100,3
+"Cooler Master Hyper 212 EVO",25,4
+"Corsair – H100i v2",100,4
+"Segotep HALO - 12CM RING Fan - GREEN LED",6,4
+"Gigabyte G-Pad GH-GBY11-NP",40,4
+"CUBE GAMING STORM - DUAL FAN 12CM ARGB - Universal Socket",30,4
+"PRIME POLAR 240T Water Cooling 240mm Radiator - Leak Proof - ARGB - Aura Sync",55,4
+"Corsair iCUE H115i RGB PRO XT Water Cooler",150,4
+"CRYORIG R1 Universal - Dual Tower Heatsink with XF140 and XT140 (White Frame/White Fins)",3,4
+"CRYORIG C7 RGB- Top Flow CPU Heatsink",35,4
+"CRYORIG M9 Plus - Single Tower Heatsink",30,4
+"Armageddon Nimitz TR5000",45,5
+"CUBE GAMING SKELETT- Tubing Structure - Tempered Glass Double Side Panel",150,5
+"PRIME Z-[M] - ALUMUNIUM EXTREME GAMING CASE - DUAL SIDE TEMPERED GLASS",99,5
+"PRIME K-[X] - PREMIUM GAMING CASE 0.7mm STEEL - 4 SIDE TEMPERED GLASS (TOP, LEFT, RIGHT, FRONT)",50,5
+"Prime Z[A] Pink - mAtx - ALUMUNIUM EXTREME GAMING CASE",45,5
+"ADATA XPG BATTLECRUISER - BLACK - SIDE TEMPERED GLASS - FREE 4 PCS ARGB FAN",175,5
+"ADATA XPG INVADER - BLACK - SIDE TEMPERED GLASS - FRONT ARGB DOWNLIGHT",100,5
+"LIAN LI PC-O11 DYNAMIC XL (ROG) - WHITE - TEMPERED GLASS FRONT & LEFT",195,5
+"LIAN LI TU150WX - BLACK - ALUMINIUM MINI-ITX CASE - TEMPERED GLASS WINDOW",110,5
+"Antec Premium Gaming Case TORQUE BLACK / WHITE - Alumunium Panels - Dual Side Tempered Glass",310,5
+"Antec Striker - ITX OPEN CASE - 4mm Tempered Glass - Alumunium & Steel - Riser Cable Included",175,5
+"Antec NX800 - ATX GAMING CASE - Side Tempered Glass - FREE 2PCS 20CM ARGB FAN & 12CM ARGB FAN",75,5
+"Corsair Obsidian 500D RGB SE",240,5
+"Corsair Crystal 680X RGB (White/Black)",250,5
+"Corsair iCUE 465X RGB (Black/White)",140,5
+"GALAX Geforce RTX 3090 24GB DDR6X SG (1-Click OC) - TRIPLE ARGB FAN",1800,6
+"GALAX Geforce RTX 2080 SUPER 8GB DDR6 - HOF (HALL OF FAME) 10th Anniversary Black Edition",980,6
+"XFX Radeon RX 5700 XT 8GB GDDR6 TRIPLE DISSIPATION - Triple Fan - RX-57XT83LD8",450,6
+"XFX Radeon RX 570 8GB DDR5 RS XXX Edition - RX-570P8DFD6",280,6
+"ASRock Radeon RX 5600 XT 6GB DDR6 - Challenger D 6G OC",300,6
+"Asus GeForce RTX 3090 24GB GDDR6X - ROG Strix",2100,6
+"Asus GeForce RTX 2080 SUPER 8GB DDR6 - Strix Advance",1900,6
+"Asus GeForce RTX 2060 6GB DDR6 - TUF Gaming",1400,6
+"Asus Radeon RX 5600 XT 6GB DDR6 - TUF Gaming X3",350,6
+"Asus Radeon RX 560 4GB DDR5 - OC Series",100,6
+"Biostar GeForce GT 730 4GB DDR3 64 Bit",50,6
+"Biostar Radeon RX 550 4GB DDR5",80,6
+"iGame Geforce RTX 3090 24GB GDDR6X Advanced OC-V",1300,6
+"ASRock Radeon RX 5600 XT 6GB DDR6 - Challenger D 6G OC",300,6
+"SSD Fervent Series 240 GB",100,7
+"MX500 500GB 3D NAND M.2 Type 2280 Internal SSD",60,7
+"Galax SSD Gamer L Series 120GB",20,7
+"KLEVV SSD CRAS C710 512GB M.2 2280 NVMe PCle Gen3 x4 - K512GM2SP0-C71 - R2050MB/s W1650MB/s",60,7
+"KLEVV SSD RGB CRAS C700 240GB PCIE GEN3X4 - K240GM2SP0-C7R - Controllable RGB",55,7
+"KLEVV SSD NEO N400 120GB - K120GSSDS3-N40 R:500MB/s",20,7
+"ADATA SE760 256GB USB 3.2 External SSD",60,7
+"ADATA SSD SD600Q 480GB External SSD",60,7
+"ADATA SSD SU650 M.2 2280 120GB SATA III ( R/W Up to 550 / 510MB/s ) ASU650NS38-120GT-C",30,7
+"ADATA SX6000 Lite 128GB M.2 NVME R 1800MB/S W 1200MB/S",25,7
+"Apacer AS340 120GB Panther",20,7
+"Apacer AS350 128GB Panther",20,7
+"Biostar SSD S-100 240GB",20,7
+"Colorful SSD CN600 M.2 NVME 128GB",30,7
+"Corsair 1TB CSSD-F1000GBMP600 Force Series MP600 - M.2 NVMe PCIe Gen4 x4",220,7
+"Corsair 960GB CSSD-F960GBMP510 Force Series MP510 - M.2 NVMe PCIe x4",200,7
+"EVGA SuperNOVA 1600 T2",450,8
+"ADATA XPG CORE REACTOR 650G - 650W Full Modular 80+ Gold Certified",100,8
+"Seasonic S12II-450 EVO 450W - 80+ Bronze Certified",50,8
+"Seasonic Prime Gold GX-1000/1000GD - 1000W",190,8
+"Antec ATOM 550W - V550 (Efficiency 80%)",30,8
+"Antec NeoECO MODULAR 550W - 80+ Bronze Certified",50,8
+"1STPLAYER Gaming PSU BLACK SIR 450W PS-450BS - Efficiency Up To 80%",20,8
+"1STPLAYER Gaming PSU DK6.0 600W Full Modular - PS-600AX(BM)",55,8
+"Super Flower Bronze KING 450W 80+ Bronze - SF-450P14HE",40,8
+"Super Flower Leadex Gold 550W - SF-550F14MG",80,8
+"Aerocool VX PLUS 350W - Efficiency Up To 80%",20,8
+"Aerocool LUX RGB 550W Modular 80 Plus Bronze",35,8
+"Asus ROG Strix 550W Fully Modular - 80+ Gold",110,8
+"Asus ROG Thor 1200W Fully Modular - 80+ Platinum",400,8
