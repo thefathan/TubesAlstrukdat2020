@@ -8,6 +8,7 @@
 typedef char Komponen[255];
 typedef struct {
     Komponen Nama;
+    int harga;
     int kodeJenis;
 } NamaKomponen;
 

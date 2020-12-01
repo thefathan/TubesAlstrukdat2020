@@ -10,8 +10,8 @@
  */
 TabInv MakeList() {
     TabInv list;
-    list.TI  = (NamaKomponen *) malloc(InitialSize * sizeof(NamaKomponen));
-    list.Capacity = InitialSize;
+    list.TI  = (NamaKomponen *) malloc(InitialSizeList * sizeof(NamaKomponen));
+    list.Capacity = InitialSizeList;
     list.Neff = 0;
     return list;
 }
@@ -41,7 +41,7 @@ int Length(TabInv list) {
  * Prekondisi: list tidak kosong, i di antara 0..Length(list).
  */
 NamaKomponen Get(TabInv list, int i) {
-    return list.TI[i-1];
+    return list.TI[i];
 }
 
 /**
@@ -100,7 +100,7 @@ void InsertFirst(TabInv *list, NamaKomponen el) {
 void PrintList(TabInv list) {
     int i = 0;
     while (i < list.Neff) {
-        printf("%d. %s, %d\n", i+1, Get(list,1).Nama, Get(list,1).kodeJenis);
+        printf("%d. %s, %d, %d\n", i+1, Get(list,i).Nama, Get(list,i).harga, Get(list,i).kodeJenis);
         i++;
     }
 }

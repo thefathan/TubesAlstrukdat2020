@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include "boolean.h"
 #include <string.h>
-#include "list.h"
+#include "list.c"
 
 
 int main() {
     TabInv L; int i;
     
     L = MakeList();
-    for (i=0; i<12; i++) {
-        NamaKomponen NK = {"AMD Ryzen 13 1000GB", 6};
+    for (i=0; i<50; i++) {
+        NamaKomponen NK = {"AMD Ryzen 13 1000GB", 10000, i};
         InsertLast(&L, NK);
     }
 
