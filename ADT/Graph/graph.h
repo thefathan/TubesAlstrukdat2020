@@ -23,8 +23,8 @@ typedef struct {
 #define NPred(Pn) (Pn) -> NPred;
 #define Trail(Pn) (Pn) -> Trail
 #define Next(Pn) (Pn) -> Next;
-#define Succ(Pt) (Pt) -> Succ
-#define Next(Pt) (Pt) -> Next
+#define Succ(Pt) (Pt) -> Succ;
+#define Next(Pt) (Pt) -> Next;
 
 /* *** Konstruktor *** */
 void CreateGraph (int X, Graph* L);
@@ -82,3 +82,5 @@ void DeleteNode (Graph* G, int X);
 pada G lebih dari 1. */
 /* F.S. simpul X dan semua busur yang terhubung ke X dihapus
 dari G. */
+
+#endif

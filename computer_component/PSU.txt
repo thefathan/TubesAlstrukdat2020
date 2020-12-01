@@ -1,14 +1,14 @@
-EVGA SuperNOVA 1600 T2
-ADATA XPG CORE REACTOR 650G - 650W Full Modular 80+ Gold Certified
-Seasonic S12II-450 EVO 450W - 80+ Bronze Certified
-Seasonic Prime Gold GX-1000/1000GD - 1000W
-Antec ATOM 550W - V550 (Efficiency 80%)
-Antec NeoECO MODULAR 550W - 80+ Bronze Certified
-1STPLAYER Gaming PSU BLACK SIR 450W PS-450BS - Efficiency Up To 80%
-1STPLAYER Gaming PSU DK6.0 600W Full Modular - PS-600AX(BM)
-Super Flower Bronze KING 450W 80+ Bronze - SF-450P14HE
-Super Flower Leadex Gold 550W - SF-550F14MG
-Aerocool VX PLUS 350W - Efficiency Up To 80%
-Aerocool LUX RGB 550W Modular 80 Plus Bronze
-Asus ROG Strix 550W Fully Modular - 80+ Gold
-Asus ROG Thor 1200W Fully Modular - 80+ Platinum
+EVGA SuperNOVA 1600 T2, 450
+ADATA XPG CORE REACTOR 650G - 650W Full Modular 80+ Gold Certified, 100
+Seasonic S12II-450 EVO 450W - 80+ Bronze Certified, 50
+Seasonic Prime Gold GX-1000/1000GD - 1000W, 190
+Antec ATOM 550W - V550 (Efficiency 80%), 30
+Antec NeoECO MODULAR 550W - 80+ Bronze Certified, 50
+1STPLAYER Gaming PSU BLACK SIR 450W PS-450BS - Efficiency Up To 80%, 20
+1STPLAYER Gaming PSU DK6.0 600W Full Modular - PS-600AX(BM), 55
+Super Flower Bronze KING 450W 80+ Bronze - SF-450P14HE, 40
+Super Flower Leadex Gold 550W - SF-550F14MG, 80
+Aerocool VX PLUS 350W - Efficiency Up To 80%, 20
+Aerocool LUX RGB 550W Modular 80 Plus Bronze, 35
+Asus ROG Strix 550W Fully Modular - 80+ Gold, 110
+Asus ROG Thor 1200W Fully Modular - 80+ Platinum, 400

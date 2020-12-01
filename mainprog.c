@@ -90,6 +90,7 @@ int main() {
                 printf("Programnya belum ada isinya cuy aokwokowakowa. enter lagi sana.\n\n");
                 puts("");
                 getchar();
+                COMMAND();
                 ExitMenu = true;
             }
 
@@ -101,5 +102,44 @@ int main() {
         } while (!ExitMenu);
         ExitMenu = false;
     } while (!Exit);
+    return 0;
+}
+
+void COMMAND(){
+    char com[20];
+
+    printf ("ENTER COMMAND : ");
+    scanf ("%s", &com);
+    
+    if (strcmp(com, "MOV") == 0){
+        MOVE();
+    }else if (strcmp(com, 'STATUS') == 0){
+        STATUS();
+    }else if (strcmp(com, 'CHECKORDER') == 0){
+        CHECKORDER();
+    }else if (strcmp(com, 'STARTBUILD') == 0){
+        STARTBUILD();
+    }else if (strcmp(com, 'FINISHBUILD') == 0){
+        FINISHBUILD();
+    }else if (strcmp(com, 'ADDCOMPONENT') == 0){
+        ADDCOMPONENT();
+    }else if (strcmp(com, 'REMOVECOMPONENT') == 0){
+        REMOVECOMPONENT();
+    }else if (strcmp(com, 'SHOP') == 0){
+        SHOP();
+    }else if (strcmp(com, 'DELIVER') == 0){
+        DELIVER();
+    }else if (strcmp(com, 'END_DAY') == 0){
+        END_DAY();
+    }else if (strcmp(com, 'SAVE') == 0){
+        SAVE();
+    }else if (strcmp(com, 'MAP') == 0){
+        MAP();
+    }else if (strcmp(com, 'EXIT') == 0){
+        EXIT();
+    }else {
+        printf("ENTER COMMAND : ");
+        scanf("%s", &com);
+    }
     return 0;
 }
