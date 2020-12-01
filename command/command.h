@@ -4,12 +4,12 @@
 
 #include <stdio.h>
 #include "../ADT/boolean.h"
-#include "../ADT/List/list.h"
-#include "../ADT/MesinKataMesinKarakter/mesinkarakter.h"
-#include "../ADT/MesinKataMesinKarakter/mesinkata.h"
-#include "../ADT/Point/point.h"
-#include "../ADT/Queue/circular_queue.h"
-#include "../ADT/Stack/stack.h"
+#include "../ADT/List/list.c"
+#include "../ADT/MesinKataMesinKarakter/mesinkarakter.c"
+#include "../ADT/MesinKataMesinKarakter/mesinkata.c"
+#include "../ADT/Point/point.c"
+#include "../ADT/Queue/circular_queue.c"
+#include "../ADT/Stack/stack.c"
 
 
 // Belum ada parameter prosedur di command.
@@ -25,9 +25,9 @@ void STARTBUILD();
 
 void FINISHBUILD();
 
-void ADDCOMPONENT();
+void ADDCOMPONENT(Stack *BuildKomponen, Sinfotype Inventory);
 
-void REMOVECOMPONENT();
+void REMOVECOMPONENT(Stack *BuildKomponen, Sinfotype *Inventory);
 
 void SHOP();
 

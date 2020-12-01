@@ -25,12 +25,12 @@ void FINISHBUILD() {
 
 }
 
-void ADDCOMPONENT() {
-
+void ADDCOMPONENT(Stack *BuildKomponen, Sinfotype Inventory) {
+    Push(&BuildKomponen, Inventory);
 }
 
-void REMOVECOMPONENT() {
-
+void REMOVECOMPONENT(Stack *BuildKomponen, Sinfotype *Inventory) {
+    Pop(&BuildKomponen, &Inventory);
 }
 
 void SHOP() {
