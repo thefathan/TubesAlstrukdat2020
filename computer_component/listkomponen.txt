@@ -1,0 +1,46 @@
+"Gigabyte B550 Aorus Elite V2",200,1
+"ASRock TRX40 Taichi",1000,1
+"Asus ROG Zenith II Extreme",1000,1
+"Gigabyte TRX40 Aorus Xtreme",1000,1
+"MSI TRX40 Pro Wifi",550,1
+"GALAX B460M",85,1
+"Asus ROG Maximus XII Extreme",900,1
+"Asus ROG STRIX Z490-G Gaming (WI-FI)",280,1
+"Asus TUF GAMING Z490-PLUS",280,1
+"AMD Ryzen Threadripper 3990X 2.9Ghz Up To 4.3Ghz Cache 288MB 280W sTRX4 [BOX] - 64 Core",5100,2
+"AMD Ryzen Threadripper 3960X 3.8Ghz Up To 4.5Ghz Cache 128MB 280W sTRX4 [BOX] - 24 Core",2126,2
+"AMD Ryzen 9 5950X 3.4Ghz Up To 4.9Ghz Cache 64MB 105W AM4 [Box] - 16 Core",799,2
+"AMD Ryzen 7 5800X 3.8Ghz Up To 4.7Ghz Cache 32MB 105W AM4 [Box] - 8 Core",500,2
+"AMD Ryzen 5 5600X 3.7Ghz Up To 4.6Ghz Cache 32MB 65W AM4 [Box] - 6 Core",350,2
+"AMD Ryzen 5 Pinnacle Ridge 2600 3.4Ghz Up To 3.9Ghz Cache 16MB 65W AM4 [Box] - 6 Core",400,2
+"AMD Bristol Ridge A8-9600 (Radeon R7 Series) 3.1Ghz Up To 3.4Ghz Cache 2MB 65W Socket AM4 [Box]",75,2
+"AMD Athlon 3000G (Radeon Vega 3) 3.5Ghz Cache 4MB 35W Socket AM4 [BOX] - 2 Core",50,2
+"AMD Carrizo A8-7680 (Radeon R7 Series) 3.5Ghz Cache 2MB 45W Socket FM2+",65,2
+"Intel Core i3-10100 3.6Ghz Up To 4.3Ghz - Cache 6MB [Box] Socket LGA 1200 - Comet Lake Series",100,2
+"Intel Core i5-10600K 4.1Ghz Up To 4.8Ghz - Cache 12MB [Box] Socket LGA 1200 - Comet Lake Series",150,2
+"Intel Core i7-10700K 3.8Ghz Up To 5.1Ghz - Cache 16MB [Box] Socket LGA 1200 - Comet Lake Series",350,2
+"Intel Core i9-10900K 3.7Ghz Up To 5.3Ghz - Cache 20MB [Box] Socket LGA 1200 - Comet Lake Series",500,2
+"Intel Pentium Gold G5420 3.8Ghz - Cache 4MB [Box] Socket LGA 1151V2- Coffeelake Series",50,2
+"Intel Pentium Gold G6400 4.0Ghz - Cache 4MB [Box] Socket LGA 1200 - Comet Lake Series",50,2
+"Intel Core i9-10980XE 3.0Ghz Up To 4.6Ghz - Cache 24.75MB [Box] Socket LGA 2066 - Cascade Lake Series",1140,2
+"Intel Core i9-9980XE 3.0Ghz Up To 4.4Ghz - Cache 24.75MB [Box] Socket LGA 2066 - Skylake-X Series",1000,2
+"Intel Core i7-7740X 4.3Ghz Up To 4.5Ghz - Cache 8MB [Box] Socket LGA 2066 - Kabylake-X Series",400,2
+"Intel Core i5-7640X 4.0Ghz Up To 4.2Ghz - Cache 6MB [Box] Socket LGA 2066 - Kabylake-X Series",250,2
+"Intel Core i3-8350K 4.0Ghz - Cache 8MB [Box] Socket LGA 1151V2 - Coffeelake Series",180,2
+"KLEVV DDR4 Value Series PC21300 2666MHZ 4GB (1x4GB) - COMPATIBLE WITH INTEL & AMD RYZEN",20,3
+"KLEVV DDR4 BOLT X Series PC25600 3200MHz Dual Channel 16GB (2X8GB) - X2KD48GU880-32A160T",80,3
+"KLEVV DDR4 CRASS X RGB PC28800 3600MHz 32GB (2X16GB) RGB LED - KD4AGU880-36A180X",200,3
+"ADATA DDR4 XPG GAMMIX D30 PC24000 3000MHz 16GB (2X8GB) Dual Channel - AX4U300038G16A-DR30",75,3
+"ADATA DDR4 XPG SPECTRIX D41 GREY PC24000 3000MHz 32GB (2X16GB) Dual Channel",150,3
+"ADATA DDR4 XPG SPECTRIX D50 PC28800 3600MHz 16GB (2X8GB) Dual Channel",90,3
+"GEIL DDR4 EVO X II RGB LED PC28800 Dual Channel 32GB (2x16GB) GAEXSY432GB3600C18BDC",150,3
+"GEIL DDR4 AMD EDITION ORION PC24000 3000MHz Dual Channel 32GB (2x16GB) GAOR432GB3000C16ADC",100,3
+"GEIL DDR4 EVO POTENZA PC21330 2666MHz Dual Channel 8GB (2x4GB)",35,3
+"Avexir DDR4 Raiden Series PC24000 16GB (2x8GB) Dual Channel",120,3
+"Avexir DDR3 Core Blue PC12800 4GB (1x4GB) Single Channel",20,3
+"Apacer DDR4 PC21000 2666Mhz 8GB - Panther Silver/Golden",30,3
+"Apacer DDR4 PC25600 3200Mhz Dual Channel 32GB (2x16GB) - NOX RGB Aura2",150,3
+"Corsair DDR4 Vengeance LPX PC21000 16GB (1X16GB) - CMK16GX4M1A2666C16",75,3
+"Corsair DDR4 Vengeance LPX PC19200 4GB (1X4GB) - CMK4GX4M1A2400C16R",20,3
+"Gigabyte DDR4 PC21000 2666Mhz Single Channel 8GB (1x8GB)",30,3
+"Gigabyte DDR4 Aorus RGB PC25600 3200Mhz Dual Channel 16GB (2x8GB)",100,3

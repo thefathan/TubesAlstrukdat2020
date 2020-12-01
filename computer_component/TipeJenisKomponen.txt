@@ -1,0 +1,8 @@
+1. Motherboard
+2. CPU
+3. Memory
+4. CPU Cooler
+5. Case
+6. GPU
+7. Storage
+8. PSU
