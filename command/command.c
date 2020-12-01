@@ -62,8 +62,15 @@ void SHOP() {
     printf("Masukkan jumlah yang ingin dibeli: ");
     scanf("%d", jumlahbeli);
 
-    harga
-    if ()
+    hargatotal = jumlahbeli*Get(Toko, optbeli-1).harga;
+    if (hargatotal <= duitPemain) {
+        printf("Komponen berhasil dibeli!\n");
+        InsertLast(&Inventory, komponenDibeli);
+        duitPemain - hargatotal;
+    }
+    else {
+        printf("Uang tidak cukup!\n");
+    }
 }
 
 void DELIVER() {
