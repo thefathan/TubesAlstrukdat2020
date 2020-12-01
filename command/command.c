@@ -5,6 +5,11 @@
 #include "string.h"
 
 
+Stack BuildKomponen;
+Sinfotype isiStack; 
+NamaKomponen isiInventory;
+TabInv Inventory, Toko;
+
 void MOVE() {
 
 }
@@ -25,12 +30,18 @@ void FINISHBUILD() {
 
 }
 
-void ADDCOMPONENT(Stack *BuildKomponen, Sinfotype Inventory) {
-    Push(&BuildKomponen, Inventory);
+void ADDCOMPONENT() {
+    printf("Komponen yang telah terpasang: \n");
+    PrintStack(&BuildKomponen);
+    printf("Komponen yang tersedia: \n");
+    PrintList(Inventory);
+    Push(&BuildKomponen, isiStack);
+    getchar();
 }
 
-void REMOVECOMPONENT(Stack *BuildKomponen, Sinfotype *Inventory) {
-    Pop(&BuildKomponen, &Inventory);
+void REMOVECOMPONENT() {
+    Pop(&BuildKomponen, &isiStack);
+    getchar();
 }
 
 void SHOP() {

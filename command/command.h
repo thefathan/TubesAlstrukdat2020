@@ -25,9 +25,9 @@ void STARTBUILD();
 
 void FINISHBUILD();
 
-void ADDCOMPONENT(Stack *BuildKomponen, Sinfotype Inventory);
+void ADDCOMPONENT();
 
-void REMOVECOMPONENT(Stack *BuildKomponen, Sinfotype *Inventory);
+void REMOVECOMPONENT();
 
 void SHOP();
 
