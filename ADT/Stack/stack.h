@@ -2,8 +2,6 @@
 #ifndef stack_H
 #define stack_H
 #include <stdio.h>
-#include "../List/list.h"
-#include "../List/list.c"
 
 /* MODUL STACK
 Deklarasi stack yang diimplementasi dengan tabel kontigu alokasi statik
@@ -14,10 +12,16 @@ TOP adalah alamat elemen puncak*/
 #define true 1
 #define Nil 0
 #define MaxEl 8
+#define InitialSizeStack 200
 
 typedef int bool;
-typedef NamaKomponen Sinfotype;
 typedef int address;
+
+typedef char Komponen[255];
+typedef struct {
+    Komponen Nama;
+    int kodeJenis;
+} Sinfotype;
 
 typedef struct
 {
@@ -32,7 +36,7 @@ typedef struct
 /* ********* Prototype ********* */
 
 /* *** Konstruktor/Kreator *** */
-void CreateEmptyStack(Stack *S);
+Stack CreateEmptyStack();
 /* I.S. Sembarang */
 /* F.S. Membuat sebuah stack S yang kosong berkapasitas MaxEl */
 /* Ciri stack kosong : TOP bernilai Nil */

@@ -60,11 +60,11 @@ void InsertAt(TabInv *list, NamaKomponen el, int i) {
     int length = Length(*list);
     int capacity = GetCapacity(*list);
 
-    if (length == capacity) {
+    if (length >= capacity) {
         int desiredCapacity = 2*capacity;
         NamaKomponen *array = (NamaKomponen *) malloc(desiredCapacity * sizeof(NamaKomponen));
         for (int a = 0; a < length; a++) {
-            array[a] = Get(*list, a);
+            array[a] = list->TI[a];
         }
         free(list->TI);
         

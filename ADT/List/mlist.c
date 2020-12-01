@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "boolean.h"
 #include <string.h>
-#include "list.c"
+#include "list.h"
 
 
 int main() {

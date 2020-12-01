@@ -3,7 +3,7 @@
 #include "boolean.h"
 
 #define IdxMax 9999
-#define InitialSize 5000
+#define InitialSizeList 10
 
 typedef char Komponen[255];
 typedef struct {

@@ -1,11 +1,16 @@
 #include "stack.h"
+#include <stdlib.h>
+#include <stdio.h>
 
-void CreateEmptyStack(Stack *S)
+Stack CreateEmptyStack()
 /* I.S. Sembarang */
 /* F.S. Membuat sebuah stack S yang kosong berkapasitas MaxEl */
 /* Ciri stack kosong : TOP bernilai Nil */
 {
-    S->TOP = Nil;
+    Stack S;
+    S.T = (Sinfotype *) malloc(InitialSizeStack * sizeof(Sinfotype));
+    S.TOP = Nil;
+    return S;
 }
 
 /* ********* Predikat Untuk test keadaan KOLEKSI ********* */
@@ -29,8 +34,8 @@ void Push(Stack *S, Sinfotype X)
 /*F.S. X menjadi element TOP yang baru, TOP bertambah 1 */
 {
     if (!IsStackFull(*S)) {
-        S->T[S->TOP] = X;
         S->TOP++;
+        S->T[S->TOP] = X;
     }
 }
 void Pop(Stack *S, Sinfotype *X)
@@ -38,8 +43,8 @@ void Pop(Stack *S, Sinfotype *X)
 /* I.S. S tidak kosong */
 /* F.S. X adalah nilai elemen TOP yang lama, TOP berkurang 1 */
 {
-    S->TOP--;
     (*X) = S->T[S->TOP];
+    S->TOP--;
 }
 
 void ForcePush(Stack *S, Sinfotype X)
@@ -76,7 +81,7 @@ void PrintStack(Stack *S)
     Stack S1, S2; Sinfotype isi;
 
     S1 = *S;
-    CreateEmptyStack(&S2);
+    S2 = CreateEmptyStack();
     while (!IsStackEmpty(S1)) {
         Pop(&S1, &isi);
         Push(&S2, isi);
