@@ -1,10 +1,10 @@
-Cooler Master Hyper 212 EVO
-Corsair – H100i v2
-Segotep HALO - 12CM RING Fan - GREEN LED
-Gigabyte G-Pad GH-GBY11-NP
-CUBE GAMING STORM - DUAL FAN 12CM ARGB - Universal Socket
-PRIME POLAR 240T Water Cooling 240mm Radiator - Leak Proof - ARGB - Aura Sync
-Corsair iCUE H115i RGB PRO XT Water Cooler
-CRYORIG R1 Universal - Dual Tower Heatsink with XF140 and XT140 (White Frame/White Fins)
-CRYORIG C7 RGB- Top Flow CPU Heatsink
-CRYORIG M9 Plus - Single Tower Heatsink
+Cooler Master Hyper 212 EVO, 25
+Corsair – H100i v2, 100
+Segotep HALO - 12CM RING Fan - GREEN LED, 6
+Gigabyte G-Pad GH-GBY11-NP, 40
+CUBE GAMING STORM - DUAL FAN 12CM ARGB - Universal Socket, 30
+PRIME POLAR 240T Water Cooling 240mm Radiator - Leak Proof - ARGB - Aura Sync, 55
+Corsair iCUE H115i RGB PRO XT Water Cooler, 150
+CRYORIG R1 Universal - Dual Tower Heatsink with XF140 and XT140 (White Frame/White Fins), 3
+CRYORIG C7 RGB- Top Flow CPU Heatsink, 35
+CRYORIG M9 Plus - Single Tower Heatsink, 30
