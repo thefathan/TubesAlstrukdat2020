@@ -5,11 +5,11 @@
 #include "string.h"
 
 
-Stack BuildKomponen; // Stack yang ada pada saat merakit komponen komputer
+// Stack BuildKomponen; // Stack yang ada pada saat merakit komponen komputer
 Sinfotype isiStack;  // Isi dari stack BuildKomponen
-NamaKomponen isiInventory; // Isi dari List Inventory (Tipenya sama kayak Sinfotype)
-TabInv Inventory, Toko; // List Inventory merupakan sebuah kumpulan komponen komputer, digunakan di Shop/Toko
-int duitPemain;
+// NamaKomponen isiInventory; // Isi dari List Inventory (Tipenya sama kayak Sinfotype)
+// TabInv Inventory, Toko; // List Inventory merupakan sebuah kumpulan komponen komputer, digunakan di Shop/Toko
+// int duitPemain;
 
 void MOVE() {
 
@@ -31,46 +31,57 @@ void FINISHBUILD() {
 
 }
 
-void ADDCOMPONENT() {
-    int opt;
+void ADDCOMPONENT(Stack BuildKomponen, TabInv Inventory) {
 
     printf("Komponen yang telah terpasang: \n");
-    PrintStack(&BuildKomponen);
+    PrintStackAddComponent(&BuildKomponen);
     printf("Komponen yang tersedia: \n");
-    PrintList(Inventory);
+    PrintListInventory(Inventory);
     printf("Komponen yang ingin dipasang: ");
-    scanf("%d", opt);
+    int opt;
+    scanf("%d", &opt);
+    printf("setelah scan\n");
     Sinfotype komponenDipilih = Get(Inventory, opt-1);
     Push(&BuildKomponen, komponenDipilih);
+    PrintStack(&BuildKomponen);
     getchar();
 }
 
-void REMOVECOMPONENT() {
+void REMOVECOMPONENT(Stack BuildKomponen) {
     Pop(&BuildKomponen, &isiStack);
     printf("Komponen %s berhasil dicopot!\n", isiStack.Nama);
+    PrintStack(&BuildKomponen);
     getchar();
+    printf("done");
 }
 
-void SHOP() {
+void SHOP(TabInv Toko, TabInv Inventory, int duitPemain) {
     int optbeli, jumlahbeli, hargatotal;
 
     printf("Komponen yang tersedia: \n");
     PrintListShop(Toko);
     printf("Komponen yang ingin dibeli: ");
-    scanf("%d", optbeli);
+    scanf("%d", &optbeli);
+
     NamaKomponen komponenDibeli = Get(Toko, optbeli-1);
     printf("Masukkan jumlah yang ingin dibeli: ");
-    scanf("%d", jumlahbeli);
+
+    scanf("%d", &jumlahbeli);
 
     hargatotal = jumlahbeli*Get(Toko, optbeli-1).harga;
     if (hargatotal <= duitPemain) {
         printf("Komponen berhasil dibeli!\n");
-        InsertLast(&Inventory, komponenDibeli);
-        duitPemain - hargatotal;
+        for (int i=0; i < jumlahbeli; i++) {
+            InsertLast(&Inventory, komponenDibeli);
+        }
+        duitPemain = duitPemain - hargatotal;
     }
     else {
         printf("Uang tidak cukup!\n");
     }
+    PrintList(Inventory);
+    printf("%d", duitPemain);
+    getchar();
 }
 
 void DELIVER() {

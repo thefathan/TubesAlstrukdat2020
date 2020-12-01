@@ -5,15 +5,14 @@
 #include <stdio.h>
 #include "../ADT/boolean.h"
 #include "../ADT/List/list.c"
-#include "../ADT/MesinKataMesinKarakter/mesinkarakter.c"
-#include "../ADT/MesinKataMesinKarakter/mesinkata.c"
-#include "../ADT/Point/point.c"
-#include "../ADT/Queue/circular_queue.c"
 #include "../ADT/Stack/stack.c"
 
 
 // Belum ada parameter prosedur di command.
 // Silakan dilanjut disini
+
+
+
 
 void MOVE();
 
@@ -25,11 +24,11 @@ void STARTBUILD();
 
 void FINISHBUILD();
 
-void ADDCOMPONENT();
+void ADDCOMPONENT(Stack BuildKomponen, TabInv Inventory);
 
-void REMOVECOMPONENT();
+void REMOVECOMPONENT(Stack BuildKomponen);
 
-void SHOP();
+void SHOP(TabInv Toko, TabInv Inventory, int duitPemain);
 
 void DELIVER();
 
