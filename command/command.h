@@ -38,7 +38,7 @@ void SAVE();
 
 void MAP();
 
-void EXIT();
+int EXIT(char *opsiKeluar);
 
 
 #endif

@@ -125,6 +125,10 @@ void MAP() {
 
 }
 
-void EXIT() {
-    
+int EXIT(char *opsiKeluar) {
+    if (strcmp(opsiKeluar, "YA") == 0) {
+        return 1;
+    }
+    return 0;
+    getchar();
 }

@@ -54,7 +54,23 @@ int main() {
             getchar();
         }
         else {
-            stateProg = false;
+            char opsi[10];
+            printf("========================================================\n");
+            printf("Apakah anda yakin ingin keluar? (YA/Apapun) ");
+            scanf("%s", &opsi);
+
+            int opt = EXIT(opsi);
+            boolean Apa;
+            if (opt == 1) {
+                printf("Anda keluar dari permainan.\n");
+                printf("========================================================\n");
+                Apa = false;
+            } else {
+                printf("Silakan lanjutkan.\n");
+                printf("========================================================\n");
+                Apa = true;
+            }
+            stateProg = Apa;
         }
     }
 }
