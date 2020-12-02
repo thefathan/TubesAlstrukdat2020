@@ -2,6 +2,7 @@
 /* Definisi Modul print aset-aset ASCII Art */
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #define MAX_LEN 128
 
 // $ ********** IMPLEMENTASI **********
@@ -31,16 +32,17 @@ void Loading() {
     print_image("assets//img_loading.txt");
 }
 void Command() {
-    print_image("assets//img_command.txt");
+    print_image("assets//img_commands.txt");
 }
 void Invalid() {
     print_image("assets//img_invalidstatement.txt");
+    getchar();
 }
 void Quit() {
     print_image("assets//img_quit.txt");
 }
-void P1Wins() {
-    print_image("assets//img_p1wins.txt");
+void Overview() {
+    print_image("assets//img_overview.txt");
 }
 void P2Wins() {
     print_image("assets//img_p2wins.txt");

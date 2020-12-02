@@ -12,23 +12,43 @@ Sinfotype isiStack;  // Isi dari stack BuildKomponen
 // int duitPemain;
 
 void MOVE() {
-
+    printf("========================================================\n");
+    printf("Command MOVE belum diimplementasikan.\n");
+    printf("========================================================\n");
+    printf("\nTekan enter untuk kembali ke menu command.\n");
+    getchar();
 }
 
 void STATUS() {
-
+    printf("========================================================\n");
+    printf("Command STATUS belum diimplementasikan.\n");
+    printf("========================================================\n");
+    printf("\nTekan enter untuk kembali ke menu command.\n");
+    getchar();
 }
 
 void CHECKORDER() {
-
+    printf("========================================================\n");
+    printf("Command CHECKORDER belum diimplementasikan.\n");
+    printf("========================================================\n");
+    printf("\nTekan enter untuk kembali ke menu command.\n");
+    getchar();
 }
 
 void STARTBUILD() {
-
+    printf("========================================================\n");
+    printf("Command STARTBUILD belum diimplementasikan.\n");
+    printf("========================================================\n");
+    printf("\nTekan enter untuk kembali ke menu command.\n");
+    getchar();
 }
 
 void FINISHBUILD() {
-
+    printf("========================================================\n");
+    printf("Command FINISHBUILD belum diimplementasikan.\n");
+    printf("========================================================\n");
+    printf("\nTekan enter untuk kembali ke menu command.\n");
+    getchar();
 }
 
 void ADDCOMPONENT(Stack *BuildKomponen, TabInv *Inventory) {
@@ -81,6 +101,7 @@ void SHOP(TabInv *Toko, TabInv *Inventory, int *duitPemain) {
     int optbeli, jumlahbeli, hargatotal;
 
     printf("Sisa uang Pak Santo: %d\n", *duitPemain);
+    printf("========================================================\n");
     printf("Komponen yang tersedia: \n");
     PrintListShop(*Toko);
     printf("Komponen yang ingin dibeli: ");
@@ -110,19 +131,35 @@ void SHOP(TabInv *Toko, TabInv *Inventory, int *duitPemain) {
 }
 
 void DELIVER() {
-
+    printf("========================================================\n");
+    printf("Command DELIVER belum diimplementasikan.\n");
+    printf("========================================================\n");
+    printf("\nTekan enter untuk kembali ke menu command.\n");
+    getchar();
 }
 
 void END_DAY() {
-
+    printf("========================================================\n");
+    printf("Command END_DAY belum diimplementasikan.\n");
+    printf("========================================================\n");
+    printf("\nTekan enter untuk kembali ke menu command.\n");
+    getchar();
 }
 
 void SAVE() {
-
+    printf("========================================================\n");
+    printf("Command SAVE belum diimplementasikan.\n");
+    printf("========================================================\n");
+    printf("\nTekan enter untuk kembali ke menu command.\n");
+    getchar();
 }
 
 void MAP() {
-
+    printf("========================================================\n");
+    printf("Command MAP belum diimplementasikan.\n");
+    printf("========================================================\n");
+    printf("\nTekan enter untuk kembali ke menu command.\n");
+    getchar();
 }
 
 int EXIT(char *opsiKeluar) {
@@ -130,5 +167,4 @@ int EXIT(char *opsiKeluar) {
         return 1;
     }
     return 0;
-    getchar();
 }

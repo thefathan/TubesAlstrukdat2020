@@ -1,3 +1,5 @@
+#ifndef GRAPH_H
+#define GRAPH_H
 #define NilGraph NULL
 
 /* Definisi Tipe Data */
@@ -21,7 +23,7 @@ typedef struct {
 
 /* *** Selektor *** */
 /* Jika G: Graph, Pn: adrNode, Pt: adrSuccNode, maka: */
-#define First(G) G.First;
+#define First(G) G.First
 #define Id(Pn) (Pn) -> Id
 #define NPred(Pn) (Pn) -> NPred
 #define Trail(Pn) (Pn) -> Trail

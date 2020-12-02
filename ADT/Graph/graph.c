@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "graph.h"
 
-void CreateGraph (int X, Graph* L){
+void CreateGraph (int X, Graph *G){
 /* I.S. Sembarang; F.S. Terbentuk Graph dengan satu simpul dengan Id=X */
+	*G = (adrNode) malloc (sizeof(NodeGraph));
 	First(*G) = NilGraph;
 	adrNode P;
 	InsertNode(G, X, &P);
@@ -18,7 +20,7 @@ dan Next(P)=Nil. Jika alokasi gagal, mengembalikan Nil. */
 	Pn = (adrNode) malloc (sizeof(NodeGraph));
 	if (Pn != NilGraph){
 		Id(Pn) = X;
-		Npred(Pn) = 0;
+		NPred(Pn) = 0;
 		Trail(Pn) = NilGraph;
 		Next(Pn) = NilGraph;
 	}
@@ -38,7 +40,7 @@ menghasilkan Pt, maka Succ(Pt)=Pn dan Next(Pt)=Nil. Jika
 alokasi gagal, mengembalikan Nil. */
 	adrSuccNode Pt;
 
-	Pt = (adrSuccNode) malloc (sizeof(SuccNode));
+	Pt = (adrSuccNode) malloc (sizeof(adrSuccNode));
 	if (Pt != NilGraph){
 		Succ(Pt) = Pn;
 		Next(Pt) = NilGraph;

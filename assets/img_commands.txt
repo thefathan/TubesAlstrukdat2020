@@ -1,0 +1,11 @@
+[] ==== === == --> COMMANDS <-- == === ==== []
+
+          MOVE    CHECKORDER    STATUS   
+           STARTBUILD     FINISHBUILD   
+     ADDCOMPONENT    SHOP   REMOVECOMPONENT 
+          DELIVER    SAVE    END_DAY
+                MAP        EXIT       
+
+[] ==== === ==== === ==== === ==== === ==== []
+                  
+   Ketikkan Commandmu Di sini : 
