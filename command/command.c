@@ -33,31 +33,54 @@ void FINISHBUILD() {
 
 void ADDCOMPONENT(Stack *BuildKomponen, TabInv *Inventory) {
 
+    printf("========================================================\n");
     printf("Komponen yang telah terpasang: \n");
     PrintStackAddComponent(BuildKomponen);
     printf("Komponen yang tersedia: \n");
     PrintListInventory(*Inventory);
     printf("Komponen yang ingin dipasang: ");
+
     int opt;
     scanf("%d", &opt);
-    printf("setelah scan\n");
+    while (opt < 1 | opt > Length(*Inventory)) {
+        printf("Tolong masukkan angka yang benar!\n");
+        sleep(1);
+        printf("Komponen yang ingin dipasang: ");
+        scanf("%d", &opt);
+    }
+
     Sinfotype komponenDipilih = Get(*Inventory, opt-1);
-    Push(BuildKomponen, komponenDipilih);
-    PrintStack(BuildKomponen);
+    if (!(IsStackFull(*BuildKomponen))) {
+        Push(BuildKomponen, komponenDipilih);
+        printf("Komponen berhasil dipasang!\n");
+    }
+    else {
+        printf("Komponen sudah penuh!\n");
+    }
+
+    printf("========================================================\n");
+    printf("\nTekan enter untuk kembali ke menu command.\n");
     getchar();
 }
 
 void REMOVECOMPONENT(Stack *BuildKomponen) {
-    Pop(BuildKomponen, &isiStack);
-    printf("Komponen %s berhasil dicopot!\n", isiStack.Nama);
-    PrintStack(BuildKomponen);
+    if (!(IsStackEmpty(*BuildKomponen))) {
+        Pop(BuildKomponen, &isiStack);
+        printf("Komponen %s berhasil dicopot!\n", isiStack.Nama);
+        printf("========================================================\n");
+    }
+    else {
+        printf("Seluruh komponen sudah dilepas.\n");
+        printf("========================================================\n");
+    }
+    printf("\nTekan enter untuk kembali ke menu command.\n");
     getchar();
-    printf("done");
 }
 
-void SHOP(TabInv *Toko, TabInv *Inventory, int duitPemain) {
+void SHOP(TabInv *Toko, TabInv *Inventory, int *duitPemain) {
     int optbeli, jumlahbeli, hargatotal;
 
+    printf("Sisa uang Pak Santo: %d\n", *duitPemain);
     printf("Komponen yang tersedia: \n");
     PrintListShop(*Toko);
     printf("Komponen yang ingin dibeli: ");
@@ -69,18 +92,20 @@ void SHOP(TabInv *Toko, TabInv *Inventory, int duitPemain) {
     scanf("%d", &jumlahbeli);
 
     hargatotal = jumlahbeli*Get(*Toko, optbeli-1).harga;
-    if (hargatotal <= duitPemain) {
+    if (hargatotal <= *duitPemain) {
         printf("Komponen berhasil dibeli!\n");
         for (int i=0; i < jumlahbeli; i++) {
             InsertLast(Inventory, komponenDibeli);
         }
-        duitPemain = duitPemain - hargatotal;
+        *duitPemain = *duitPemain - hargatotal;
     }
     else {
         printf("Uang tidak cukup!\n");
     }
     PrintList(*Inventory);
-    printf("%d", duitPemain);
+    printf("Sisa uang Pak Santo: %d\n", *duitPemain);
+    printf("========================================================\n");
+    printf("\nTekan enter untuk kembali ke menu command.\n");
     getchar();
 }
 

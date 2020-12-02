@@ -11,21 +11,21 @@ int main() {
     Stack buildkomp;  
     int i;
     
-    toko = MakeList();
+    toko = MakeList(); // shop, jika beli barang ditransfer ke inventory
     for (i=0; i<5; i++) {
         NamaKomponen NK = {"AMD Ryzen 13 1000GB", 10000, i};
         InsertLast(&toko, NK);
     }
 
-    invent = MakeList();
+    invent = MakeList(); // inventorymu
     for (i=0; i<3; i++) {
         NamaKomponen NK = {"AMD Bakso 1000GB", 10000, i};
         InsertLast(&invent, NK);
     }
 
 
-    buildkomp = CreateEmptyStack();
-    for (i=0; i<2; i++) {
+    buildkomp = CreateEmptyStack(); //yg ada di pemasangan komponen
+    for (i=0; i<7; i++) {
         Sinfotype input = {"Intel Goreng", 10000, i+1};    
         Push(&buildkomp, input);
     }
@@ -39,22 +39,18 @@ int main() {
     int pilihan;
 
     while (stateProg == true) {
-        printf("enter command: ");
+        printf("\nENTER COMMAND: ");
         scanf("%s", &command);
-        printf("%s\n", command);
         if (strcmp(command, "A") == 0) {
-            printf("void addcomp\n");
             ADDCOMPONENT(&buildkomp, &invent);
             getchar();
         }
         else if (strcmp(command, "R") == 0) {
-            printf("void removecomp\n");
             REMOVECOMPONENT(&buildkomp);
             getchar();
         }
         else if (strcmp(command, "S") == 0) {
-            printf("void shop\n");
-            SHOP(&toko, &invent, duite);
+            SHOP(&toko, &invent, &duite);
             getchar();
         }
         else {
