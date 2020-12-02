@@ -18,6 +18,7 @@ dan Next(P)=Nil. Jika alokasi gagal, mengembalikan Nil. */
 	Pn = (adrNode) malloc (sizeof(NodeGraph));
 	if (Pn != NilGraph){
 		Id(Pn) = X;
+		Npred(Pn) = 0;
 		Trail(Pn) = NilGraph;
 		Next(Pn) = NilGraph;
 	}
