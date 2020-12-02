@@ -11,8 +11,8 @@
 char menu[100];
 boolean Exit;       // = false;
 boolean ExitMenu;   // = false;
-boolean EndTurn;    // = false;
-boolean AksiValid;	// = true
+// boolean EndTurn;    // = false;
+// boolean AksiValid;	// = true
 
 
 int main() {
@@ -122,7 +122,7 @@ int main() {
 
                     // COMMAND REMOVECOMPONENT -------------------------------------------------------------
                     else if (strcmp(command, "REMOVECOMPONENT") == 0) {
-                        REMOVECOMPONENT(&buildkomp);
+                        REMOVECOMPONENT(&buildkomp, &invent);
                         getchar();
                     }
 

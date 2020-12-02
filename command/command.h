@@ -26,7 +26,7 @@ void FINISHBUILD();
 
 void ADDCOMPONENT(Stack *BuildKomponen, TabInv *Inventory);
 
-void REMOVECOMPONENT(Stack *BuildKomponen);
+void REMOVECOMPONENT(Stack *BuildKomponen, TabInv *Inventory);
 
 void SHOP(TabInv *Toko, TabInv *Inventory, int *duitPemain);
 

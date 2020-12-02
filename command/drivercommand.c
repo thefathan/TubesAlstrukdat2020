@@ -46,7 +46,7 @@ int main() {
             getchar();
         }
         else if (strcmp(command, "R") == 0) {
-            REMOVECOMPONENT(&buildkomp);
+            REMOVECOMPONENT(&buildkomp, &invent);
             getchar();
         }
         else if (strcmp(command, "S") == 0) {

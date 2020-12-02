@@ -1,6 +1,7 @@
 #include "list.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 
 /**
@@ -96,6 +97,62 @@ void InsertLast(TabInv *list, NamaKomponen el) {
 void InsertFirst(TabInv *list, NamaKomponen el) {
     InsertAt(list, el, 0);
 }
+
+
+void DeleteAt(TabInv *list, NamaKomponen el) {
+    if (SearchB(*list, el)) {
+        int lokasi = Search1(*list, el);
+        if (lokasi != Length(*list)-1) {
+            for (int x = lokasi; x <= Length(*list)-1; x++) {
+                list->TI[x] = list->TI[x+1];
+            }
+            list->Neff--;
+        }
+        else {
+            list->Neff--;
+            NamaKomponen *array = (NamaKomponen *) malloc(list->Capacity * sizeof(NamaKomponen));
+            for (int y = 0; y < Length(*list); y++) {
+                array[y] = Get(*list, y);
+            }
+            DeallocateList(list);
+            list->TI = array;
+        }
+    }
+    else {
+        int lokasi = Search1(*list, el);
+    }
+}
+
+
+int Search1(TabInv list, NamaKomponen el) {
+    for (int i = 0; i < Length(list); i++) {
+
+        NamaKomponen ketemu = Get(list, i);
+        boolean strsama = (strcmp(ketemu.Nama, el.Nama) == 0);
+        if (strsama && (ketemu.kodeJenis == el.kodeJenis) && (ketemu.harga == el.harga)) {
+            return i;
+        }
+    }
+    return IdxUndef;
+}
+
+boolean SearchB(TabInv list, NamaKomponen el) {
+    boolean Found = false;
+    int i = 0;
+    while ((!Found) && (i < Length(list))) {
+
+        NamaKomponen ketemu = Get(list, i);
+        boolean strsama = (strcmp(ketemu.Nama, el.Nama) == 0);
+        if (strsama && (ketemu.kodeJenis == el.kodeJenis) && (ketemu.harga == el.harga)) {
+            Found = true;
+        }
+        else {
+            i++;
+        }
+    }
+    return Found;
+}
+
 
 void PrintList(TabInv list) {
     int i = 0;

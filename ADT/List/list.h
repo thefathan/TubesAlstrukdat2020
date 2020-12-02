@@ -2,6 +2,7 @@
 #define __DYNAMIC_LIST__
 #include "boolean.h"
 
+#define IdxUndef -999
 #define IdxMax 9999
 #define InitialSizeList 10
 
@@ -75,6 +76,11 @@ void InsertLast(TabInv *list, NamaKomponen el);
  */
 void InsertFirst(TabInv *list, NamaKomponen el);
 
+void DeleteAt(TabInv *list, NamaKomponen el);
+
+int Search1(TabInv list, NamaKomponen el);
+
+boolean SearchB(TabInv list, NamaKomponen el);
 
 void PrintList(TabInv list);
 

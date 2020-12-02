@@ -73,6 +73,7 @@ void ADDCOMPONENT(Stack *BuildKomponen, TabInv *Inventory) {
     if (!(IsStackFull(*BuildKomponen))) {
         Push(BuildKomponen, komponenDipilih);
         printf("Komponen berhasil dipasang!\n");
+        DeleteAt(Inventory, komponenDipilih);
     }
     else {
         printf("Komponen sudah penuh!\n");
@@ -83,10 +84,12 @@ void ADDCOMPONENT(Stack *BuildKomponen, TabInv *Inventory) {
     getchar();
 }
 
-void REMOVECOMPONENT(Stack *BuildKomponen) {
+void REMOVECOMPONENT(Stack *BuildKomponen, TabInv *Inventory) {
     if (!(IsStackEmpty(*BuildKomponen))) {
+        printf("========================================================\n");
         Pop(BuildKomponen, &isiStack);
         printf("Komponen %s berhasil dicopot!\n", isiStack.Nama);
+        InsertLast(Inventory, isiStack);
         printf("========================================================\n");
     }
     else {
