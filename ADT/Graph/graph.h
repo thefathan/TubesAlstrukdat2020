@@ -1,16 +1,19 @@
-typedef struct NodeGraph* adrNode;
-typedef struct SuccNodeGraph* adrSuccNode;
-typedef struct NodeGraph {
+#define NilGraph NULL
+
+/* Definisi Tipe Data */
+typedef struct tNodeGraph* adrNode;
+typedef struct tSuccNodeGraph* adrSuccNode;
+typedef struct tNodeGraph {
 	int Id;
 	int NPred;
 	adrSuccNode Trail;
 	adrNode Next;
-} Node;
+} NodeGraph;
 
-typedef struct SuccNodeGraph{
+typedef struct tSuccNodeGraph {
 	adrNode Succ;
 	adrSuccNode Next;
-} SuccNode;
+} SuccNodeGraph;
 
 typedef struct {
 	adrNode First;
@@ -20,11 +23,11 @@ typedef struct {
 /* Jika G: Graph, Pn: adrNode, Pt: adrSuccNode, maka: */
 #define First(G) G.First;
 #define Id(Pn) (Pn) -> Id
-#define NPred(Pn) (Pn) -> NPred;
+#define NPred(Pn) (Pn) -> NPred
 #define Trail(Pn) (Pn) -> Trail
-#define Next(Pn) (Pn) -> Next;
-#define Succ(Pt) (Pt) -> Succ;
-#define Next(Pt) (Pt) -> Next;
+#define Next(Pn) (Pn) -> Next
+#define Succ(Pt) (Pt) -> Succ
+#define Next(Pt) (Pt) -> Next
 
 /* *** Konstruktor *** */
 void CreateGraph (int X, Graph* L);
@@ -75,12 +78,5 @@ void InsertEdge (Graph* G, int prec, int succ);
 (prec,succ) ke G. Jika simpul prec/succ belum ada pada G,
 tambahkan simpul tersebut dahulu. Jika sudah ada busur (prec,succ)
 di G, maka G tetap. */
-
-void DeleteNode (Graph* G, int X);
-/* Menghapus simpul X dari G */
-/* I.S. G terdefinisi, X terdefinisi dan ada pada G, jumlah simpul
-pada G lebih dari 1. */
-/* F.S. simpul X dan semua busur yang terhubung ke X dihapus
-dari G. */
 
 #endif
