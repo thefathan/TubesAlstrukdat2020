@@ -7,7 +7,7 @@
 
 
 
-// $ ***** Variables *****
+// $ ***** Variable Global *****
 char menu[100];
 boolean Exit;       // = false;
 boolean ExitMenu;   // = false;
@@ -24,14 +24,13 @@ int main() {
         do {
             ExitMenu = false;
             MainMenu();
-            // * Lakukan Input dengan 'mesinkata'
             int idxMenu = 0;
             do {
                 scanf("%c", menu + idxMenu);
             } while (menu[idxMenu++] != '\n');
             menu[--idxMenu] = '\0';
 
-                // $ ######### TUTORIAL ########
+                // ######### TUTORIAL ########################################
             if (strcmp(menu,"OVERVIEW") == 0) {
                 printf("\n");
                 puts("");
@@ -46,20 +45,20 @@ int main() {
                 puts("");
                 ExitMenu = true;
 
-            }   // $ ######### CREDITS ########
+            }   // ######### CREDITS ######################################
             else if (strcmp(menu, "CREDITS") == 0) {
                 puts("");
                 Credits();
                 getchar();
                 ExitMenu = true;
 
-            }   // $ ######### QUIT ########
+            }   // ######### QUIT ########################################
             else if (strcmp(menu, "QUIT") == 0) {
                 Quit();
                 ExitMenu = true;
                 Exit = true;
             }
-            // ######### PLAY #################################################################################
+            // ######### PLAY ############ PROGRAM UTAMANYA DIBAWAH INI #######################################################
             else if (strcmp(menu, "PLAY") == 0) {
                 puts("");
                 Loading();
@@ -113,28 +112,30 @@ int main() {
                     scanf("%s", &command);
                     printf("\n");
 
-                    if (strcmp(command, "ADDCOMPONENT") == 0) {      // COMMAND ADDCOMPONENT
+
+                    // COMMAND ADDCOMPONENT --------------------------------------------------------------
+                    if (strcmp(command, "ADDCOMPONENT") == 0) {
                         ADDCOMPONENT(&buildkomp, &invent);
                         getchar();
                     }
 
 
-
-                    else if (strcmp(command, "REMOVECOMPONENT") == 0) {     // COMMAND REMOVECOMPONENT
+                    // COMMAND REMOVECOMPONENT -------------------------------------------------------------
+                    else if (strcmp(command, "REMOVECOMPONENT") == 0) {
                         REMOVECOMPONENT(&buildkomp);
                         getchar();
                     }
 
 
-
-                    else if (strcmp(command, "SHOP") == 0) {            // COMMAND SHOP
+                    // COMMAND SHOP ------------------------------------------------------------------------
+                    else if (strcmp(command, "SHOP") == 0) {
                         SHOP(&toko, &invent, &duite);
                         getchar();
                     }
 
 
-
-                    else if (strcmp(command, "EXIT") == 0) {            // COMMAND EXIT
+                    // COMMAND EXIT -------------------------------------------------------------------------
+                    else if (strcmp(command, "EXIT") == 0) {
                         char opsi[10];
                         printf("========================================================\n");
                         printf("Apakah anda yakin ingin keluar? (YA/Apapun) ");
@@ -155,70 +156,71 @@ int main() {
                     }
 
 
-
-                    else if (strcmp(command, "MOVE") == 0) {                // COMMAND MOVE
+                    // COMMAND MOVE -------------------------------------------------------------------------
+                    else if (strcmp(command, "MOVE") == 0) {
                         MOVE();
                         getchar();
                     }
 
 
-
-                    else if (strcmp(command, "CHECKORDER") == 0) {          // COMMAND CHECKORDER
+                    // COMMAND CHECKORDER ---------------------------------------------------------------------
+                    else if (strcmp(command, "CHECKORDER") == 0) {
                         CHECKORDER();
                         getchar();
                     }
 
 
-
-                    else if (strcmp(command, "STATUS") == 0) {              // COMMAND STATUS
+                    // COMMAND STATUS -------------------------------------------------------------------------
+                    else if (strcmp(command, "STATUS") == 0) {
                         STATUS();
                         getchar();
                     }
 
 
-
-                    else if (strcmp(command, "STARTBUILD") == 0) {          // COMMAND STARTBUILD
+                    // COMMAND STARTBUILD ----------------------------------------------------------------------
+                    else if (strcmp(command, "STARTBUILD") == 0) {
                         STARTBUILD();
                         getchar();
                     }
 
 
-
-                    else if (strcmp(command, "FINISHBUILD") == 0) {         // COMMAND FINISHBUILD
+                    // COMMAND FINISHBUILD --------------------------------------------------------------------
+                    else if (strcmp(command, "FINISHBUILD") == 0) {
                         FINISHBUILD();
                         getchar();
                     }
 
 
-
-                    else if (strcmp(command, "DELIVER") == 0) {             // COMMAND DELIVER
+                     // COMMAND DELIVER -----------------------------------------------------------------------
+                    else if (strcmp(command, "DELIVER") == 0) {
                         DELIVER();
                         getchar();
                     }
 
 
-
-                    else if (strcmp(command, "SAVE") == 0) {                // COMMAND SAVE
+                    // COMMAND SAVE ----------------------------------------------------------------------------
+                    else if (strcmp(command, "SAVE") == 0) {
                         SAVE();
                         getchar();
                     }
 
 
-
-                    else if (strcmp(command, "END_DAY") == 0) {             // COMMAND END_DAY
+                    // COMMAND END_DAY ------------------------------------------------------------------------
+                    else if (strcmp(command, "END_DAY") == 0) {
                         END_DAY();
                         getchar();
                     }
 
 
-
-                    else if (strcmp(command, "MAP") == 0) {                 // COMMAND MAP
+                    // COMMAND MAP -----------------------------------------------------------------------------
+                    else if (strcmp(command, "MAP") == 0) {
                         MAP();
                         getchar();
                     }
 
 
-                    else {                     // JIKA COMMAND YANG DIMASUKKAN SELAIN DAFTAR COMMAND MAKA AKAN MENGULANG
+                    // JIKA COMMAND YANG DIMASUKKAN SELAIN DAFTAR COMMAND MAKA AKAN MENGULANG ------------------
+                    else {
                         Invalid();
                         getchar();
                         puts("");
@@ -228,6 +230,8 @@ int main() {
                 ExitMenu = true;
             }
 
+
+            // ########## JIKA MENU UTAMA SALAH MEMASUKKANNYA (MENGULANG) ##############################
             else {
                 Invalid();
                 puts("");
@@ -238,42 +242,3 @@ int main() {
     } while (!Exit);
     return 0;
 }
-
-// void COMMAND(){
-//     char com[20];
-
-//     printf ("ENTER COMMAND : ");
-//     scanf ("%s", &com);
-    
-//     if (strcmp(com, "MOV") == 0){
-//         MOVE();
-//     }else if (strcmp(com, 'STATUS') == 0){
-//         STATUS();
-//     }else if (strcmp(com, 'CHECKORDER') == 0){
-//         CHECKORDER();
-//     }else if (strcmp(com, 'STARTBUILD') == 0){
-//         STARTBUILD();
-//     }else if (strcmp(com, 'FINISHBUILD') == 0){
-//         FINISHBUILD();
-//     }else if (strcmp(com, 'ADDCOMPONENT') == 0){
-//         ADDCOMPONENT();
-//     }else if (strcmp(com, 'REMOVECOMPONENT') == 0){
-//         REMOVECOMPONENT();
-//     }else if (strcmp(com, 'SHOP') == 0){
-//         SHOP();
-//     }else if (strcmp(com, 'DELIVER') == 0){
-//         DELIVER();
-//     }else if (strcmp(com, 'END_DAY') == 0){
-//         END_DAY();
-//     }else if (strcmp(com, 'SAVE') == 0){
-//         SAVE();
-//     }else if (strcmp(com, 'MAP') == 0){
-//         MAP();
-//     }else if (strcmp(com, 'EXIT') == 0){
-//         EXIT();
-//     }else {
-//         printf("ENTER COMMAND : ");
-//         scanf("%s", &com);
-//     }
-//     return 0;
-// }
