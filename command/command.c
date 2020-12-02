@@ -37,7 +37,8 @@ void CHECKORDER() {
 
 void STARTBUILD() {
     printf("========================================================\n");
-    printf("Command STARTBUILD belum diimplementasikan.\n");
+    printf ("kamu telah memulai pesanan %d untuk pelanggan %d \n",order_id(Head(*Q)), pemesanan(Head(*Q)))
+    CreateEmptyStack();
     printf("========================================================\n");
     printf("\nTekan enter untuk kembali ke menu command.\n");
     getchar();
@@ -45,7 +46,19 @@ void STARTBUILD() {
 
 void FINISHBUILD() {
     printf("========================================================\n");
-    printf("Command FINISHBUILD belum diimplementasikan.\n");
+    int count = 0;
+
+    for (int i=0, i<8, i++){
+        if (S.T[i] == (Head(*Q))->T[i]){
+            count = count+1;
+        }
+    }
+
+    if (count == 8){    
+        printf("Pesanan %d telah selesai. Silahkan antar ke pelanggan %d\n", order_id(Head(*Q)), pemesanan(Head(*Q)));
+    } else{
+        printf("Komponen yang dipasangkan belum sesuai dengan pesanan, build belum dapat diselesaikan\n")
+    }
     printf("========================================================\n");
     printf("\nTekan enter untuk kembali ke menu command.\n");
     getchar();
