@@ -1,6 +1,8 @@
-#ifndef GRAPH_H
+#include "boolean.h"
+
 #define GRAPH_H
-#define NilGraph NULL
+#ifndef GRAPH_H
+#define Nil NULL
 
 /* Definisi Tipe Data */
 typedef struct tNodeGraph* adrNode;
@@ -32,7 +34,7 @@ typedef struct {
 #define Next(Pt) (Pt) -> Next
 
 /* *** Konstruktor *** */
-void CreateGraph (int X, Graph* L);
+void CreateGraph (int X, Graph* G);
 /* I.S. Sembarang; F.S. Terbentuk Graph dengan satu simpul dengan Id=X */
 
 /* *** Manajemen Memory List Simpul (Leader) *** */
