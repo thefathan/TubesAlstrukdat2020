@@ -113,10 +113,10 @@ void InsertEdge (Graph* G, int prec, int succ){
 (prec,succ) ke G. Jika simpul prec/succ belum ada pada G,
 tambahkan simpul tersebut dahulu. Jika sudah ada busur (prec,succ)
 di G, maka G tetap. */
-	if (SearchEdge(*G, prec, succ) == NilGraph){
+	if (SearchEdge(*G, prec, succ) == Nil){
 		adrSuccNode P = Trail(Pn);
-		if (P != NilGraph){
-			while (Next(P) != NilGraph){
+		if (P != Nil){
+			while (Next(P) != Nil){
 				P = Next(P);
 			}
 
@@ -128,12 +128,12 @@ di G, maka G tetap. */
 		}
 
 		adrNode Pn = SearchNode(*G, prec);
-		if (Pn == NilGraph){
+		if (Pn == Nil){
 			InsertNode(*G, prec, &Pn);
 		}
 
 		adrNode Pt = Succ(Pt);
-		if(Pt == NilGraph){
+		if(Pt == Nil){
 			InsertNode(*G, succ, &Pt);
 		}
 	}
