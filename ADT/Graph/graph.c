@@ -5,9 +5,9 @@
 void CreateGraph (int X, Graph *G){
 /* I.S. Sembarang; F.S. Terbentuk Graph dengan satu simpul dengan Id=X */
 	*G = (adrNode) malloc (sizeof(NodeGraph));
-	First(*G) = NilGraph;
 	adrNode P;
-	InsertNode(G, X, &P);
+	First(G) = P;
+	P = AlokNode(X);
 }
 
 adrNode AlokNode (int X){
@@ -15,17 +15,17 @@ adrNode AlokNode (int X){
 /* Jika alokasi berhasil, maka address tidak Nil, misalnya
 menghasilkan P, maka Id(P)=X, Npred(P)=0, Trail(P)=Nil,
 dan Next(P)=Nil. Jika alokasi gagal, mengembalikan Nil. */
-	adrNode Pn;
+	adrNode P;
 
-	Pn = (adrNode) malloc (sizeof(NodeGraph));
-	if (Pn != NilGraph){
-		Id(Pn) = X;
-		NPred(Pn) = 0;
-		Trail(Pn) = NilGraph;
-		Next(Pn) = NilGraph;
+	P = (adrNode) malloc (sizeof(NodeGraph));
+	if (P != Nil){
+		Id(P) = X;
+		NPred(P) = 0;
+		Trail(P) = Nil;
+		Next(P) = Nil;
 	}
 
-	return Pn;
+	return P;
 }
 
 void DealokNode (adrNode P){
@@ -41,9 +41,9 @@ alokasi gagal, mengembalikan Nil. */
 	adrSuccNode Pt;
 
 	Pt = (adrSuccNode) malloc (sizeof(adrSuccNode));
-	if (Pt != NilGraph){
+	if (Pt != Nil){
 		Succ(Pt) = Pn;
-		Next(Pt) = NilGraph;
+		Next(Pt) = Nil;
 	}
 
 	return Pt;
@@ -58,17 +58,16 @@ adrNode SearchNode (Graph G, int X){
 /* mengembalikan address simpul dengan Id=X jika sudah ada pada graph G,
 Nil jika belum */
 	adrNode Pn = First(G);
-
-	while (Pn != NilGraph){
-		if (Id(Pn) == X){
+	if (First(G) != Nil){
+		while (Pn != Nil && Id(Pn) == X){
 			return Pn;
 		}
 
-		else{
-			Pn = Next(Pn);
-		}
+		Pn = Next(Pn);
 	}
-
+	else{
+		return Pn;
+	}
 	return Pn;
 }
 
@@ -76,22 +75,16 @@ adrSuccNode SearchEdge (Graph G, int prec, int succ){
 /* mengembalikan address trailer yang menyimpan info busur (prec,succ)
 jika sudah ada pada graph G, Nil jika belum */
 	adrNode Pn = SearchNode(G, prec);
-	if (Pn == NilGraph){
-		return NilGraph;
+	if (Pn == Nil){
+		return Nil;
 	}
 
 	adrSuccNode Pt = Trail(Pn);
-	while (P != NilGraph){
-		if (Id(Succ(Pt)) != succ){
-			Pt = Next(Pt);
-		}
-
-		else{
-			return (Pt);
-		}
+	while (P != Nil && Id(Succ(Pt) != succ)){
+		Pt = Next(Pt);
 	}
 
-	return (Pt);
+	return (Pt)
 }
 
 void InsertNode (Graph* G, int X, adrNode* Pn){
@@ -100,8 +93,8 @@ void InsertNode (Graph* G, int X, adrNode* Pn){
 /* F.S. Jika alokasi berhasil, X menjadi elemen terakhir G, Pn berisi
 address simpul X. Jika alokasi gagal, G tetap, Pn berisi Nil */
 	adrNode Pn = First(*G);
-	if (Pn != NilGraph) {
-		while (Next(*G) != NilGraph){
+	if (Pn != Nil) {
+		while (Pn != Nil) {
 			Pn = Next(Pn);
 		}
 
