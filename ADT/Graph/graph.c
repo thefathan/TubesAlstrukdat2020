@@ -105,7 +105,6 @@ void InsertEdge(Graph* G, int prec, int succ)
 			NextG(P) = AlokSuccNode(Ps);
 		}
 	}
-	
 }
 
 void PrintAdjList(Graph G)
