@@ -53,6 +53,11 @@ int main() {
             SHOP(&toko, &invent, &duite);
             getchar();
         }
+
+        else if (strcmp(command, "STATUS") == 0) {
+            STATUS(&invent, &duite);
+            getchar();
+        }
         else {
             char opsi[10];
             printf("========================================================\n");

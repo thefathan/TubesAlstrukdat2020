@@ -88,4 +88,7 @@ void PrintListInventory(TabInv list);
 
 void PrintListShop(TabInv list);
 
+
+// TabInv BacaEksternal(TabInv *list);
+
 #endif

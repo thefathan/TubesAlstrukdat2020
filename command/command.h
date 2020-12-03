@@ -16,7 +16,7 @@
 
 void MOVE();
 
-void STATUS();
+void STATUS(TabInv *Inventory, int *duitPemain);
 
 void CHECKORDER();
 

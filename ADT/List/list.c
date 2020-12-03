@@ -177,3 +177,10 @@ void PrintListShop(TabInv list) {
         i++;
     }
 }
+
+
+// TabInv BacaEksternal(TabInv *list) {
+//     int i = 0;
+//     NamaKomponen NK;
+//     fptr = 
+// }

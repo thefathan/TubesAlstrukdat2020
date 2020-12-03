@@ -172,7 +172,7 @@ int main() {
 
                     // COMMAND STATUS -------------------------------------------------------------------------
                     else if (strcmp(command, "STATUS") == 0) {
-                        STATUS();
+                        STATUS(&invent, &duite);
                         getchar();
                     }
 

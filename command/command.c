@@ -19,9 +19,13 @@ void MOVE() {
     getchar();
 }
 
-void STATUS() {
+void STATUS(TabInv *Inventory, int *duitPemain) {
     printf("========================================================\n");
-    printf("Command STATUS belum diimplementasikan.\n");
+    printf("Uang tersisa: $%d\n", *duitPemain);
+    printf("Build yang sedang dikerjakan: pesanan <23> untuk pelanggan <4>.\n");
+    printf("Lokasi: pemain sedang berada pada <base>.\n");
+    printf("Inventory Anda: \n");
+    PrintListInventory(*Inventory);
     printf("========================================================\n");
     printf("\nTekan enter untuk kembali ke menu command.\n");
     getchar();
@@ -35,30 +39,30 @@ void CHECKORDER() {
     getchar();
 }
 
-void STARTBUILD(Queue Q, Stack *S) {
+void STARTBUILD( /* Queue Q, Stack *S*/ ) {
     printf("========================================================\n");
-    printf ("kamu telah memulai pesanan %d untuk pelanggan %d \n",order_id(Head(*Q)), pemesanan(Head(*Q)))
-    CreateEmptyStack();
+    // printf ("kamu telah memulai pesanan %d untuk pelanggan %d \n",order_id(Head(*Q)), pemesanan(Head(*Q)))
+    // CreateEmptyStack();
     printf("========================================================\n");
     printf("\nTekan enter untuk kembali ke menu command.\n");
     getchar();
 }
 
-void FINISHBUILD(Queue *Q, Stack *S) {
+void FINISHBUILD( /* Queue *Q, Stack *S*/ ) {
     printf("========================================================\n");
-    int count = 0;
+    // int count = 0;
 
-    for (int i=0, i<8, i++){
-        if (S.T[i] == (Head(*Q))->T[i]){
-            count = count+1;
-        }
-    }
+    // for (int i=0, i<8, i++){
+    //     if (S.T[i] == (Head(*Q))->T[i]){
+    //         count = count+1;
+    //     }
+    // }
 
-    if (count == 8){    
-        printf("Pesanan %d telah selesai. Silahkan antar ke pelanggan %d\n", order_id(Head(*Q)), pemesanan(Head(*Q)));
-    } else{
-        printf("Komponen yang dipasangkan belum sesuai dengan pesanan, build belum dapat diselesaikan\n")
-    }
+    // if (count == 8){    
+    //     printf("Pesanan %d telah selesai. Silahkan antar ke pelanggan %d\n", order_id(Head(*Q)), pemesanan(Head(*Q)));
+    // } else{
+    //     printf("Komponen yang dipasangkan belum sesuai dengan pesanan, build belum dapat diselesaikan\n")
+    // }
     printf("========================================================\n");
     printf("\nTekan enter untuk kembali ke menu command.\n");
     getchar();
