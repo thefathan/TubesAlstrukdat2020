@@ -179,8 +179,12 @@ void PrintListShop(TabInv list) {
 }
 
 
-// TabInv BacaEksternal(TabInv *list) {
+// TabInv BacaEksternal() {
+//     FILE *fptr;
 //     int i = 0;
 //     NamaKomponen NK;
-//     fptr = 
+//     fptr = fopen("listkomponen.txt", "r");
+//     while (EOF != fscanf(fptr, "%[^\n]", NK)) {
+//         printf("data %s", NK);
+//     }
 // }

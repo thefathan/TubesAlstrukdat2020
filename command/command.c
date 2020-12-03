@@ -58,9 +58,13 @@ void FINISHBUILD( /* Queue *Q, Stack *S*/ ) {
     //     }
     // }
 
-    // if (count == 8){    
+    // if (count == 8) {    
     //     printf("Pesanan %d telah selesai. Silahkan antar ke pelanggan %d\n", order_id(Head(*Q)), pemesanan(Head(*Q)));
-    // } else{
+    //     for (int i=0, i<8, i++) {
+    //         Pop(S, isiStack); // membersihkan isi stack
+    //     }
+    // }
+    // else {
     //     printf("Komponen yang dipasangkan belum sesuai dengan pesanan, build belum dapat diselesaikan\n")
     // }
     printf("========================================================\n");

@@ -7,20 +7,23 @@
 int main() {
     TabInv L; int i;
     
-    L = MakeList();
-    for (i=0; i<11; i++) {
-        NamaKomponen NK = {"AMD Ryzen 13 1000GB", 10000, i};
-        InsertLast(&L, NK);
-    }
 
-    printf("%d\n", Length(L));
-    printf("%d\n", GetCapacity(L));
-    // printf("%s,%d\n", Get(L,1).Nama, Get(L,1).kodeJenis);
-    PrintList(L);
-    NamaKomponen el = {"AMD Ryzen 13 1000GB", 10000, 9};
-    printf("%d\n", Search1(L, el));
-    DeleteAt(&L, el);
-    PrintList(L);
+   // L = BacaEksternal();
+
+    // L = MakeList();
+    // for (i=0; i<11; i++) {
+    //     NamaKomponen NK = {"AMD Ryzen 13 1000GB", 10000, i};
+    //     InsertLast(&L, NK);
+    // }
+
+    // printf("%d\n", Length(L));
+    // printf("%d\n", GetCapacity(L));
+    // // printf("%s,%d\n", Get(L,1).Nama, Get(L,1).kodeJenis);
+    // PrintList(L);
+    // NamaKomponen el = {"AMD Ryzen 13 1000GB", 10000, 9};
+    // printf("%d\n", Search1(L, el));
+    // DeleteAt(&L, el);
+    // PrintList(L);
     // PrintListInventory(L);
     // PrintListShop(L);
 }
