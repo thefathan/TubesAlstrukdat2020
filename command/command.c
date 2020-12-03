@@ -35,7 +35,7 @@ void CHECKORDER() {
     getchar();
 }
 
-void STARTBUILD() {
+void STARTBUILD(Queue Q, Stack *S) {
     printf("========================================================\n");
     printf ("kamu telah memulai pesanan %d untuk pelanggan %d \n",order_id(Head(*Q)), pemesanan(Head(*Q)))
     CreateEmptyStack();
@@ -44,7 +44,7 @@ void STARTBUILD() {
     getchar();
 }
 
-void FINISHBUILD() {
+void FINISHBUILD(Queue *Q, Stack *S) {
     printf("========================================================\n");
     int count = 0;
 
