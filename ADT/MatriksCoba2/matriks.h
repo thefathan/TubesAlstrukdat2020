@@ -9,7 +9,7 @@
 
 #include <stdio.h>
 #include "boolean.h"
-#include "array.h"
+#include "array.c"
 
 /* Ukuran minimum dan maksimum baris dan kolom */
 #define BrsMin 1

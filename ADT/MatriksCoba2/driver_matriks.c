@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
-#include "matriks.h"
+#include "matriks.c"
 
 int main() {
   /* KAMUS */

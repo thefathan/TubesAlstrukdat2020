@@ -11,7 +11,7 @@
 #define ARRAY_H
 
 #include "boolean.h"
-#include "point.h"
+#include "point.c"
 
 /*  Kamus Umum */
 #define IdxMin 1
