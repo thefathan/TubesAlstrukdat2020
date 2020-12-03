@@ -156,7 +156,7 @@ void SHOP(TabInv *Toko, TabInv *Inventory, int *duitPemain) {
     getchar();
 }
 
-void DELIVER(/*POINT player, POINT customer*/) {
+void DELIVER(/* POINT player, POINT customer, Queue *Q */) {
     printf("========================================================\n");
     // if(EQ(player, customer)){
     //   printf("Pesanan ke %d berhasil diantarkan kepada pelanggan %d\n", order_id(Head(*Q)), pemesanan(Head(*Q))); }
