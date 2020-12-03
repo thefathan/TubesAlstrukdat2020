@@ -178,6 +178,14 @@ void PrintListShop(TabInv list) {
     }
 }
 
+void PrintListStatus(TabInv list) {
+    int i = 0;
+    while (i < list.Neff) {
+        printf("%d. %s  (%d)\n", i+1, Get(list,i).Nama, Get(list,i).jumlah);
+        i++;
+    }
+}
+
 
 // TabInv BacaEksternal() {
 //     FILE *fptr;

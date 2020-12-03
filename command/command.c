@@ -25,7 +25,7 @@ void STATUS(TabInv *Inventory, int *duitPemain) {
     printf("Build yang sedang dikerjakan: pesanan <23> untuk pelanggan <4>.\n");
     printf("Lokasi: pemain sedang berada pada <base>.\n");
     printf("Inventory Anda: \n");
-    PrintListInventory(*Inventory);
+    PrintListStatus(*Inventory);
     printf("========================================================\n");
     printf("\nTekan enter untuk kembali ke menu command.\n");
     getchar();
@@ -135,6 +135,7 @@ void SHOP(TabInv *Toko, TabInv *Inventory, int *duitPemain) {
     printf("Masukkan jumlah yang ingin dibeli: ");
 
     scanf("%d", &jumlahbeli);
+    komponenDibeli.jumlah = jumlahbeli;
 
     hargatotal = jumlahbeli*Get(*Toko, optbeli-1).harga;
     if (hargatotal <= *duitPemain) {

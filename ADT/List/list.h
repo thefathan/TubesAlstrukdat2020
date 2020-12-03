@@ -11,6 +11,7 @@ typedef struct {
     Komponen Nama;
     int harga;
     int kodeJenis;
+    int jumlah;
 } NamaKomponen;
 
 
@@ -88,6 +89,7 @@ void PrintListInventory(TabInv list);
 
 void PrintListShop(TabInv list);
 
+void PrintListStatus(TabInv list);
 
 // TabInv BacaEksternal();
 

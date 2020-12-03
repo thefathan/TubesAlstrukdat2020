@@ -92,17 +92,17 @@ int main() {
 
                 toko = MakeList(); // shop, jika beli barang ditransfer ke inventory
                 for (i=0; i<5; i++) {
-                    NamaKomponen NK = {"AMD Ryzen 13 1000GB", 10000, i};
+                    NamaKomponen NK = {"AMD Ryzen 13 1000GB", 10000, i, 1};
                     InsertLast(&toko, NK);
                 }
                 invent = MakeList(); // inventorymu
                 for (i=0; i<3; i++) {
-                    NamaKomponen NK = {"AMD Bakso 1000GB", 10000, i};
+                    NamaKomponen NK = {"AMD Bakso 1000GB", 10000, i, 1};
                     InsertLast(&invent, NK);
                 }
                 buildkomp = CreateEmptyStack(); //yg ada di pemasangan komponen
                 for (i=0; i<7; i++) {
-                    Sinfotype input = {"Intel Goreng", 10000, i+1};    
+                    Sinfotype input = {"Intel Goreng", 10000, i+1, 1};    
                     Push(&buildkomp, input);
                 }
 
