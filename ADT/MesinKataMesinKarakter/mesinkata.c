@@ -5,7 +5,7 @@ boolean EndKata;
 Kata CKata;
 
 void IgnoreBlank(){
-   while ((CC == BLANK) && (CC != MARK))
+   while ((CC == BLANK) && !IsEOP())
    {
        ADV();
    }
@@ -30,6 +30,6 @@ void SalinKata(){
         CKata.TabKata[CKata.Length] = 0;
         ADV();
 
-    }while ( (CC != MARK) && (CC != BLANK) && (CKata.Length < NMax));
+    }while ( !IsEOP() && (CC != BLANK) && (CKata.Length < NMax));
 
 }
