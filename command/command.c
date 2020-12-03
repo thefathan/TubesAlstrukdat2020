@@ -11,6 +11,8 @@ Sinfotype isiStack;  // Isi dari stack BuildKomponen
 // TabInv Inventory, Toko; // List Inventory merupakan sebuah kumpulan komponen komputer, digunakan di Shop/Toko
 // int duitPemain;
 
+// POINT pemain, customer_ke //Menampung koordinat terbaru dari pemain dan koordinat customer yang akan dituju
+
 void MOVE() {
     printf("========================================================\n");
     printf("Command MOVE belum diimplementasikan.\n");
@@ -58,7 +60,7 @@ void FINISHBUILD( /* Queue *Q, Stack *S*/ ) {
     //     }
     // }
 
-    // if (count == 8) {    
+    // if (count == 8) {
     //     printf("Pesanan %d telah selesai. Silahkan antar ke pelanggan %d\n", order_id(Head(*Q)), pemesanan(Head(*Q)));
     //     for (int i=0, i<8, i++) {
     //         Pop(S, isiStack); // membersihkan isi stack
@@ -155,9 +157,12 @@ void SHOP(TabInv *Toko, TabInv *Inventory, int *duitPemain) {
     getchar();
 }
 
-void DELIVER() {
+void DELIVER(/* POINT player, POINT customer, Queue *Q */) {
     printf("========================================================\n");
-    printf("Command DELIVER belum diimplementasikan.\n");
+    // if(EQ(player, customer)){
+    //   printf("Pesanan ke %d berhasil diantarkan kepada pelanggan %d\n", order_id(Head(*Q)), pemesanan(Head(*Q))); }
+    // printf("Pemain sedang tidak berada di lokasi customer);
+
     printf("========================================================\n");
     printf("\nTekan enter untuk kembali ke menu command.\n");
     getchar();
