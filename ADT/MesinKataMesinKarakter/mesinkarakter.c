@@ -9,14 +9,22 @@ static int retval;
 
 void START() {
 	/* Algoritma */
-	pita = fopen("pitakar.txt","r");
+	pita = fopen("hai.txt","r");
 	ADV();
 }
 
 void ADV() {
-	retval = fscanf(pita,"%c",&CC);
+	fscanf(pita,"%c",&CC);
 	EOP = (CC == MARK);
 	if (EOP) {
        fclose(pita);
  	}
+}
+
+char GetCC(){
+    return CC;
+}
+
+boolean IsEOP(){
+    return (CC == MARK);
 }

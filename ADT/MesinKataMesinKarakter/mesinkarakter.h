@@ -17,10 +17,22 @@ void START();
           Jika CC = MARK maka EOP akan menyala (true) */
 
 void ADV();
-/* Pita dimajukan satu karakter. 
+/* Pita dimajukan satu karakter.
    I.S. : Karakter pada jendela = CC, CC != MARK
-   F.S. : CC adalah karakter berikutnya dari CC yang lama, 
+   F.S. : CC adalah karakter berikutnya dari CC yang lama,
           CC mungkin = MARK
           Jika  CC = MARK maka EOP akan menyala (true) */
+
+char GetCC();
+/* Mengembalikan karakter yang sedang terbaca di jendela.
+I.S. : Karakter pada jendela = CC, CC != MARK
+F.S. : mengembalikan karakter yang sedang terbaca di jendela
+*/
+
+boolean IsEOP();
+/* Mengecek apakah pita telah selesai dibaca
+I.S. : Pita telah terbaca
+F.S. : Menegmbalikan true jika pita telah selesai terbaca, false jika sebaliknya
+*/
 
 #endif

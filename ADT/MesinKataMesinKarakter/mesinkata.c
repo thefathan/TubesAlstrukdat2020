@@ -1,7 +1,8 @@
 #include "mesinkata.h"
+#include "mesinkarakter.c"
 
-boolean EndKata;    
-Kata CKata;         
+boolean EndKata;
+Kata CKata;
 
 void IgnoreBlank(){
    while ((CC == BLANK) && (CC != MARK))
@@ -11,32 +12,24 @@ void IgnoreBlank(){
 }
 
 void STARTKATA(){
-    EndKata = false;
     START();
-    IgnoreBlank();
     ADVKATA();
 }
 
 void ADVKATA(){
     IgnoreBlank();
-    if (CC == MARK){
-        EndKata = true;
-    }
-    else{
-        SalinKata();
-    }
+    SalinKata();
 }
 
 void SalinKata(){
-    int i = 1;
+    CKata.Length = 0;
     do {
 
-        CKata.TabKata[i] = CC;
-
+        CKata.TabKata[CKata.Length] = CC;
+        CKata.Length++;
+        CKata.TabKata[CKata.Length] = 0;
         ADV();
-        i++;
 
-    }while ( (CC != MARK) && (CC != BLANK) && (i < NMax));
+    }while ( (CC != MARK) && (CC != BLANK) && (CKata.Length < NMax));
 
-    CKata.Length = i-1;
 }
