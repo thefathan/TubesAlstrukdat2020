@@ -13,15 +13,23 @@ Sinfotype isiStack;  // Isi dari stack BuildKomponen
 
 // POINT pemain, customer_ke //Menampung koordinat terbaru dari pemain dan koordinat customer yang akan dituju
 
-void MOVE() {
+void MOVE() {               // Baru template, belum diimplementasikan
+    int nomortujuan;
     printf("========================================================\n");
     printf("Command MOVE belum diimplementasikan.\n");
+    printf("Kamu berada pada <base>.\n");
+    printf("Daftar lokasi yang dapat dicapai:\n");
+    printf("<1. Pelanggan 2>\n");
+    printf("<2. Pelanggan 5>\n");
+    printf("Nomor tujuan: ");
+    scanf("%d", &nomortujuan);
+    printf("Kamu telah mencapai lokasi <Pelanggan 5>!\n");
     printf("========================================================\n");
     printf("\nTekan enter untuk kembali ke menu command.\n");
     getchar();
 }
 
-void STATUS(TabInv *Inventory, int *duitPemain) {
+void STATUS(TabInv *Inventory, int *duitPemain) {                   // Baru template, belum diimplementasikan
     printf("========================================================\n");
     printf("Uang tersisa: $%d\n", *duitPemain);
     printf("Build yang sedang dikerjakan: pesanan <23> untuk pelanggan <4>.\n");
@@ -33,9 +41,21 @@ void STATUS(TabInv *Inventory, int *duitPemain) {
     getchar();
 }
 
-void CHECKORDER() {
+void CHECKORDER() {                                                 // Baru template, belum diimplementasikan
     printf("========================================================\n");
     printf("Command CHECKORDER belum diimplementasikan.\n");
+    printf("Nomor Order: <23>\n");
+    printf("Pemesan: Pelanggan <2>\n");
+    printf("Invoice: <$2300>\n");
+    printf("Komponen:\n");
+    printf("1. <Motherboard B450>\n");
+    printf("2. <Ryzen 5 4500>\n");
+    printf("3. <Kingston 16GB>\n");
+    printf("4. <Cooler Master Silent Cooler>\n");
+    printf("5. <NZXT H510i>\n");
+    printf("6. <AMD Radeon 6800XT>\n");
+    printf("7. <HDD 1TB>\n");
+    printf("8. <PSU 600W>\n");
     printf("========================================================\n");
     printf("\nTekan enter untuk kembali ke menu command.\n");
     getchar();
@@ -162,7 +182,7 @@ void DELIVER(/* POINT player, POINT customer, Queue *Q */) {
     // if(EQ(player, customer)){
     //   printf("Pesanan ke %d berhasil diantarkan kepada pelanggan %d\n", order_id(Head(*Q)), pemesanan(Head(*Q))); }
     // printf("Pemain sedang tidak berada di lokasi customer);
-
+    printf("Pesanan <#23> berhasil diantarkan kepada pelanggan <3>!\n");
     printf("========================================================\n");
     printf("\nTekan enter untuk kembali ke menu command.\n");
     getchar();
