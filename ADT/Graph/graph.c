@@ -1,127 +1,146 @@
-#include <stdlib.h>
 #include <stdio.h>
-#include "graph.h"
+#include <stdlib.h>
+#include "../graph/graph.h"
 
-
-void CreateGraph(int X, Graph* G)
-{
-    FirstG(*G) = NilGraph;
-    adrNode dummy;
-    InsertNode(G, X, &dummy);
+void CreateGraph (int X, Graph* G){
+/* I.S. Sembarang; F.S. Terbentuk Graph dengan satu simpul dengan Id=X */
+	/*G = (adrNode) malloc (sizeof(NodeGraph)); */
+	First(*G) = Nil;
+	adrNode P;
+	InsertNode(G, X, &P);
 }
 
+adrNode AlokNode (int X){
+/* Mengembalikan address hasil alokasi Simpul X. */
+/* Jika alokasi berhasil, maka address tidak Nil, misalnya
+menghasilkan P, maka Id(P)=X, Npred(P)=0, Trail(P)=Nil,
+dan Next(P)=Nil. Jika alokasi gagal, mengembalikan Nil. */
+	adrNode P;
 
-adrNode AlokNodeGraph(int X)
-{
-    adrNode P = (adrNode) malloc (sizeof(NodeGraph));
-    if (P != NilGraph) {
-        Id(P) = X;
-        Adj(P) = NilGraph;
-        NextG(P) = NilGraph;
+	P = (adrNode) malloc (sizeof(NodeGraph));
+	if (P != Nil){
+		Id(P) = X;
+		NPred(P) = 0;
+		Trail(P) = Nil;
+		Next(P) = Nil;
 	}
-    return P;
-}
 
-void DeAlokNodeGraph(adrNode P)
-{
-    free(P);
-}
-
-adrSuccNode AlokSuccNode(adrNode Pn)
-{
-    adrSuccNode P = (adrSuccNode) malloc (sizeof(SuccNode));
-    if (P != NilGraph) {
-        Origin(P) = Pn;
-        NextG(P) = NilGraph;
-    }
 	return P;
 }
 
-void DealokSuccNode(adrSuccNode P)
-{
-    free(P);
+void DealokNode (adrNode P){
+/* I.S. P terdefinisi; F.S. P dikembalikan ke sistem */
+	free(P);
 }
 
-boolean isNodeEqual(adrNode P, int X){
-	return (Id(P)==X);
-}
+adrSuccNode AlokSuccNode (adrNode Pn){
+/* Mengembalikan address hasil alokasi. */
+/* Jika alokasi berhasil, maka address tidak Nil, misalnya
+menghasilkan Pt, maka Succ(Pt)=Pn dan Next(Pt)=Nil. Jika
+alokasi gagal, mengembalikan Nil. */
+	adrSuccNode Pt;
 
-adrNode SearchNode(Graph G, int X)
-{
-    adrNode P = FirstG(G);
-    while(P != NilGraph){
-		if (isNodeEqual(P, X))
-			return P;
-		else
-			P = NextG(P);
+	Pt = (adrSuccNode) malloc (sizeof(adrSuccNode));
+	if (Pt != Nil){
+		Succ(Pt) = Pn;
+		Next(Pt) = Nil;
 	}
-    return P;
+
+	return Pt;
 }
 
-adrSuccNode SearchEdge(Graph G, int prec, int succ)
-{
-    adrNode Pn = SearchNode(G, prec);
-	if (Pn == NilGraph)
-		return NilGraph;
-	adrSuccNode P = Adj(Pn);
-    while(P != NilGraph){
-		if (isNodeEqual(Origin(P), succ))
-			return P;
-		else
-			P = NextG(P);
+void DealokSuccNode (adrSuccNode P){
+/* I.S. P terdefinisi; F.S. P dikembalikan ke sistem */
+	free(P);
+}
+
+adrNode SearchNode (Graph G, int X){
+/* mengembalikan address simpul dengan Id=X jika sudah ada pada graph G,
+Nil jika belum */
+	adrNode Pn = First(G);
+	if (First(G) != Nil){
+		while (Pn != Nil && Id(Pn) == X){
+			return Pn;
+		}
+
+		Pn = Next(Pn);
 	}
-	return P;
-}
-
-void InsertNode(Graph* G, int X, adrNode* Pn)
-{
-    *Pn = AlokNodeGraph(X);
-	adrNode P = FirstG(*G);
-	if (P == NilGraph)
-		FirstG(*G) = *Pn;
-	else {
-		while (NextG(P) != NilGraph)
-			P = NextG(P);
-		NextG(P) = *Pn;
+	else{
+		return Pn;
 	}
+	return Pn;
 }
 
-void InsertEdge(Graph* G, int prec, int succ)
-{
-    if (SearchEdge(*G, prec, succ) == NilGraph){
+adrSuccNode SearchEdge (Graph G, int prec, int succ){
+/* mengembalikan address trailer yang menyimpan info busur (prec,succ)
+jika sudah ada pada graph G, Nil jika belum */
+	adrNode Pn = SearchNode(G, prec);
+	if (Pn == Nil){
+		return Nil;
+	}
+
+	adrSuccNode P = Trail(Pn);
+	while (Pn != Nil && (!isEqual(Succ(P), succ))){
+		P = Next(P);
+	}
+
+	return (P);
+}
+
+void InsertNode (Graph* G, int X, adrNode* Pn){
+/* Menambahkan simpul X ke dalam graph, jika alokasi X berhasil. */
+/* I.S. G terdefinisi, X terdefinisi dan belum ada pada G. */
+/* F.S. Jika alokasi berhasil, X menjadi elemen terakhir G, Pn berisi
+address simpul X. Jika alokasi gagal, G tetap, Pn berisi Nil */
+	*Pn = AlokNode(X);
+        adrNode P = First(*G);
+        if (Pn != Nil) {
+            while (P != Nil) {
+			P = Next(P);
+            }
+
+		Next(P) = *Pn;
+        }
+
+
+        else{
+            First(*G) = *Pn;
+        }
+}
+
+void InsertEdge (Graph* G, int prec, int succ){
+/* Menambahkan busur dari prec menuju succ ke dalam G */
+/* I.S. G, prec, succ terdefinisi. */
+/* F.S. Jika belum ada busur (prec,succ) di G, maka tambahkan busur
+(prec,succ) ke G. Jika simpul prec/succ belum ada pada G,
+tambahkan simpul tersebut dahulu. Jika sudah ada busur (prec,succ)
+di G, maka G tetap. */
+	if (SearchEdge(*G, prec, succ) == Nil){
 		adrNode Pn = SearchNode(*G, prec);
-		if (Pn == NilGraph)
+		if (Pn == Nil){
 			InsertNode(G, prec, &Pn);
-		adrNode Ps = SearchNode(*G, succ);
-		if (Ps == NilGraph)
-			InsertNode(G, succ, &Ps);
-		
-		adrSuccNode P = Adj(Pn);
-		if (P == NilGraph)
-			Adj(Pn) = AlokSuccNode(Ps);
-		else {
-			while (NextG(P) != NilGraph)
-				P = NextG(P);
-			NextG(P) = AlokSuccNode(Ps);
+		}
+
+		adrNode Pt = Succ(Pt);
+		if(Pt == Nil){
+			InsertNode(G, succ, &Pt);
+		}
+        adrSuccNode P = Trail(Pn);
+		if (P != Nil){
+			while (Next(P) != Nil){
+				P = Next(P);
+			}
+
+			Next(P) = AlokSuccNode(Pn);
+		}
+
+		else{
+			Trail(Pn) = AlokSuccNode(Pt);
 		}
 	}
 }
 
-void PrintAdjList(Graph G)
-{
-	if(FirstG(G) == NilGraph){
-		printf("empty");
-	} else {
-		adrNode t = FirstG(G);
-		while(t != NilGraph){
-			printf("%d : ", Id(t));
-			adrSuccNode Ad = Adj(t);
-			while(Ad != NilGraph){
-				printf("%d ", Id(Origin(Ad)));
-				Ad = NextG(Ad);
-			}
-			printf("\n");
-			t = NextG(t);
-		}
-	}
+boolean isEqual (adrNode P, int X){
+/* Memeriksa apakah Id adress P sama dengan X */
+    return (Id(P) == X);
 }
