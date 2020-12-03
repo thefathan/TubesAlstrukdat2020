@@ -1,7 +1,7 @@
-"Gigabyte B550 Aorus Elite V2",200,1,1
-"ASRock TRX40 Taichi",1000,1,1
-"Asus ROG Zenith II Extreme",1000,1,1
-"Gigabyte TRX40 Aorus Xtreme",1000,1,1
+GigabyteB550AorusEliteV2 200 1 1
+ASRockTRX40Taichi 1000 1 1
+AsusROGZenithIIExtreme 1000 1 1
+GigabyteTRX40AorusXtreme 1000 1 1
 "MSI TRX40 Pro Wifi",550,1,1
 "GALAX B460M",85,1,1
 "Asus ROG Maximus XII Extreme",900,1,1

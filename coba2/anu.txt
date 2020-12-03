@@ -1,0 +1,4 @@
+Fathan 28 1 12
+bom 10000 1 13
+AMDBakso1000GB 10000 1 14
+telo 5 1 12

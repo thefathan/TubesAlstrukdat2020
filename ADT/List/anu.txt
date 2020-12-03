@@ -1,0 +1,4 @@
+Ftah 10 1 12
+Aso1GB 130 1 13
+Aakso10sas 500 1 14
+AMDBakso1000GB 10000 1 12
