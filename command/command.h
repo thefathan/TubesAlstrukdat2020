@@ -6,7 +6,7 @@
 #include "../ADT/boolean.h"
 #include "../ADT/List/list.c"
 #include "../ADT/Stack/stack.c"
-
+#include "../ADT/Queuelist/queuelist.c"
 
 // Belum ada parameter prosedur di command.
 // Silakan dilanjut disini
