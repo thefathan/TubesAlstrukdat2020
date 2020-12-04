@@ -50,23 +50,25 @@ int main () {
     }
     fclose(fp);
 
-    TabInv L; NamaKomponen NK;
+    TabInv L;
     L = MakeList();
     int harga, tipe, jumlah;
     char namakomponen[100], dtm[150];
 
     for (int a = 0; a < i; a++) {
+        
         strcpy(dtm, array[a]);
         sscanf(dtm, "%s %d %d  %d", namakomponen, &harga, &tipe, &jumlah);
         printf("\nnama = %s ; tipe = %d ; harga = %d  jumlahnya = %d\n", namakomponen, tipe, harga, jumlah);
-        // InsertLast(&L, {namakomponen, tipe, harga, jumlah});
+        NamaKomponen NK = {namakomponen, tipe, harga, jumlah};
+        InsertLast(&L, NK);
     }
     // printf("%d\n", Length(L));
     // printf("%d\n", GetCapacity(L));
     // printf("%s,%d\n", Get(L,1).Nama, Get(L,1).kodeJenis);
     // PrintList(L);
     // PrintListStatus(L);
-    return(0);
+    return 0;
 }
 
 
