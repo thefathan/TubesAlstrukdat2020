@@ -31,7 +31,8 @@
 int main () {
     FILE *fp;
     char x;
-    char array[4][2000];
+    char array[115][2000];
+    char array2[115][2000];
     char str[MAXCHAR];
     char* filename = "anu.txt";
     int i = 0, j = 0;
@@ -45,29 +46,27 @@ int main () {
         strcpy(array[i],str);
         i++;
     }
-    for (int d = 0; d < i; d++){
-        //printf("%s", array[d]);
-    }
     fclose(fp);
 
     TabInv L;
     L = MakeList();
     int harga, tipe, jumlah;
-    char namakomponen[100], dtm[150];
+    char namakomponen[100], dtm[150], trasit[115];
 
     for (int a = 0; a < i; a++) {
         
         strcpy(dtm, array[a]);
         sscanf(dtm, "%s %d %d  %d", namakomponen, &harga, &tipe, &jumlah);
-        printf("\nnama = %s ; tipe = %d ; harga = %d  jumlahnya = %d\n", namakomponen, tipe, harga, jumlah);
-        NamaKomponen NK = {namakomponen, tipe, harga, jumlah};
+        // printf("\nnama = %s ; tipe = %d ; harga = %d  jumlahnya = %d\n", namakomponen, tipe, harga, jumlah);
+        NamaKomponen NK = {"dummy", harga, tipe, jumlah};
+        strcpy(NK.Nama, namakomponen);
         InsertLast(&L, NK);
     }
     // printf("%d\n", Length(L));
     // printf("%d\n", GetCapacity(L));
     // printf("%s,%d\n", Get(L,1).Nama, Get(L,1).kodeJenis);
     // PrintList(L);
-    // PrintListStatus(L);
+    PrintListShop(L);
     return 0;
 }
 

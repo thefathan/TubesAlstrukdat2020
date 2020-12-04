@@ -83,29 +83,48 @@ int main() {
                 int duite = 1000000;
                 TabInv toko, invent;
                 Stack buildkomp;  
-                int i, pilihan;
+                int pilihan;
                 boolean stateProg = true;
                 char command[20];
                 
 
-                /* COBA INISIASI LIST DAN STACK BUKAN DENGAN FILE EKSTERNAL */
+                /*  INISIASI LIST TOKO DENGAN FILE EKSTERNAL 
+                    ASUMSI AWAL GAME PEMAIN TIDAK PUNYA INVENTORY APA-APA */
+
+                
+                FILE *fp;
+                char x;
+                char array[115][2000];
+                char array2[115][2000];
+                char str[100000];
+                char* filename = "listkomponen.txt";
+                int i = 0, j = 0;
+            
+                fp = fopen(filename, "r");
+                if (fp == NULL){
+                    printf("Could not open file %s",filename);
+                    return 1;
+                }
+                while (fgets(str, sizeof(str), fp) != NULL) { 
+                    strcpy(array[i],str);
+                    i++;
+                }
+                fclose(fp);
 
                 toko = MakeList(); // shop, jika beli barang ditransfer ke inventory
-                for (i=0; i<5; i++) {
-                    NamaKomponen NK = {"AMD Ryzen 13 1000GB", 10000, i, 1};
+                int harga, tipe, jumlah;
+                char namakomponen[100], dtm[150], trasit[115];
+
+                for (int a = 0; a < i; a++) {
+                    
+                    strcpy(dtm, array[a]);
+                    sscanf(dtm, "%s %d %d  %d", namakomponen, &harga, &tipe, &jumlah);
+                    NamaKomponen NK = {"dummy", harga, tipe, jumlah};
+                    strcpy(NK.Nama, namakomponen);
                     InsertLast(&toko, NK);
                 }
                 invent = MakeList(); // inventorymu
-                for (i=0; i<3; i++) {
-                    NamaKomponen NK = {"AMD Bakso 1000GB", 10000, i, 1};
-                    InsertLast(&invent, NK);
-                }
                 buildkomp = CreateEmptyStack(); //yg ada di pemasangan komponen
-                for (i=0; i<7; i++) {
-                    Sinfotype input = {"Intel Goreng", 10000, i+1, 1};    
-                    Push(&buildkomp, input);
-                }
-
 
                 while (stateProg == true) {
                     Command();

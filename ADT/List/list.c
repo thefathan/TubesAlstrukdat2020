@@ -157,7 +157,7 @@ boolean SearchB(TabInv list, NamaKomponen el) {
 void PrintList(TabInv list) {
     int i = 0;
     while (i < list.Neff) {
-        printf("%d. %s, %d, %d\n", i+1, Get(list,i).Nama, Get(list,i).harga, Get(list,i).kodeJenis);
+        printf("%d. %s, %d, %d, %d\n", i+1, Get(list,i).Nama, Get(list,i).harga, Get(list,i).kodeJenis, Get(list,i).jumlah);
         i++;
     }
 }
