@@ -7,7 +7,6 @@
 
 // Stack BuildKomponen; // Stack yang ada pada saat merakit komponen komputer
 Sinfotype isiStack;  // Isi dari stack BuildKomponen
-NamaKomponen isiInventory; // Isi dari List Inventory (Tipenya sama kayak Sinfotype)
 // TabInv Inventory, Toko; // List Inventory merupakan sebuah kumpulan komponen komputer, digunakan di Shop/Toko
 // int duitPemain;
 
