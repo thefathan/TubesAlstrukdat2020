@@ -74,7 +74,7 @@ void FINISHBUILD( /* Queue *Q, Stack *S*/ ) {
     // int count = 0;
 
     // for (int i=0, i<8, i++){
-    //     if (S.T[i] == (Head(*Q))->T[i]){
+    //     if (strcmp(S.T[i], (Head(*Q))->T[i]) == 0){
     //         count = count+1;
     //     }
     // }
