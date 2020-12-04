@@ -71,26 +71,32 @@ void InsertAt(TabInv *list, NamaKomponen el, int i);
  */
 void InsertLast(TabInv *list, NamaKomponen el);
 
+
+void InsertFirst(TabInv *list, NamaKomponen el);
 /**
  * Fungsi untuk menambahkan elemen baru di awal list.
  * Prekondisi: list terdefinisi
  */
-void InsertFirst(TabInv *list, NamaKomponen el);
 
 void DeleteAt(TabInv *list, NamaKomponen el);
+/* Menghapus satu NamaKomponen el pada TabInv */
 
 int Search1(TabInv list, NamaKomponen el);
+/* Menemukan elemen NamaKomponen dengan mengembalikan nilai dari indeks NamaKomponen tersebut pertama kali ditemukan */
 
 boolean SearchB(TabInv list, NamaKomponen el);
+/* Menghasilkan true apabila terdapat minimal 1 elemen el di TabInc */
 
 void PrintList(TabInv list);
+/* Ngeprint List */
 
 void PrintListInventory(TabInv list);
+/* Ngeprint List Inventory, hanya namanya saja */
 
 void PrintListShop(TabInv list);
+/* Ngeprint List Shop, nama + harga */
 
 void PrintListStatus(TabInv list);
-
-// TabInv BacaEksternal();
+/* Ngeprint List Status, nama + jumlah */
 
 #endif
