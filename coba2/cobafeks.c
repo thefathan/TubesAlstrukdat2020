@@ -1,28 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-// #include "../ADT/List/list.h"
-
-
 
 
 #define MAXCHAR 100000
-
-
-
-
-// typedef char Komponen[255];
-// typedef struct {
-//     Komponen Nama;
-// } NamaKomponen;
-
-
-// typedef struct {
-//     NamaKomponen *TI;
-//     int Capacity;
-//     int Neff;
-// } TabInv;
-
 
 int main () {
     FILE *fp;

@@ -15,14 +15,14 @@ void Alokasi (address *P, int order_id, int pemesanan, int invoice, char *kompon
         order_id(*P) = order_id;
         pemesanan(*P) = pemesanan;
         invoice(*P) = invoice;
-        (*P) -> T[0].komponen = komponen1;
-        (*P) -> T[1].komponen = komponen2;
-        (*P) -> T[2].komponen = komponen3;
-        (*P) -> T[3].komponen = komponen4;
-        (*P) -> T[4].komponen = komponen5;
-        (*P) -> T[5].komponen = komponen6;
-        (*P) -> T[6].komponen = komponen7;
-        (*P) -> T[7].komponen = komponen8;
+        P->T[0].komponen = komponen1;
+        P->T[1].komponen = komponen2;
+        P->T[2].komponen = komponen3;
+        P->T[3].komponen = komponen4;
+        P->T[4].komponen = komponen5;
+        P->T[5].komponen = komponen6;
+        P->T[6].komponen = komponen7;
+        P->T[7].komponen = komponen8;
         Next(*P) = Nil;
     }
 }

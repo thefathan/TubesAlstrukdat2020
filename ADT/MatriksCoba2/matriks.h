@@ -9,7 +9,7 @@
 
 #include <stdio.h>
 #include "boolean.h"
-#include "array.c"
+#include "point.c"
 
 /* Ukuran minimum dan maksimum baris dan kolom */
 #define BrsMin 1
@@ -19,7 +19,7 @@
 /* Nilai elemen tak terdefinisi */
 
 typedef int indeks; /* indeks baris, kolom */
-typedef int ElType;
+typedef char ElType;
 typedef struct {
     ElType **Mem; /* memori tempat penyimpan elemen (container) */
     int MaxBrs; /* ukuran elemen baris */
@@ -56,10 +56,10 @@ indeks GetLastIdxKol (MATRIKS M);
 /* Mengirimkan indeks kolom terbesar M */
 
 /* ********** KELOMPOK BACA/TULIS ********** */
-void BacaMATRIKS (MATRIKS * M, Bangunan B);
+void BacaMATRIKS (MATRIKS * M, POINT P);
 /* I.S. Matriks M terdefinisi
-        Bangunan B terdefinisi */
-/* F.S. Indeks Bangunan dimasukkan ke dalam Matriks */
+        Eltype X terdefinisi */
+/* F.S. koordinat point dimasukkan ke dalam indeks Matriks */
 void TulisMATRIKS (MATRIKS M);
 // ? Untuk debugging doang kayaknya
 /* I.S. M terdefinisi */

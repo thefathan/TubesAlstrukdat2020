@@ -6,7 +6,7 @@
 #include "../ADT/boolean.h"
 #include "../ADT/List/list.c"
 #include "../ADT/Stack/stack.c"
-#include "../ADT/Queuelist/queuelist.c"
+#include "../ADT/Queue/circular_queue.c"
 
 // Belum ada parameter prosedur di command.
 // Silakan dilanjut disini
@@ -20,9 +20,9 @@ void STATUS(TabInv *Inventory, int *duitPemain);
 
 void CHECKORDER();
 
-void STARTBUILD();
+void STARTBUILD(Queue *Q, Stack *S);
 
-void FINISHBUILD();
+void FINISHBUILD(Queue *Q, Stack *S);
 
 void ADDCOMPONENT(Stack *BuildKomponen, TabInv *Inventory);
 

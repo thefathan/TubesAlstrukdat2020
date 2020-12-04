@@ -60,17 +60,26 @@ void CHECKORDER() {                                                 // Baru temp
     getchar();
 }
 
-void STARTBUILD( /* Queue Q, Stack *S*/ ) {
+void STARTBUILD(Queue *Q, Stack *S) {
     printf("========================================================\n");
-    // printf ("kamu telah memulai pesanan %d untuk pelanggan %d \n",order_id(Head(*Q)), pemesanan(Head(*Q)))
+    printf ("Kamu telah memulai pesanan %d untuk pelanggan %d.\n", FrontQueue(*Q).order_id, FrontQueue(*Q).pemesanan);
     // CreateEmptyStack();
     printf("========================================================\n");
     printf("\nTekan enter untuk kembali ke menu command.\n");
     getchar();
 }
 
-void FINISHBUILD( /* Queue *Q, Stack *S*/ ) {
+void FINISHBUILD(Queue *Q, Stack *S) {
     printf("========================================================\n");
+
+    
+    // COBA
+    printf("Pesanan %d telah selesai. Silahkan antar ke pelanggan %d.\n", FrontQueue(*Q).pemesanan, FrontQueue(*Q).pemesanan);
+    ElType selesai = Dequeue(Q);
+    // COBA
+
+
+
     // int count = 0;
 
     // for (int i=0, i<8, i++){

@@ -6,30 +6,40 @@
 #define __circular_queue_h__
 
 #include "boolean.h"
+#include "../List/list.h"
 
 /* Nilai untuk indeks yang tidak terdefinisi */
 #define NIL -999
 
 /* Definisi tipe elemen dan indeks pada Queue */
-typedef int ElType;
 typedef int IdxType;
+
+typedef char Komponen[255];
+typedef NamaKomponen NamaKomponenQueue;
+
+typedef struct {
+        NamaKomponenQueue NKQ;
+        int order_id;
+        int pemesanan;
+        int invoice;
+} ElType;
 
 typedef struct { ElType * Tab;  /* tabel penyimpan elemen */
                  IdxType HEAD;  /* indeks elemen paling awal (terdepan) */
                  IdxType TAIL;  /* indeks tempat menambah elemen baru */
-                 int MaxEl;     /* kapasitas jumlah elemen */
+                 int MaxElQueue;     /* kapasitas jumlah elemen */
                } Queue;
 /* Definisi Queue kosong: HEAD=NIL; TAIL=NIL. */
 
 /* ********* Prototype ********* */
-boolean IsEmpty (Queue Q);
+boolean IsEmptyQueue (Queue Q);
 /* Mengirim true jika Q kosong: lihat definisi di atas */
-boolean IsFull (Queue Q);
+boolean IsFullQueue (Queue Q);
 /* Mengirim true jika tabel penampung elemen Q sudah penuh */
 /* yaitu mengandung elemen sebanyak MaxEl */
-int Length (Queue Q);
+int LengthQueue (Queue Q);
 /* Mengirimkan banyaknya elemen Q, 0 jika kosong */
-int MaxLength (Queue Q);
+int MaxLengthQueue (Queue Q);
 /* Mengirimkan kapasitas jumlah elemen Q */
 
 /* *** Kreator *** */
@@ -47,23 +57,25 @@ void DeleteQueue (Queue * Q);
 /* F.S. membebaskan memori Tab, Q.MaxEl di-set 0 */
 
 /* *** Primitif Add/Delete *** */
-void Push (Queue * Q, ElType X);
+void Enqueue (Queue * Q, ElType X);
 /* Proses: Menambahkan X pada Q dengan aturan FIFO */
 /* I.S. Q mungkin kosong, tabel penampung elemen Q TIDAK penuh */
 /* F.S. X menjadi TAIL yang baru,
         TAIL "maju" dengan mekanisme circular buffer
         Jika Q kosong, HEAD dimulai dari 0 */
-ElType Pop (Queue * Q);
+ElType Dequeue (Queue * Q);
 /* Proses: Menghapus indeks HEAD pada Q dengan aturan FIFO, lalu mengembalikan nilainya */
 /* I.S. Q tidak mungkin kosong */
 /* F.S. mengembalikan nilai Q pada indeks HEAD;
         HEAD "maju" dengan mekanisme circular buffer;
         Q mungkin kosong */
-ElType Front (Queue Q);
+ElType FrontQueue (Queue Q);
 /* Proses: Mengembalikan nilai Q pada indeks HEAD tanpa penghapusan */
 /* I.S. Q tidak mungkin kosong */
 /* F.S. mengembalikan nilai Q pada indeks HEAD;
         Q pasti tetap tidak kosong */
+
+ElType BacktQueue (Queue Q);
 
 /* *** Utilitas *** */
 Queue CopyQueue (Queue Q);
@@ -71,5 +83,10 @@ Queue CopyQueue (Queue Q);
 /* I.S. Q pernah dialokasi */
 /* F.S. Queue baru dengan nilai isi antrean sama seperti Q;
         HEAD pada Queue baru dimulai dari 0 */
+
+
+void PrintQueue(Queue Q);
+
+void PrintQueueCheckOrder(Queue Q);
 
 #endif

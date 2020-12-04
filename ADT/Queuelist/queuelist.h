@@ -14,11 +14,22 @@ typedef int infotype;
 /* Queue dengan representasi berkait dengan pointer */
 typedef struct tElmtQueue * address;
 
+
+
+typedef char Komponen[255];
+typedef struct {
+    Komponen Nama;
+    int harga;
+    int kodeJenis;
+    int jumlah;
+} Komp;
+
+
 typedef struct tElmtQueue {
     int order_id;
     int pemesanan;
     int invoice;
-    char *komponen T[8]; 
+    Komp *T;
     address Next;
 } ElmtQueue;
 

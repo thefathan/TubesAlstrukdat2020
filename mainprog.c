@@ -83,6 +83,7 @@ int main() {
                 int duite = 1000000;
                 TabInv toko, invent;
                 Stack buildkomp;  
+                Queue orderQueue;
                 int pilihan;
                 boolean stateProg = true;
                 char command[20];
@@ -112,19 +113,26 @@ int main() {
                 fclose(fp);
 
                 toko = MakeList(); // shop, jika beli barang ditransfer ke inventory
-                int harga, tipe, jumlah;
-                char namakomponen[100], dtm[150], trasit[115];
+                invent = MakeList(); // inventorymu
+                buildkomp = CreateEmptyStack(); //yg ada di pemasangan komponen
+                orderQueue = CreateQueue(200); // untuk queue 
 
+                int harga, tipe, jumlah;
+                char namakomponen[100], dtm[150];
                 for (int a = 0; a < i; a++) {
-                    
                     strcpy(dtm, array[a]);
                     sscanf(dtm, "%s %d %d  %d", namakomponen, &harga, &tipe, &jumlah);
                     NamaKomponen NK = {"dummy", harga, tipe, jumlah};
                     strcpy(NK.Nama, namakomponen);
                     InsertLast(&toko, NK);
                 }
-                invent = MakeList(); // inventorymu
-                buildkomp = CreateEmptyStack(); //yg ada di pemasangan komponen
+
+
+                for (int i = 0; i < 20; i++) {                                  // inisiasi orderQueue tanpa eksternal dan random
+                    ElType X = {{"AMD Zotac", 200, 2, 1}, i+1, i+20, 2000};
+                    Enqueue(&orderQueue,X);
+                }   
+
 
                 while (stateProg == true) {
                     Command();
@@ -198,14 +206,14 @@ int main() {
 
                     // COMMAND STARTBUILD ----------------------------------------------------------------------
                     else if (strcmp(command, "STARTBUILD") == 0) {
-                        STARTBUILD();
+                        STARTBUILD(&orderQueue, &buildkomp);
                         getchar();
                     }
 
 
                     // COMMAND FINISHBUILD --------------------------------------------------------------------
                     else if (strcmp(command, "FINISHBUILD") == 0) {
-                        FINISHBUILD();
+                        FINISHBUILD(&orderQueue, &buildkomp);
                         getchar();
                     }
 

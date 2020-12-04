@@ -1,23 +1,28 @@
-#include<stdlib.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include "circular_queue.h"
 
 /* ********* Prototype ********* */
-boolean IsEmpty (Queue Q) {
+boolean IsEmptyQueue (Queue Q) {
     return Q.HEAD == NIL && Q.TAIL == NIL;
 }
-boolean IsFull (Queue Q) {
-    return Length(Q) == Q.MaxEl;
+boolean IsFullQueue (Queue Q) {
+    return LengthQueue(Q) == Q.MaxElQueue;
 }
-int Length (Queue Q) {
-    if (IsEmpty(Q))
+int LengthQueue (Queue Q) {
+    if (IsEmptyQueue(Q)) {
         return 0;
-    else if (Q.HEAD >= Q.TAIL)
-        return Q.MaxEl + Q.TAIL - Q.HEAD;
-    else
+    }
+    else if (Q.HEAD >= Q.TAIL) {
+        return Q.MaxElQueue + Q.TAIL - Q.HEAD;
+    }
+    else {
         return Q.TAIL - Q.HEAD;
+    }
 }
-int MaxLength (Queue Q) {
-    return Q.MaxEl;
+
+int MaxLengthQueue (Queue Q) {
+    return Q.MaxElQueue;
 }
 
 /* *** Kreator *** */
@@ -26,32 +31,32 @@ Queue CreateQueue (int Max) {
     Q.Tab = (ElType *) malloc (Max * sizeof(ElType));
     Q.HEAD = NIL;
     Q.TAIL = NIL;
-    Q.MaxEl = Max;
+    Q.MaxElQueue = Max;
     return Q;
 }
 
 /* *** Destruktor *** */
 void DeleteQueue (Queue * Q) {
-    Q->MaxEl = 0;
+    Q->MaxElQueue = 0;
     free(Q->Tab);
 }
 
 /* *** Primitif Add/Delete *** */
-void Push (Queue * Q, ElType X) {
-    if (IsEmpty(*Q)) {
+void Enqueue (Queue * Q, ElType X) {
+    if (IsEmptyQueue(*Q)) {
         Q->HEAD = 0;
         Q->TAIL = 0;
     }
     Q->Tab[Q->TAIL] = X;
     Q->TAIL++;
-    if (Q->TAIL == Q->MaxEl) {
+    if (Q->TAIL == Q->MaxElQueue) {
         Q->TAIL = 0;
     }
 }
-ElType Pop (Queue * Q) {
+ElType Dequeue (Queue * Q) {
     ElType ret = Q->Tab[Q->HEAD];
     Q->HEAD++;
-    if (Q->HEAD == Q->MaxEl) {
+    if (Q->HEAD == Q->MaxElQueue) {
         Q->HEAD = 0;
     }
     if (Q->HEAD == Q->TAIL) {
@@ -60,19 +65,45 @@ ElType Pop (Queue * Q) {
     }
     return ret;
 }
-ElType Front (Queue Q) {
+ElType FrontQueue (Queue Q) {
     return Q.Tab[Q.HEAD];
+}
+
+ElType BacktQueue (Queue Q) {
+    return Q.Tab[Q.TAIL];
 }
 
 /* *** Utilitas *** */
 Queue CopyQueue (Queue Q) {
-    Queue new = CreateQueue(Q.MaxEl);
-    if (!IsEmpty(Q)) {
+    Queue new = CreateQueue(Q.MaxElQueue);
+    if (!IsEmptyQueue(Q)) {
         int tail = Q.HEAD;
-        while (Length(new) != Length(Q)) {
-            Push(&new, Q.Tab[tail]);
-            tail = (tail + 1) % Q.MaxEl;
+        while (LengthQueue(new) != LengthQueue(Q)) {
+            Enqueue(&new, Q.Tab[tail]);
+            tail = (tail + 1) % Q.MaxElQueue;
         }
     }
     return new;
+}
+
+void PrintQueue(Queue Q) {
+    Queue Q2 = CopyQueue(Q);
+    ElType hasil;
+    int i = 0;
+    while (i < Q.MaxElQueue) {
+        printf("%d. {{%s, %d, %d, %d}, %d, %d, %d}\n" , i+1, FrontQueue(Q).NKQ.Nama, FrontQueue(Q).NKQ.harga, FrontQueue(Q).NKQ.kodeJenis, FrontQueue(Q).NKQ.jumlah, FrontQueue(Q).invoice, FrontQueue(Q).order_id, FrontQueue(Q).pemesanan);
+        i++;
+        hasil = Dequeue(&Q);
+    }
+}
+
+void PrintQueueCheckOrder(Queue Q) {
+    Queue Q2 = CopyQueue(Q);
+    ElType hasil;
+    int i = 0;
+    while (i < Q.MaxElQueue) {
+        printf("%d. %s\n" , i+1, FrontQueue(Q).NKQ.Nama);
+        i++;
+        hasil = Dequeue(&Q);
+    }
 }
