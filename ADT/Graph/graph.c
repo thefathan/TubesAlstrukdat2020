@@ -58,16 +58,10 @@ adrNode SearchNode (Graph G, int X){
 /* mengembalikan address simpul dengan Id=X jika sudah ada pada graph G,
 Nil jika belum */
 	adrNode Pn = First(G);
-	if (First(G) != Nil){
-		while (Pn != Nil && Id(Pn) == X){
-			return Pn;
-		}
+    while (Pn != Nil && (!isEqual(Pn, X))){
+			Pn = Next(Pn);
+    }
 
-		Pn = Next(Pn);
-	}
-	else{
-		return Pn;
-	}
 	return Pn;
 }
 
@@ -80,7 +74,7 @@ jika sudah ada pada graph G, Nil jika belum */
 	}
 
 	adrSuccNode P = Trail(Pn);
-	while (Pn != Nil && (!isEqual(Succ(P), succ))){
+	while (P != Nil && (!isEqual(Succ(P), succ))){
 		P = Next(P);
 	}
 
@@ -94,14 +88,13 @@ void InsertNode (Graph* G, int X, adrNode* Pn){
 address simpul X. Jika alokasi gagal, G tetap, Pn berisi Nil */
 	*Pn = AlokNode(X);
         adrNode P = First(*G);
-        if (Pn != Nil) {
+        if (P != Nil) {
             while (P != Nil) {
-			P = Next(P);
+                P = Next(P);
             }
 
-		Next(P) = *Pn;
+            Next(P) = *Pn;
         }
-
 
         else{
             First(*G) = *Pn;
@@ -121,7 +114,7 @@ di G, maka G tetap. */
 			InsertNode(G, prec, &Pn);
 		}
 
-		adrNode Pt = Succ(Pt);
+		adrNode Pt = SearchNode(*G, succ);
 		if(Pt == Nil){
 			InsertNode(G, succ, &Pt);
 		}
@@ -131,7 +124,7 @@ di G, maka G tetap. */
 				P = Next(P);
 			}
 
-			Next(P) = AlokSuccNode(Pn);
+			Next(P) = AlokSuccNode(Pt);
 		}
 
 		else{
