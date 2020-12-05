@@ -68,7 +68,7 @@ void InsertAt(TabInv *list, NamaKomponen el, int i) {
             array[a] = list->TI[a];
         }
         free(list->TI);
-        
+
         list->TI = array;
         list->Capacity = desiredCapacity;
     }
@@ -136,7 +136,7 @@ int Search1(TabInv list, NamaKomponen el) {
     return IdxUndef;
 }
 
-boolean SearchB(TabInv list, NamaKomponen el) {
+boolean Search2(TabInv list, NamaKomponen el) {
     boolean Found = false;
     int i = 0;
     while ((!Found) && (i < Length(list))) {
