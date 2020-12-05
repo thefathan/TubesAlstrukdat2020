@@ -13,7 +13,27 @@ boolean Exit;       // = false;
 boolean ExitMenu;   // = false;
 // boolean EndTurn;    // = false;
 // boolean AksiValid;	// = true
+TabInt TabAlmt;
+MATRIKS map;
 
+void saveMap(int x, int y, int n){ //X = NB; Y = NK
+    for(int i = 1; i <= x; i++){
+        for(int j = 1; j <= y; j++){
+            boolean a = false;
+            for(int k = 1; k <= n; k++){
+                POINT t = Titik(Elmt(TabAlmt, k));
+                if(EQ(t, MakePOINT(i, j))){
+                    a = true;
+                    Isi(map, i, j) = Jenis(Elmt(TabAlmt, k));
+                }
+            }
+
+            if (!a){
+                Isi(map, i, j) = " ";
+            }
+        }
+    }
+}
 
 int main() {
     do {
@@ -82,14 +102,14 @@ int main() {
 
                 int duite = 1000000;
                 TabInv toko, invent;
-                Stack buildkomp, queuekomp;  
+                Stack buildkomp, queuekomp;
                 Queue orderQueue;
                 int pilihan, nomorantrian = 1;
                 boolean stateProg = true;
                 char command[20];
-                
 
-                /*  INISIASI LIST TOKO DENGAN FILE EKSTERNAL 
+
+                /*  INISIASI LIST TOKO DENGAN FILE EKSTERNAL
                     ASUMSI AWAL GAME PEMAIN TIDAK PUNYA INVENTORY APA-APA */
 
                 queuekomp = CreateEmptyStack();
@@ -134,7 +154,7 @@ int main() {
 
                 // PrintStack(&queuekomp);
 
-                
+
                 FILE *fp;
                 char x;
                 char array[115][2000];
@@ -142,13 +162,13 @@ int main() {
                 char str[100000];
                 char* filename = "listkomponen.txt";
                 int i = 0, j = 0;
-            
+
                 fp = fopen(filename, "r");
                 if (fp == NULL){
                     printf("Could not open file %s",filename);
                     return 1;
                 }
-                while (fgets(str, sizeof(str), fp) != NULL) { 
+                while (fgets(str, sizeof(str), fp) != NULL) {
                     strcpy(array[i],str);
                     i++;
                 }
@@ -157,7 +177,7 @@ int main() {
                 toko = MakeList(); // shop, jika beli barang ditransfer ke inventory
                 invent = MakeList(); // inventorymu
                 buildkomp = CreateEmptyStack(); //yg ada di pemasangan komponen
-                orderQueue = CreateQueue(200); // untuk queue 
+                orderQueue = CreateQueue(200); // untuk queue
 
                 int harga, tipe, jumlah;
                 char namakomponen[100], dtm[150];
@@ -169,12 +189,62 @@ int main() {
                     InsertLast(&toko, NK);
                 }
 
+                int q = 0, w = 0;
+                Graph G;
+
+                char konf[2000] = "filekonfig.txt";
+                STARTKATA(konf);
+                int NB = KataToInt(CKata);
+                ADVKATA();
+                int NK = KataToInt(CKata);
+                ADVKATA();
+                int MaxEl = KataToInt(CKata);
+                printf("jumlah baris %d\n", NB);
+                printf("jumlah kolom %d\n", NK);
+                printf("jumlah elemen %d\n", MaxEl);
+                POINT P;
+                MakeEmpty(&TabAlmt, MaxEl);
+                for(int i = 0; i < MaxEl; i++){
+
+                        ADVKATA();
+                        char Char = KataToChar(CKata);
+                        printf("%c ", Char);
+                        ADVKATA();
+                        int e = KataToInt(CKata);
+                        printf("%d ", e);
+                        ADVKATA();
+                        int f = KataToInt(CKata);
+                        printf("%d\n", f);
+                        Alamat Z;
+                        MakeAlamat(&Z, MakePOINT(e, f), Char);
+                        AddAsLastEl(&TabAlmt, Z);
+                        if (Char == 'B') {
+                            P = MakePOINT(e, f);
+                        }
+                }
+                /*
+                CreateGraph(1, &G);
+                for (int i = 1; i <= MaxEl; i++){
+                    for (int j = 1; j <= MaxEl; j++){
+                        if (CKata.TabKata[1] == '1'){
+                            InsertEdge(&G, i, j);
+                        }
+                        printf("%d\n", i);
+                        ADVKATA();
+                    }
+                }
+
+                MakeMATRIKS(NB, NK, &map);
+                saveMap(NB, NK, MaxEl);
+
+                */
+
                 ElTypeQueue Y = {{" ", 0, 0, 0}, 0, 0, 0};
                 Enqueue(&orderQueue,Y);
                 for (int i = 0; i < 20; i++) {                                  // inisiasi orderQueue tanpa eksternal dan random
                     ElTypeQueue X = {{"AMD Zotac", 200, 2, 1}, i+1, i+20, rand()};
                     Enqueue(&orderQueue,X);
-                }   
+                }
 
 
                 while (stateProg == true) {
