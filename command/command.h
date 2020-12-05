@@ -10,11 +10,12 @@
 #include "../ADT/Alamat/alamat.c"
 #include "../ADT/Graph/graph.c"
 #include "../ADT/array/array.c"
-#include "../ADT/MatriksCoba2/matriks.c"
+// #include "../ADT/MatriksCoba2/matriks.c"
 #include "../ADT/MesinKataMesinKarakter/mesinkata_config.c"
 
 // Belum ada parameter prosedur di command.
 // Silakan dilanjut disini
+
 
 
 
@@ -41,7 +42,7 @@ void END_DAY();
 
 void SAVE();
 
-void MAP();
+void MAP( /*int NB, int NK, POINT P, MATRIKS map */ );
 
 int EXIT(char *opsiKeluar);
 

@@ -1,13 +1,3 @@
-/* NAMA / NIM :                           */
-/* 1. Muhammad Hasan           / 13518012 */
-/* 2. Anna Elvira Hartoyo      / 13518045 */
-/* 3. Daniel Riyanto           / 13518075 */
-/* 4. Faris Muhammad Kautsar   / 13518105 */
-/* 5. Gregorius Jovan Kresnadi / 13518135 */
-
-/* File header: point.h */
-/* *** Definisi ABSTRACT DATA TYPE POINT *** */
-
 #ifndef POINT_H
 #define POINT_H
 

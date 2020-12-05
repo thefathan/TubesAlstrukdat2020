@@ -2,7 +2,7 @@
 #define ARRAYDIN_H
 
 #include "../Alamat/alamat.h"
-#include "boolean.h"
+#include "../boolean.h"
 
 /*  Kamus Umum */
 #define IdxMin 1

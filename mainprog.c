@@ -14,26 +14,26 @@ boolean ExitMenu;   // = false;
 // boolean EndTurn;    // = false;
 // boolean AksiValid;	// = true
 TabInt TabAlmt;
-MATRIKS map;
+// MATRIKS map;
 
-void saveMap(int x, int y, int n){ //X = NB; Y = NK
-    for(int i = 1; i <= x; i++){
-        for(int j = 1; j <= y; j++){
-            boolean a = false;
-            for(int k = 1; k <= n; k++){
-                POINT t = Titik(Elmt(TabAlmt, k));
-                if(EQ(t, MakePOINT(i, j))){
-                    a = true;
-                    Isi(map, i, j) = Jenis(Elmt(TabAlmt, k));
-                }
-            }
+// void saveMap(int x, int y, int n){ //X = NB; Y = NK
+//     for(int i = 1; i <= x; i++){
+//         for(int j = 1; j <= y; j++){
+//             boolean a = false;
+//             for(int k = 1; k <= n; k++){
+//                 POINT t = Titik(Elmt(TabAlmt, k));
+//                 if(EQ(t, MakePOINT(i, j))){
+//                     a = true;
+//                     Isi(map, i, j) = Jenis(Elmt(TabAlmt, k));
+//                 }
+//             }
 
-            if (!a){
-                Isi(map, i, j) = " ";
-            }
-        }
-    }
-}
+//             if (!a){
+//                 Isi(map, i, j) = " ";
+//             }
+//         }
+//     }
+// }
 
 int main() {
     do {
@@ -191,7 +191,7 @@ int main() {
 
                 int q = 0, w = 0;
                 Graph G;
-
+                
                 char konf[2000] = "filekonfig.txt";
                 STARTKATA(konf);
                 int NB = KataToInt(CKata);
@@ -204,26 +204,26 @@ int main() {
                 printf("jumlah kolom %d\n", NK);
                 printf("jumlah elemen %d\n", MaxEl);
                 */
-                POINT P;
-                MakeEmpty(&TabAlmt, MaxEl);
-                for(int i = 0; i < MaxEl; i++){
+                // POINT P;
+                // MakeEmpty(&TabAlmt, MaxEl);
+                // for(int i = 0; i < MaxEl; i++){
 
-                        ADVKATA();
-                        char Char = KataToChar(CKata);
-                        // printf("%c ", Char);
-                        ADVKATA();
-                        int e = KataToInt(CKata);
-                        // printf("%d ", e);
-                        ADVKATA();
-                        int f = KataToInt(CKata);
-                        // printf("%d\n", f);
-                        Alamat Z;
-                        MakeAlamat(&Z, MakePOINT(e, f), Char);
-                        AddAsLastEl(&TabAlmt, Z);
-                        if (Char == 'B') {
-                            P = MakePOINT(e, f);
-                        }
-                }
+                //         ADVKATA();
+                //         char Char = KataToChar(CKata);
+                //         // printf("%c ", Char);
+                //         ADVKATA();
+                //         int e = KataToInt(CKata);
+                //         // printf("%d ", e);
+                //         ADVKATA();
+                //         int f = KataToInt(CKata);
+                //         // printf("%d\n", f);
+                //         Alamat Z;
+                //         MakeAlamat(&Z, MakePOINT(e, f), Char);
+                //         AddAsLastEl(&TabAlmt, Z);
+                //         if (Char == 'B') {
+                //             P = MakePOINT(e, f);
+                //         }
+                // }
                 /*
                 CreateGraph(1, &G);
                 for (int i = 1; i <= MaxEl; i++){
@@ -356,7 +356,7 @@ int main() {
 
                     // COMMAND MAP -----------------------------------------------------------------------------
                     else if (strcmp(command, "MAP") == 0) {
-                        MAP();
+                        MAP( /*NB, NK, P, map*/ );
                         getchar();
                     }
 

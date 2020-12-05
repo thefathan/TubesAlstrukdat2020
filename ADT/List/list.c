@@ -100,7 +100,7 @@ void InsertFirst(TabInv *list, NamaKomponen el) {
 
 
 void DeleteAt(TabInv *list, NamaKomponen el) {
-    if (SearchB(*list, el)) {
+    if (Search2(*list, el)) {
         int lokasi = Search1(*list, el);
         if (lokasi != Length(*list)-1) {
             for (int x = lokasi; x <= Length(*list)-1; x++) {

@@ -1,12 +1,3 @@
-/* NAMA / NIM :                           */
-/* 1. Muhammad Hasan           / 13518012 */
-/* 2. Anna Elvira Hartoyo      / 13518045 */
-/* 3. Daniel Riyanto           / 13518075 */
-/* 4. Faris Muhammad Kautsar   / 13518105 */
-/* 5. Gregorius Jovan Kresnadi / 13518135 */
-
-/* File body: matriks.c */
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -22,23 +13,23 @@ void MakeMATRIKS (int NB, int NK, MATRIKS * M) {
 /* F.S. Terbentuk tabel T kosong dengan kapasitas MaxBrs + 1 dan MaxKol + 1 */
 
   /* KAMUS LOKAL */
-  IdxType i, j;
+    int i, j;
 
-  /* ALGORITMA */
-  Mem(*M) = (int **) malloc ((NB + 1) * sizeof(int *));
+    /* ALGORITMA */
+    Mem(*M) = (int **) malloc ((NB + 1) * sizeof(int *));
 
-  for (i = 0; i <= NB; i++) {
-    (*M).Mem[i] = (int *) malloc ((NK + 1) * sizeof(int *));
-  }
-
-  MaxBrs(*M) = NB;
-  MaxKol(*M) = NK;
-
-  for (i = 1; i <= NB; i++) {
-    for (j = 1; j <= NK; j++) {
-      Isi(*M, i, j) = ValUndef;
+    for (i = 0; i <= NB; i++) {
+      (*M).Mem[i] = (int *) malloc ((NK + 1) * sizeof(int *));
     }
-  }
+
+    MaxBrs(*M) = NB;
+    MaxKol(*M) = NK;
+
+    for (i = 1; i <= NB; i++) {
+      for (j = 1; j <= NK; j++) {
+        Isi(*M, i, j) = ValUndef;
+      }
+    }
 }
 
 void DealokasiMatriks (MATRIKS * M) {
@@ -48,9 +39,9 @@ void DealokasiMatriks (MATRIKS * M) {
   /* KAMUS LOKAL */
 
   /* ALGORITMA */
-  free(Mem(*M));
-  MaxBrs(*M) = 0;
-  MaxKol(*M) = 0;
+    free(Mem(*M));
+    MaxBrs(*M) = 0;
+    MaxKol(*M) = 0;
 }
 
 /* ********** KELOMPOK BACA/TULIS ********** */
@@ -67,16 +58,16 @@ void TulisMATRIKS (MATRIKS M) {
 8 9 10
 */
 
-  /* KAMUS LOKAL */
-  IdxType i, j;
+    /* KAMUS LOKAL */
+    int i, j;
 
-  /* ALGORITMA */
-  for (i = 1; i <= MaxBrs(M); i++) {
-    for (j = 1; j < MaxKol(M); j++) {
-      printf("%d ", Isi(M, i, j));
+    /* ALGORITMA */
+    for (i = 1; i <= MaxBrs(M); i++) {
+      for (j = 1; j < MaxKol(M); j++) {
+        printf("%d ", Isi(M, i, j));
+      }
+      printf("%d\n", Isi(M, i, j));
     }
-    printf("%d\n", Isi(M, i, j));
-  }
 }
 
 /* ********** Operasi lain ********** */
@@ -84,21 +75,20 @@ int NBElmtMatriks (MATRIKS M) {
 // ? Untuk debugging doang
 /* Mengirimkan banyaknya elemen M */
 
-  /* KAMUS LOKAL */
-  int total;
-  IdxType i, j;
+    /* KAMUS LOKAL */
+    int total;
+    int i, j;
 
-  /* ALGORITMA */
-  total = 0;
+    /* ALGORITMA */
+    total = 0;
 
-  for (i = 1; i <= MaxBrs(M); i++) {
-    for (j = 1; j <= MaxKol(M); j++) {
-      if (Isi(M, i, j) != 0) {
-        total += 1;
+    for (i = 1; i <= MaxBrs(M); i++) {
+      for (j = 1; j <= MaxKol(M); j++) {
+        if (Isi(M, i, j) != 0) {
+          total += 1;
+        }
       }
     }
-  }
-
-  return total;
+    return total;
 }
 

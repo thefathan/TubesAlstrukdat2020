@@ -4,7 +4,7 @@
 
 #ifndef GRAPH_H
 #define GRAPH_H
-#define Nil NULL
+#define NILL NULL
 
 /* Definisi Tipe Data */
 typedef struct tNodeGraph* adrNode;

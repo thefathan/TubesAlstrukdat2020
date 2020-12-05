@@ -5,7 +5,7 @@
 void CreateGraph (int X, Graph* G){
 /* I.S. Sembarang; F.S. Terbentuk Graph dengan satu simpul dengan Id=X */
 	/*G = (adrNode) malloc (sizeof(NodeGraph)); */
-	First(*G) = Nil;
+	First(*G) = NILL;
 	adrNode P;
 	InsertNode(G, X, &P);
 }
@@ -18,11 +18,11 @@ dan Next(P)=Nil. Jika alokasi gagal, mengembalikan Nil. */
 	adrNode P;
 
 	P = (adrNode) malloc (sizeof(NodeGraph));
-	if (P != Nil){
+	if (P != NILL){
 		Id(P) = X;
 		NPred(P) = 0;
-		Trail(P) = Nil;
-		Next(P) = Nil;
+		Trail(P) = NILL;
+		Next(P) = NILL;
 	}
 
 	return P;
@@ -41,9 +41,9 @@ alokasi gagal, mengembalikan Nil. */
 	adrSuccNode Pt;
 
 	Pt = (adrSuccNode) malloc (sizeof(adrSuccNode));
-	if (Pt != Nil){
+	if (Pt != NILL){
 		Succ(Pt) = Pn;
-		Next(Pt) = Nil;
+		Next(Pt) = NILL;
 	}
 
 	return Pt;
@@ -58,7 +58,7 @@ adrNode SearchNode (Graph G, int X){
 /* mengembalikan address simpul dengan Id=X jika sudah ada pada graph G,
 Nil jika belum */
 	adrNode Pn = First(G);
-    while (Pn != Nil && (!isEqual(Pn, X))){
+    while (Pn != NILL && (!isEqual(Pn, X))){
 			Pn = Next(Pn);
     }
 
@@ -69,12 +69,12 @@ adrSuccNode SearchEdge (Graph G, int prec, int succ){
 /* mengembalikan address trailer yang menyimpan info busur (prec,succ)
 jika sudah ada pada graph G, Nil jika belum */
 	adrNode Pn = SearchNode(G, prec);
-	if (Pn == Nil){
-		return Nil;
+	if (Pn == NILL){
+		return NILL;
 	}
 
 	adrSuccNode P = Trail(Pn);
-	while (P != Nil && (!isEqual(Succ(P), succ))){
+	while (P != NILL && (!isEqual(Succ(P), succ))){
 		P = Next(P);
 	}
 
@@ -88,8 +88,8 @@ void InsertNode (Graph* G, int X, adrNode* Pn){
 address simpul X. Jika alokasi gagal, G tetap, Pn berisi Nil */
 	*Pn = AlokNode(X);
         adrNode P = First(*G);
-        if (P != Nil) {
-            while (P != Nil) {
+        if (P != NILL) {
+            while (P != NILL) {
                 P = Next(P);
             }
 
@@ -108,19 +108,19 @@ void InsertEdge (Graph* G, int prec, int succ){
 (prec,succ) ke G. Jika simpul prec/succ belum ada pada G,
 tambahkan simpul tersebut dahulu. Jika sudah ada busur (prec,succ)
 di G, maka G tetap. */
-	if (SearchEdge(*G, prec, succ) == Nil){
+	if (SearchEdge(*G, prec, succ) == NILL){
 		adrNode Pn = SearchNode(*G, prec);
-		if (Pn == Nil){
+		if (Pn == NILL){
 			InsertNode(G, prec, &Pn);
 		}
 
 		adrNode Pt = SearchNode(*G, succ);
-		if(Pt == Nil){
+		if(Pt == NILL){
 			InsertNode(G, succ, &Pt);
 		}
         adrSuccNode P = Trail(Pn);
-		if (P != Nil){
-			while (Next(P) != Nil){
+		if (P != NILL){
+			while (Next(P) != NILL){
 				P = Next(P);
 			}
 

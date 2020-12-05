@@ -240,26 +240,26 @@ void SAVE() {
     getchar();
 }
 
-void MAP() {
+void MAP(/* int NB, int NK, POINT P, MATRIKS map */) {
 
-    for(int i = 0; i <= NK + 1; i++){
-            printf("*");
-        }
-        for(int j = 1; j <= NB; j++){
-            for(int i = 1; i <= NK; i++){
-                printf("*");
-                POINT B = MakePOINT(i, j);
-                if(EQ(P, B)){
-                    printf(Isi(map, j, i));
-                }
-                else{
-                    printf(" ");
-                }
-            }
-        }
-        for(int i = 0; i <= NK + 1; i++){
-            printf("*");
-        }
+    // for(int i = 0; i <= NK + 1; i++){
+    //         printf("*");
+    //     }
+    //     for(int j = 1; j <= NB; j++){
+    //         for(int i = 1; i <= NK; i++){
+    //             printf("*");
+    //             POINT B = MakePOINT(i, j);
+    //             if(EQ(P, B)){
+    //                 printf(Isi(map, j, i));
+    //             }
+    //             else{
+    //                 printf(" ");
+    //             }
+    //         }
+    //     }
+    //     for(int i = 0; i <= NK + 1; i++){
+    //         printf("*");
+    //     }
 
     printf("========================================================\n");
     printf("Command MAP belum diimplementasikan.\n");
