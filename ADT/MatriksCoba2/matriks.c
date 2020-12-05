@@ -36,7 +36,7 @@ void MakeMATRIKS (int NB, int NK, MATRIKS * M) {
 
   for (i = 1; i <= NB; i++) {
     for (j = 1; j <= NK; j++) {
-      Elmt(*M, i, j) = ValUndef;
+      Isi(*M, i, j) = ValUndef;
     }
   }
 }
@@ -54,23 +54,6 @@ void DealokasiMatriks (MATRIKS * M) {
 }
 
 /* ********** KELOMPOK BACA/TULIS ********** */
-void BacaMATRIKS (MATRIKS * M, Bangunan B) {
-/* I.S. Matriks M terdefinisi
-        Bangunan B terdefinisi */
-/* F.S. Indeks Bangunan dimasukkan ke dalam Matriks */
-
-  /* KAMUS LOKAL */
-  IdxType i;
-  ElType X, Y;
-
-  /* ALGORITMA */
-  for (i = GetFirstBan(B); i <= GetLastBan(B); i++) {
-    X = Absis(Posisi(ElmtBan(B, i)));
-    Y = Ordinat(Posisi(ElmtBan(B, i)));
-
-    Elmt(*M, X, Y) = i;
-  }
-}
 
 void TulisMATRIKS (MATRIKS M) {
 // ? Untuk debugging doang kayaknya
@@ -90,9 +73,9 @@ void TulisMATRIKS (MATRIKS M) {
   /* ALGORITMA */
   for (i = 1; i <= MaxBrs(M); i++) {
     for (j = 1; j < MaxKol(M); j++) {
-      printf("%d ", Elmt(M, i, j));
+      printf("%d ", Isi(M, i, j));
     }
-    printf("%d\n", Elmt(M, i, j));
+    printf("%d\n", Isi(M, i, j));
   }
 }
 
@@ -110,7 +93,7 @@ int NBElmtMatriks (MATRIKS M) {
 
   for (i = 1; i <= MaxBrs(M); i++) {
     for (j = 1; j <= MaxKol(M); j++) {
-      if (Elmt(M, i, j) != 0) {
+      if (Isi(M, i, j) != 0) {
         total += 1;
       }
     }
@@ -118,3 +101,4 @@ int NBElmtMatriks (MATRIKS M) {
 
   return total;
 }
+
