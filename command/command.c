@@ -28,7 +28,7 @@ void MOVE() {               // Baru template, belum diimplementasikan
     getchar();
 }
 
-void STATUS(TabInv *Inventory, Queue *Q, int *duitPemain) { 
+void STATUS(TabInv *Inventory, Queue *Q, int *duitPemain) {
     printf("========================================================\n");
     printf("Uang tersisa: $%d\n", *duitPemain);
     if (FrontQueue(*Q).order_id < 1) {
@@ -45,7 +45,7 @@ void STATUS(TabInv *Inventory, Queue *Q, int *duitPemain) {
     getchar();
 }
 
-void CHECKORDER(Queue *Q, Stack *QS) {                                                 
+void CHECKORDER(Queue *Q, Stack *QS) {
     printf("========================================================\n");
     if (FrontQueue(*Q).order_id < 1) {
         printf("Belum ada orderan yang dimulai pengerjaannya. Silakan lakukan STARTBUILD untuk memulai pengerjaan.\n");
@@ -100,7 +100,7 @@ void FINISHBUILD(Queue *Q, Stack *S, Stack *QS, int *nomorantrian, int *duitPema
     else {
         printf("Komponen yang dipasangkan belum sesuai dengan pesanan, build belum dapat diselesaikan.\n");
     }
-    
+
     // COBA
 
 
@@ -241,6 +241,26 @@ void SAVE() {
 }
 
 void MAP() {
+
+    for(int i = 0; i <= NK + 1; i++){
+            printf("*");
+        }
+        for(int j = 1; j <= NB; j++){
+            for(int i = 1; i <= NK; i++){
+                printf("*");
+                POINT B = MakePOINT(i, j);
+                if(EQ(P, B)){
+                    printf(Isi(map, j, i));
+                }
+                else{
+                    printf(" ");
+                }
+            }
+        }
+        for(int i = 0; i <= NK + 1; i++){
+            printf("*");
+        }
+
     printf("========================================================\n");
     printf("Command MAP belum diimplementasikan.\n");
     printf("========================================================\n");
