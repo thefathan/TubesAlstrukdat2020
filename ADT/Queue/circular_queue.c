@@ -28,7 +28,7 @@ int MaxLengthQueue (Queue Q) {
 /* *** Kreator *** */
 Queue CreateQueue (int Max) {
     Queue Q;
-    Q.Tab = (ElType *) malloc (Max * sizeof(ElType));
+    Q.Tab = (ElTypeQueue *) malloc (Max * sizeof(ElTypeQueue));
     Q.HEAD = NIL;
     Q.TAIL = NIL;
     Q.MaxElQueue = Max;
@@ -42,7 +42,7 @@ void DeleteQueue (Queue * Q) {
 }
 
 /* *** Primitif Add/Delete *** */
-void Enqueue (Queue * Q, ElType X) {
+void Enqueue (Queue * Q, ElTypeQueue X) {
     if (IsEmptyQueue(*Q)) {
         Q->HEAD = 0;
         Q->TAIL = 0;
@@ -53,8 +53,8 @@ void Enqueue (Queue * Q, ElType X) {
         Q->TAIL = 0;
     }
 }
-ElType Dequeue (Queue * Q) {
-    ElType ret = Q->Tab[Q->HEAD];
+ElTypeQueue Dequeue (Queue * Q) {
+    ElTypeQueue ret = Q->Tab[Q->HEAD];
     Q->HEAD++;
     if (Q->HEAD == Q->MaxElQueue) {
         Q->HEAD = 0;
@@ -65,11 +65,11 @@ ElType Dequeue (Queue * Q) {
     }
     return ret;
 }
-ElType FrontQueue (Queue Q) {
+ElTypeQueue FrontQueue (Queue Q) {
     return Q.Tab[Q.HEAD];
 }
 
-ElType BacktQueue (Queue Q) {
+ElTypeQueue BacktQueue (Queue Q) {
     return Q.Tab[Q.TAIL];
 }
 
@@ -88,7 +88,7 @@ Queue CopyQueue (Queue Q) {
 
 void PrintQueue(Queue Q) {
     Queue Q2 = CopyQueue(Q);
-    ElType hasil;
+    ElTypeQueue hasil;
     int i = 0;
     while (i < Q.MaxElQueue) {
         printf("%d. {{%s, %d, %d, %d}, %d, %d, %d}\n" , i+1, FrontQueue(Q).NKQ.Nama, FrontQueue(Q).NKQ.harga, FrontQueue(Q).NKQ.kodeJenis, FrontQueue(Q).NKQ.jumlah, FrontQueue(Q).invoice, FrontQueue(Q).order_id, FrontQueue(Q).pemesanan);
@@ -99,7 +99,7 @@ void PrintQueue(Queue Q) {
 
 void PrintQueueCheckOrder(Queue Q) {
     Queue Q2 = CopyQueue(Q);
-    ElType hasil;
+    ElTypeQueue hasil;
     int i = 0;
     while (i < Q.MaxElQueue) {
         printf("%d. %s\n" , i+1, FrontQueue(Q).NKQ.Nama);

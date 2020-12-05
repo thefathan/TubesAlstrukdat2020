@@ -11,10 +11,10 @@ int main() {
     // }
 
     Q = CreateQueue(100);
-    ElType Y = {{" ", 0, 0, 0}, 0, 0, 0};
+    ElTypeQueue Y = {{" ", 0, 0, 0}, 0, 0, 0};
     Enqueue(&Q,Y);
     for (int i = 0; i < 20; i++) {
-        ElType X = {{"AMD Zotac", 200, 2, 1}, i+1, i+20, 2000};
+        ElTypeQueue X = {{"AMD Zotac", 200, 2, 1}, i+1, i+20, 2000};
         // printf("%d\n", X.NKQ.harga);
         Enqueue(&Q,X);
     }

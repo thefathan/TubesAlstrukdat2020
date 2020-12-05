@@ -127,10 +127,10 @@ int main() {
                     InsertLast(&toko, NK);
                 }
 
-                ElType Y = {{" ", 0, 0, 0}, 0, 0, 0};
+                ElTypeQueue Y = {{" ", 0, 0, 0}, 0, 0, 0};
                 Enqueue(&orderQueue,Y);
                 for (int i = 0; i < 20; i++) {                                  // inisiasi orderQueue tanpa eksternal dan random
-                    ElType X = {{"AMD Zotac", 200, 2, 1}, i+1, i+20, 2000};
+                    ElTypeQueue X = {{"AMD Zotac", 200, 2, 1}, i+1, i+20, 2000};
                     Enqueue(&orderQueue,X);
                 }   
 

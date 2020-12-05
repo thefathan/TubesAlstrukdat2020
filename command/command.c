@@ -75,7 +75,7 @@ void CHECKORDER(Queue *Q) {
 void STARTBUILD(Queue *Q, Stack *S) {
     printf("========================================================\n");
     if (FrontQueue(*Q).order_id < 1) {
-        ElType awalan = Dequeue(Q);
+        ElTypeQueue awalan = Dequeue(Q);
         printf ("Kamu telah memulai pesanan %d untuk pelanggan %d.\n", FrontQueue(*Q).order_id, FrontQueue(*Q).pemesanan);
     } else {
         printf ("Kamu telah memulai pesanan %d untuk pelanggan %d.\n", FrontQueue(*Q).order_id, FrontQueue(*Q).pemesanan);
@@ -92,7 +92,7 @@ void FINISHBUILD(Queue *Q, Stack *S) {
     
     // COBA
     printf("Pesanan %d telah selesai. Silahkan antar ke pelanggan %d.\n", FrontQueue(*Q).pemesanan, FrontQueue(*Q).pemesanan);
-    ElType selesai = Dequeue(Q);
+    ElTypeQueue selesai = Dequeue(Q);
     // COBA
 
 
