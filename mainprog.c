@@ -84,7 +84,7 @@ int main() {
                 TabInv toko, invent;
                 Stack buildkomp, queuekomp;  
                 Queue orderQueue;
-                int pilihan;
+                int pilihan, nomorantrian = 1;
                 boolean stateProg = true;
                 char command[20];
                 
@@ -93,9 +93,43 @@ int main() {
                     ASUMSI AWAL GAME PEMAIN TIDAK PUNYA INVENTORY APA-APA */
 
                 queuekomp = CreateEmptyStack();
-                for (int h = 0; h < 8; h++) {
+
+                if (nomorantrian == 2) {
+                    Sinfotype QK = {"Asus-ROG-Zenith-II-Extreme 1000", 1, 1, 1};
+                    Push(&queuekomp, QK);
+                    Sinfotype QI = {"AMD-Ryzen-Threadripper-3990X-2.9Ghz-Up-To-4.3Ghz-64-Core 5100", 1, 1, 1};
+                    Push(&queuekomp, QI);
+                    Sinfotype QJ = {"ADATA-DDR4-XPG-GAMMIX-D30-PC24000-3000MHz-16GB-(2X8GB)-Dual-Channel-AX4U300038G16A-DR30", 1, 1, 1};
+                    Push(&queuekomp, QJ);
+                    Sinfotype QL = {"CUBE-GAMING-STORM-DUAL-FAN-12CM-ARGB-Universal-Socket", 1, 1, 1};
+                    Push(&queuekomp, QL);
+                    Sinfotype QM = {"Antec-Premium-Gaming-Case-TORQUE-BLACK-/-WHITE-Alumunium-Panels-Dual-Side-Tempered-Glass", 1, 1, 1};
+                    Push(&queuekomp, QM);
+                    Sinfotype QN = {"Asus-GeForce-RTX-3090-24GB-GDDR6X-ROG-Strix", 1, 1, 1};
+                    Push(&queuekomp, QN);
+                    Sinfotype QO = {"Apacer-AS340-120GB-Panther", 1, 1, 1};
+                    Push(&queuekomp, QO);
+                    Sinfotype QP = {"Asus-ROG-Strix-550W-Fully-Modular-80+-Gold", 1, 1, 1};
+                    Push(&queuekomp, QP);
+                }
+
+                else if (nomorantrian == 1) {
                     Sinfotype QK = {"AMD", 1, 1, 1};
                     Push(&queuekomp, QK);
+                    Sinfotype QI = {"AMD", 1, 1, 1};
+                    Push(&queuekomp, QI);
+                    Sinfotype QJ = {"AMD", 1, 1, 1};
+                    Push(&queuekomp, QJ);
+                    Sinfotype QL = {"AMD", 1, 1, 1};
+                    Push(&queuekomp, QL);
+                    Sinfotype QM = {"AMD", 1, 1, 1};
+                    Push(&queuekomp, QM);
+                    Sinfotype QN = {"AMD", 1, 1, 1};
+                    Push(&queuekomp, QN);
+                    Sinfotype QO = {"AMD", 1, 1, 1};
+                    Push(&queuekomp, QO);
+                    Sinfotype QP = {"AMD", 1, 1, 1};
+                    Push(&queuekomp, QP);
                 }
 
                 // PrintStack(&queuekomp);
@@ -138,7 +172,7 @@ int main() {
                 ElTypeQueue Y = {{" ", 0, 0, 0}, 0, 0, 0};
                 Enqueue(&orderQueue,Y);
                 for (int i = 0; i < 20; i++) {                                  // inisiasi orderQueue tanpa eksternal dan random
-                    ElTypeQueue X = {{"AMD Zotac", 200, 2, 1}, i+1, i+20, 2000};
+                    ElTypeQueue X = {{"AMD Zotac", 200, 2, 1}, i+1, i+20, rand()};
                     Enqueue(&orderQueue,X);
                 }   
 
@@ -222,7 +256,7 @@ int main() {
 
                     // COMMAND FINISHBUILD --------------------------------------------------------------------
                     else if (strcmp(command, "FINISHBUILD") == 0) {
-                        FINISHBUILD(&orderQueue, &buildkomp, &queuekomp);
+                        FINISHBUILD(&orderQueue, &buildkomp, &queuekomp, &nomorantrian, &duite);
                         getchar();
                     }
 

@@ -22,7 +22,7 @@ void CHECKORDER(Queue *Q, Stack *QS);
 
 void STARTBUILD(Queue *Q);
 
-void FINISHBUILD(Queue *Q, Stack *S, Stack *QS);
+void FINISHBUILD(Queue *Q, Stack *S, Stack *QS, int *nomorantrian,int *duitPemain);
 
 void ADDCOMPONENT(Stack *BuildKomponen, TabInv *Inventory);
 

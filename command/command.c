@@ -83,13 +83,19 @@ void STARTBUILD(Queue *Q) {
     getchar();
 }
 
-void FINISHBUILD(Queue *Q, Stack *S, Stack *QS) {
+void FINISHBUILD(Queue *Q, Stack *S, Stack *QS, int *nomorantrian, int *duitPemain) {
     printf("========================================================\n");
     Stack C1 = *S;
     Stack C2 = *QS;
-    if (IsStackSama(&C1, &C2)) {
+    if (IsStackSama(&C1, &C2) && (S->TOP == 8)) {
         printf("Pesanan %d telah selesai. Silahkan antar ke pelanggan %d.\n", FrontQueue(*Q).pemesanan, FrontQueue(*Q).pemesanan);
+        *duitPemain = *duitPemain + FrontQueue(*Q).invoice;
+        Sinfotype buangan;
+        for (int i = 0; i < S->TOP; i++) {
+            Pop(S, &buangan);
+        }
         ElTypeQueue selesai = Dequeue(Q);
+        *nomorantrian++;
     }
     else {
         printf("Komponen yang dipasangkan belum sesuai dengan pesanan, build belum dapat diselesaikan.\n");
