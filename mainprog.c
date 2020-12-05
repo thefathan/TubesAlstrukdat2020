@@ -62,15 +62,15 @@ int main() {
             else if (strcmp(menu, "PLAY") == 0) {
                 puts("");
                 Loading();
-                // sleep(1);
-                // printf("|||||||||||||||||||||||||");
-                // sleep(1);
-                // printf("|||||||||||||||||||");
-                // sleep(1);
-                // printf("||||||||||||||||||||");
-                // sleep(1);
-                // printf("|||||||||||||||");
-                // sleep(1);
+                sleep(1);
+                printf("|||||||||||||||||||||||||");
+                sleep(1);
+                printf("|||||||||||||||||||");
+                sleep(1);
+                printf("||||||||||||||||||||");
+                sleep(1);
+                printf("|||||||||||||||");
+                sleep(1);
                 printf("\n\nLoading complete!\n\n");
                 sleep(1);
                 printf("Tekan enter untuk melanjutkan.");
@@ -95,9 +95,9 @@ int main() {
                 queuekomp = CreateEmptyStack();
 
                 if (nomorantrian == 2) {
-                    Sinfotype QK = {"Asus-ROG-Zenith-II-Extreme 1000", 1, 1, 1};
+                    Sinfotype QK = {"Asus-ROG-Zenith-II-Extreme", 1, 1, 1};
                     Push(&queuekomp, QK);
-                    Sinfotype QI = {"AMD-Ryzen-Threadripper-3990X-2.9Ghz-Up-To-4.3Ghz-64-Core 5100", 1, 1, 1};
+                    Sinfotype QI = {"AMD-Ryzen-Threadripper-3990X-2.9Ghz-Up-To-4.3Ghz-64-Core", 1, 1, 1};
                     Push(&queuekomp, QI);
                     Sinfotype QJ = {"ADATA-DDR4-XPG-GAMMIX-D30-PC24000-3000MHz-16GB-(2X8GB)-Dual-Channel-AX4U300038G16A-DR30", 1, 1, 1};
                     Push(&queuekomp, QJ);
@@ -114,21 +114,21 @@ int main() {
                 }
 
                 else if (nomorantrian == 1) {
-                    Sinfotype QK = {"AMD", 1, 1, 1};
+                    Sinfotype QK = {"GALAX-B460M", 1, 1, 1};
                     Push(&queuekomp, QK);
-                    Sinfotype QI = {"AMD", 1, 1, 1};
+                    Sinfotype QI = {"Intel-Core-i7-7740X-4.3Ghz-Up-To-4.5Ghz-Cache-8MB-[Box]-Socket-LGA-2066-Kabylake-X-Series", 1, 1, 1};
                     Push(&queuekomp, QI);
-                    Sinfotype QJ = {"AMD", 1, 1, 1};
+                    Sinfotype QJ = {"KLEVV-DDR4-CRASS-X-RGB-PC28800-3600MHz-32GB-(2X16GB)-RGB-LED-KD4AGU880-36A180X", 1, 1, 1};
                     Push(&queuekomp, QJ);
-                    Sinfotype QL = {"AMD", 1, 1, 1};
+                    Sinfotype QL = {"CUBE-GAMING-STORM-DUAL-FAN-12CM-ARGB-Universal-Socket", 1, 1, 1};
                     Push(&queuekomp, QL);
-                    Sinfotype QM = {"AMD", 1, 1, 1};
+                    Sinfotype QM = {"Corsair-Obsidian-500D-RGB-SE", 1, 1, 1};
                     Push(&queuekomp, QM);
-                    Sinfotype QN = {"AMD", 1, 1, 1};
+                    Sinfotype QN = {"XFX-Radeon-RX-5700-XT-8GB-GDDR6-TRIPLE-DISSIPATION-Triple-Fan-RX-57XT83LD8", 1, 1, 1};
                     Push(&queuekomp, QN);
-                    Sinfotype QO = {"AMD", 1, 1, 1};
+                    Sinfotype QO = {"KLEVV-SSD-CRAS-C710-512GB-M.2-2280-NVMe-PCle-Gen3-x4-K512GM2SP0-C71-R2050MB/s-W1650MB/s", 1, 1, 1};
                     Push(&queuekomp, QO);
-                    Sinfotype QP = {"AMD", 1, 1, 1};
+                    Sinfotype QP = {"Asus-ROG-Thor-1200W-Fully-Modular-80+-Platinum", 1, 1, 1};
                     Push(&queuekomp, QP);
                 }
 
