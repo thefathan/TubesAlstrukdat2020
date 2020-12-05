@@ -199,22 +199,24 @@ int main() {
                 int NK = KataToInt(CKata);
                 ADVKATA();
                 int MaxEl = KataToInt(CKata);
+                /*
                 printf("jumlah baris %d\n", NB);
                 printf("jumlah kolom %d\n", NK);
                 printf("jumlah elemen %d\n", MaxEl);
+                */
                 POINT P;
                 MakeEmpty(&TabAlmt, MaxEl);
                 for(int i = 0; i < MaxEl; i++){
 
                         ADVKATA();
                         char Char = KataToChar(CKata);
-                        printf("%c ", Char);
+                        // printf("%c ", Char);
                         ADVKATA();
                         int e = KataToInt(CKata);
-                        printf("%d ", e);
+                        // printf("%d ", e);
                         ADVKATA();
                         int f = KataToInt(CKata);
-                        printf("%d\n", f);
+                        // printf("%d\n", f);
                         Alamat Z;
                         MakeAlamat(&Z, MakePOINT(e, f), Char);
                         AddAsLastEl(&TabAlmt, Z);
