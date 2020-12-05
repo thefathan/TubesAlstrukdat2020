@@ -25,7 +25,7 @@ bool IsStackFull(Stack S)
 /* Mengirim true jika stack S penuh */
 /* Ciri stack penuh : TOP bernilai MaxEl */
 {
-    return S.TOP == MaxEl;
+    return S.TOP == MaxElStack;
 }
 /* ********** Operator Dasar Stack ********* */
 void Push(Stack *S, Sinfotype X)

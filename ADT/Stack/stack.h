@@ -12,7 +12,7 @@ TOP adalah alamat elemen puncak*/
 #define false 0
 #define true 1
 #define Nil 0
-#define MaxEl 8
+#define MaxElStack 8
 #define InitialSizeStack 200
 
 typedef int bool;
@@ -36,7 +36,7 @@ typedef struct
 /* *** Konstruktor/Kreator *** */
 Stack CreateEmptyStack();
 /* I.S. Sembarang */
-/* F.S. Membuat sebuah stack S yang kosong berkapasitas MaxEl */
+/* F.S. Membuat sebuah stack S yang kosong berkapasitas MaxElStack */
 /* Ciri stack kosong : TOP bernilai Nil */
 
 /* ********* Predikat Untuk test keadaan KOLEKSI ********* */
@@ -45,7 +45,7 @@ bool IsStackEmpty(Stack S);
 /* Ciri stack kosong : TOP bernilai Nil */
 bool IsStackFull(Stack S);
 /* Mengirim true jika stack S penuh */
-/* Ciri stack penuh : TOP bernilai MaxEl */
+/* Ciri stack penuh : TOP bernilai MaxElStack */
 
 /* ********** Operator Dasar Stack ********* */
 void Push(Stack *S, Sinfotype X);
