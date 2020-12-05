@@ -84,8 +84,9 @@ void DeleteAt(TabInv *list, NamaKomponen el);
 int Search1(TabInv list, NamaKomponen el);
 /* Menemukan elemen NamaKomponen dengan mengembalikan nilai dari indeks NamaKomponen tersebut pertama kali ditemukan */
 
-boolean SearchB(TabInv list, NamaKomponen el);
+boolean Search2(TabInv list, NamaKomponen el);
 /* Menghasilkan true apabila terdapat minimal 1 elemen el di TabInc */
+
 
 void PrintList(TabInv list);
 /* Ngeprint List */
