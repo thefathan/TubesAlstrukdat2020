@@ -45,7 +45,7 @@ void STATUS(TabInv *Inventory, Queue *Q, int *duitPemain) {
     getchar();
 }
 
-void CHECKORDER(Queue *Q) {                                                 
+void CHECKORDER(Queue *Q, Stack *QS) {                                                 
     printf("========================================================\n");
     if (FrontQueue(*Q).order_id < 1) {
         printf("Belum ada orderan yang dimulai pengerjaannya. Silakan lakukan STARTBUILD untuk memulai pengerjaan.\n");
@@ -55,9 +55,7 @@ void CHECKORDER(Queue *Q) {
         printf("Pemesan: Pelanggan %d\n", FrontQueue(*Q).pemesanan);
         printf("Invoice: $%d\n", FrontQueue(*Q).invoice);
         printf("Komponen:\n");
-        for (int i = 0; i < 8; i++) {
-            printf("%d. %s\n", i+1, FrontQueue(*Q).NKQ.Nama);
-        }
+        PrintStackAddComponent(QS);
     }
     // printf("1. <Motherboard B450>\n");
     // printf("2. <Ryzen 5 4500>\n");
@@ -72,7 +70,7 @@ void CHECKORDER(Queue *Q) {
     getchar();
 }
 
-void STARTBUILD(Queue *Q, Stack *S) {
+void STARTBUILD(Queue *Q) {
     printf("========================================================\n");
     if (FrontQueue(*Q).order_id < 1) {
         ElTypeQueue awalan = Dequeue(Q);
@@ -80,19 +78,23 @@ void STARTBUILD(Queue *Q, Stack *S) {
     } else {
         printf ("Kamu telah memulai pesanan %d untuk pelanggan %d.\n", FrontQueue(*Q).order_id, FrontQueue(*Q).pemesanan);
     }
-    // CreateEmptyStack();
     printf("========================================================\n");
     printf("\nTekan enter untuk kembali ke menu command.\n");
     getchar();
 }
 
-void FINISHBUILD(Queue *Q, Stack *S) {
+void FINISHBUILD(Queue *Q, Stack *S, Stack *QS) {
     printf("========================================================\n");
-
+    Stack C1 = *S;
+    Stack C2 = *QS;
+    if (IsStackSama(&C1, &C2)) {
+        printf("Pesanan %d telah selesai. Silahkan antar ke pelanggan %d.\n", FrontQueue(*Q).pemesanan, FrontQueue(*Q).pemesanan);
+        ElTypeQueue selesai = Dequeue(Q);
+    }
+    else {
+        printf("Komponen yang dipasangkan belum sesuai dengan pesanan, build belum dapat diselesaikan.\n");
+    }
     
-    // COBA
-    printf("Pesanan %d telah selesai. Silahkan antar ke pelanggan %d.\n", FrontQueue(*Q).pemesanan, FrontQueue(*Q).pemesanan);
-    ElTypeQueue selesai = Dequeue(Q);
     // COBA
 
 

@@ -18,11 +18,11 @@ void MOVE();
 
 void STATUS(TabInv *Inventory, Queue *Q, int *duitPemain);
 
-void CHECKORDER(Queue *Q);
+void CHECKORDER(Queue *Q, Stack *QS);
 
-void STARTBUILD(Queue *Q, Stack *S);
+void STARTBUILD(Queue *Q);
 
-void FINISHBUILD(Queue *Q, Stack *S);
+void FINISHBUILD(Queue *Q, Stack *S, Stack *QS);
 
 void ADDCOMPONENT(Stack *BuildKomponen, TabInv *Inventory);
 

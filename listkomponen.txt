@@ -113,3 +113,4 @@ Aerocool-VX-PLUS-350W-Efficiency-Up-To-80% 20 8 1
 Aerocool-LUX-RGB-550W-Modular-80-Plus-Bronze 35 8 1
 Asus-ROG-Strix-550W-Fully-Modular-80+-Gold 110 8 1
 Asus-ROG-Thor-1200W-Fully-Modular-80+-Platinum 400 8 1
+AMD 400 8 1

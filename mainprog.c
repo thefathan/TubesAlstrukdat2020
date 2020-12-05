@@ -62,15 +62,15 @@ int main() {
             else if (strcmp(menu, "PLAY") == 0) {
                 puts("");
                 Loading();
-                sleep(1);
-                printf("|||||||||||||||||||||||||");
-                sleep(1);
-                printf("|||||||||||||||||||");
-                sleep(1);
-                printf("||||||||||||||||||||");
-                sleep(1);
-                printf("|||||||||||||||");
-                sleep(1);
+                // sleep(1);
+                // printf("|||||||||||||||||||||||||");
+                // sleep(1);
+                // printf("|||||||||||||||||||");
+                // sleep(1);
+                // printf("||||||||||||||||||||");
+                // sleep(1);
+                // printf("|||||||||||||||");
+                // sleep(1);
                 printf("\n\nLoading complete!\n\n");
                 sleep(1);
                 printf("Tekan enter untuk melanjutkan.");
@@ -82,7 +82,7 @@ int main() {
 
                 int duite = 1000000;
                 TabInv toko, invent;
-                Stack buildkomp;  
+                Stack buildkomp, queuekomp;  
                 Queue orderQueue;
                 int pilihan;
                 boolean stateProg = true;
@@ -91,6 +91,14 @@ int main() {
 
                 /*  INISIASI LIST TOKO DENGAN FILE EKSTERNAL 
                     ASUMSI AWAL GAME PEMAIN TIDAK PUNYA INVENTORY APA-APA */
+
+                queuekomp = CreateEmptyStack();
+                for (int h = 0; h < 8; h++) {
+                    Sinfotype QK = {"AMD", 1, 1, 1};
+                    Push(&queuekomp, QK);
+                }
+
+                // PrintStack(&queuekomp);
 
                 
                 FILE *fp;
@@ -193,7 +201,7 @@ int main() {
 
                     // COMMAND CHECKORDER ---------------------------------------------------------------------
                     else if (strcmp(command, "CHECKORDER") == 0) {
-                        CHECKORDER(&orderQueue);
+                        CHECKORDER(&orderQueue, &queuekomp);
                         getchar();
                     }
 
@@ -207,14 +215,14 @@ int main() {
 
                     // COMMAND STARTBUILD ----------------------------------------------------------------------
                     else if (strcmp(command, "STARTBUILD") == 0) {
-                        STARTBUILD(&orderQueue, &buildkomp);
+                        STARTBUILD(&orderQueue);
                         getchar();
                     }
 
 
                     // COMMAND FINISHBUILD --------------------------------------------------------------------
                     else if (strcmp(command, "FINISHBUILD") == 0) {
-                        FINISHBUILD(&orderQueue, &buildkomp);
+                        FINISHBUILD(&orderQueue, &buildkomp, &queuekomp);
                         getchar();
                     }
 

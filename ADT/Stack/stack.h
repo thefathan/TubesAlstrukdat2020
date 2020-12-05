@@ -72,5 +72,7 @@ void PrintStack(Stack *S);
 
 void PrintStackAddComponent(Stack *S);
 
+bool IsStackSama(Stack *S1, Stack *S2);
+
 
 #endif

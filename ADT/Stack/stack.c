@@ -112,3 +112,15 @@ void PrintStackAddComponent(Stack *S)
         i++;
     }
 }
+
+bool IsStackSama(Stack *S1, Stack *S2) {
+    Sinfotype elemen1, elemen2;
+    for (int i = 1; i <= MaxElStack; i++) {
+        Pop(S1, &elemen1);
+        Pop(S2, &elemen2);
+        if(strcmp(elemen1.Nama, elemen2.Nama) == 0) {
+            return true;
+        }
+    }
+    return false;
+}
