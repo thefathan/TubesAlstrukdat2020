@@ -7,6 +7,11 @@
 #include "../ADT/List/list.c"
 #include "../ADT/Stack/stack.c"
 #include "../ADT/Queue/circular_queue.c"
+#include "../ADT/Alamat/alamat.c"
+#include "../ADT/Graph/graph.c"
+#include "../ADT/array/array.c"
+#include "../ADT/MatriksCoba2/matriks.c"
+#include "../ADT/MesinKataMesinKarakter/mesinkata_config.c"
 
 // Belum ada parameter prosedur di command.
 // Silakan dilanjut disini
