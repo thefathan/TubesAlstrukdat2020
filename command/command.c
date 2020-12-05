@@ -28,10 +28,15 @@ void MOVE() {               // Baru template, belum diimplementasikan
     getchar();
 }
 
-void STATUS(TabInv *Inventory, int *duitPemain) {                   // Baru template, belum diimplementasikan
+void STATUS(TabInv *Inventory, Queue *Q, int *duitPemain) { 
     printf("========================================================\n");
     printf("Uang tersisa: $%d\n", *duitPemain);
-    printf("Build yang sedang dikerjakan: pesanan <23> untuk pelanggan <4>.\n");
+    if (FrontQueue(*Q).order_id < 1) {
+        printf("Build yang sedang dikerjakan: Belum ada pesanan yang dimulai.\n");
+    }
+    else {
+        printf("Build yang sedang dikerjakan: Pesanan %d untuk pelanggan %d.\n", FrontQueue(*Q).order_id, FrontQueue(*Q).pemesanan);
+    }
     printf("Lokasi: pemain sedang berada pada <base>.\n");
     printf("Inventory Anda: \n");
     PrintListStatus(*Inventory);
@@ -40,21 +45,28 @@ void STATUS(TabInv *Inventory, int *duitPemain) {                   // Baru temp
     getchar();
 }
 
-void CHECKORDER() {                                                 // Baru template, belum diimplementasikan
+void CHECKORDER(Queue *Q) {                                                 
     printf("========================================================\n");
-    printf("Command CHECKORDER belum diimplementasikan.\n");
-    printf("Nomor Order: <23>\n");
-    printf("Pemesan: Pelanggan <2>\n");
-    printf("Invoice: <$2300>\n");
-    printf("Komponen:\n");
-    printf("1. <Motherboard B450>\n");
-    printf("2. <Ryzen 5 4500>\n");
-    printf("3. <Kingston 16GB>\n");
-    printf("4. <Cooler Master Silent Cooler>\n");
-    printf("5. <NZXT H510i>\n");
-    printf("6. <AMD Radeon 6800XT>\n");
-    printf("7. <HDD 1TB>\n");
-    printf("8. <PSU 600W>\n");
+    if (FrontQueue(*Q).order_id < 1) {
+        printf("Belum ada orderan yang dimulai pengerjaannya. Silakan lakukan STARTBUILD untuk memulai pengerjaan.\n");
+    }
+    else {
+        printf("Nomor Order: %d\n", FrontQueue(*Q).order_id);
+        printf("Pemesan: Pelanggan %d\n", FrontQueue(*Q).pemesanan);
+        printf("Invoice: $%d\n", FrontQueue(*Q).invoice);
+        printf("Komponen:\n");
+        for (int i = 0; i < 8; i++) {
+            printf("%d. %s\n", i+1, FrontQueue(*Q).NKQ.Nama);
+        }
+    }
+    // printf("1. <Motherboard B450>\n");
+    // printf("2. <Ryzen 5 4500>\n");
+    // printf("3. <Kingston 16GB>\n");
+    // printf("4. <Cooler Master Silent Cooler>\n");
+    // printf("5. <NZXT H510i>\n");
+    // printf("6. <AMD Radeon 6800XT>\n");
+    // printf("7. <HDD 1TB>\n");
+    // printf("8. <PSU 600W>\n");
     printf("========================================================\n");
     printf("\nTekan enter untuk kembali ke menu command.\n");
     getchar();
@@ -62,7 +74,12 @@ void CHECKORDER() {                                                 // Baru temp
 
 void STARTBUILD(Queue *Q, Stack *S) {
     printf("========================================================\n");
-    printf ("Kamu telah memulai pesanan %d untuk pelanggan %d.\n", FrontQueue(*Q).order_id, FrontQueue(*Q).pemesanan);
+    if (FrontQueue(*Q).order_id < 1) {
+        ElType awalan = Dequeue(Q);
+        printf ("Kamu telah memulai pesanan %d untuk pelanggan %d.\n", FrontQueue(*Q).order_id, FrontQueue(*Q).pemesanan);
+    } else {
+        printf ("Kamu telah memulai pesanan %d untuk pelanggan %d.\n", FrontQueue(*Q).order_id, FrontQueue(*Q).pemesanan);
+    }
     // CreateEmptyStack();
     printf("========================================================\n");
     printf("\nTekan enter untuk kembali ke menu command.\n");

@@ -127,7 +127,8 @@ int main() {
                     InsertLast(&toko, NK);
                 }
 
-
+                ElType Y = {{" ", 0, 0, 0}, 0, 0, 0};
+                Enqueue(&orderQueue,Y);
                 for (int i = 0; i < 20; i++) {                                  // inisiasi orderQueue tanpa eksternal dan random
                     ElType X = {{"AMD Zotac", 200, 2, 1}, i+1, i+20, 2000};
                     Enqueue(&orderQueue,X);
@@ -192,14 +193,14 @@ int main() {
 
                     // COMMAND CHECKORDER ---------------------------------------------------------------------
                     else if (strcmp(command, "CHECKORDER") == 0) {
-                        CHECKORDER();
+                        CHECKORDER(&orderQueue);
                         getchar();
                     }
 
 
                     // COMMAND STATUS -------------------------------------------------------------------------
                     else if (strcmp(command, "STATUS") == 0) {
-                        STATUS(&invent, &duite);
+                        STATUS(&invent, &orderQueue, &duite);
                         getchar();
                     }
 

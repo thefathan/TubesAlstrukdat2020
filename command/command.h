@@ -16,9 +16,9 @@
 
 void MOVE();
 
-void STATUS(TabInv *Inventory, int *duitPemain);
+void STATUS(TabInv *Inventory, Queue *Q, int *duitPemain);
 
-void CHECKORDER();
+void CHECKORDER(Queue *Q);
 
 void STARTBUILD(Queue *Q, Stack *S);
 
