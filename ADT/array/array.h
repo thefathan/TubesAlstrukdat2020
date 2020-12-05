@@ -1,203 +1,186 @@
-/* NAMA / NIM :                           */
-/* 1. Muhammad Hasan           / 13518012 */
-/* 2. Anna Elvira Hartoyo      / 13518045 */
-/* 3. Daniel Riyanto           / 13518075 */
-/* 4. Faris Muhammad Kautsar   / 13518105 */
-/* 5. Gregorius Jovan Kresnadi / 13518135 */
+#ifndef ARRAYDIN_H
+#define ARRAYDIN_H
 
-/* File header: array.h */
-
-#ifndef ARRAY_H
-#define ARRAY_H
-
-#include "../boolean/boolean.h"
-#include "../point/point.h"
+#include "../Alamat/alamat.h"
+#include "boolean.h"
 
 /*  Kamus Umum */
 #define IdxMin 1
 /* Indeks minimum array */
+#define IdxUndef -999
+/* Indeks tak terdefinisi*/
 
 /* Definisi elemen dan koleksi objek */
-typedef int IdxType;  /* type indeks */
-typedef int ElType;   /* type elemen tabel */ // ! Untuk Relate (sementara)
-
-typedef struct {
-  char name;            /* tipe bangunan */
-  POINT posisi;         /* posisi bangunan */
-  int level;            /* level bangunan */
-  int tentara;          /* jumlah tentara yang dimiliki bangunan */
-  boolean hasmoved;     /* status sudah move atau belum */
-  boolean hasattacked;    /* status sudah attack atau belum */
-  boolean defense;      /* status memiliki pertahanan atau tidak */
-
-} info_bangunan;
-
-typedef struct {
-  info_bangunan *BI; /* memori tempat penyimpan elemen (container) */
+typedef int IdxType; /* type indeks */
+typedef Alamat ElType;  /* type elemen tabel */
+typedef struct
+{
+  ElType *TI; /* memori tempat penyimpan elemen (container) */
   int Neff;   /* >=0, banyaknya elemen efektif */
   int MaxEl;  /* ukuran elemen */
-} Bangunan;
+} TabInt;
 /* Indeks yang digunakan [IdxMin..MaxEl] */
-/* Jika B adalah Bangunan, cara deklarasi dan akses: */
-/* Deklarasi : B : Bangunan */
+/* Jika T adalah TabInt, cara deklarasi dan akses: */
+/* Deklarasi : T : TabInt */
 /* Maka cara akses:
-   B.Neff  untuk mengetahui banyaknya elemen
-   B.BI    untuk mengakses seluruh nilai elemen tabel
-   B.BI[i] untuk mengakses elemen ke-i */
+   T.Neff  untuk mengetahui banyaknya elemen
+   T.TI    untuk mengakses seluruh nilai elemen tabel
+   T.TI[i] untuk mengakses elemen ke-i */
 /* Definisi :
-   Tabel kosong: B.Neff = 0
-   Definisi elemen pertama : B.BI[i] dengan i=1
-   Definisi elemen terakhir yang terdefinisi: B.BI[i] dengan i=B.Neff */
-
-// ? Define Konstanta Global Tentara Maksimal
-#define MaxC1 40
-#define MaxC2 60
-#define MaxC3 80
-#define MaxC4 100
-
-#define MaxT1 20
-#define MaxT2 30
-#define MaxT3 40
-#define MaxT4 50
-
-#define MaxF1 20
-#define MaxF2 40
-#define MaxF3 60
-#define MaxF4 80
-
-#define MaxV1 20
-#define MaxV2 30
-#define MaxV3 40
-#define MaxV4 50
-
+  Tabel kosong: T.Neff = 0
+  Definisi elemen pertama : T.TI[i] dengan i=1
+  Definisi elemen terakhir yang terdefinisi: T.TI[i] dengan i=T.Neff */
 
 /* ********** SELEKTOR ********** */
-/* B adalah Bangunan      */
-/* e adalah info_bangunan */
-#define Neff(B)       (B).Neff
-#define BI(B)         (B).BI
-#define ElmtBan(B,i)  (B).BI[(i)]
-#define MaxEl(B)      (B).MaxEl
+#define Neff(T) (T).Neff
+#define TI(T) (T).TI
+#define Elmt(T, i) (T).TI[(i)]
+#define MaxEl(T) (T).MaxEl
 
-/* e adalah info_bangunan */
-#define Name(e)       (e).name
-#define Posisi(e)     (e).posisi
-#define Level(e)      (e).level
-#define Tentara(e)    (e).tentara
-#define Moved(e)      (e).hasmoved
-#define Attacked(e)   (e).hasattacked
-#define Defensed(e)   (e).defense
+/* ********** KONSTRUKTOR ********** */
+/* Konstruktor : create tabel kosong  */
+void MakeEmpty(TabInt *T, int maxel);
+/* I.S. T sembarang, maxel > 0 */
+/* F.S. Terbentuk tabel T kosong dengan kapasitas maxel + 1 */
 
-// $ ********** KONSTRUKTOR **********
-
-// $ Konstruktor : create tabel kosong
-// * I.S. B sembarang, maxel > 0
-// * F.S. Terbentuk tabel B kosong dengan kapasitas maxel + 1
-void MakeEmptyBangunan (Bangunan * B, int maxel);
-
-// * I.S. B terdefinisi;
-// * F.S. BI(B) dikembalikan ke system, MaxEl(B)=0; Neff(B)=0
-void DealokasiBangunan(Bangunan *B);
+void Dealokasi(TabInt *T);
+/* I.S. T terdefinisi; */
+/* F.S. TI(T) dikembalikan ke system, MaxEl(T)=0; Neff(T)=0 */
 
 /* ********** SELEKTOR (TAMBAHAN) ********** */
 /* *** Banyaknya elemen *** */
-
+int NbElmtTab(TabInt T);
 /* Mengirimkan banyaknya elemen efektif tabel */
-int NbElmtBan (Bangunan B);
-
+/* Mengirimkan nol jika tabel kosong */
+/* *** Daya tampung container *** */
+int MaxElement(TabInt T);
+/* Mengirimkan maksimum elemen yang dapat ditampung oleh tabel */
 /* *** Selektor INDEKS *** */
+IdxType GetFirstIdx(TabInt T);
+/* Prekondisi : Tabel T tidak kosong */
+/* Mengirimkan indeks elemen T pertama */
+IdxType GetLastIdx(TabInt T);
+/* Prekondisi : Tabel T tidak kosong */
+/* Mengirimkan indeks elemen T terakhir */
 
-/* Prekondisi : Tabel B tidak kosong */
-/* Mengirimkan indeks elemen B pertama */
-IdxType GetFirstBan (Bangunan B);
-
-/* Prekondisi : Tabel B tidak kosong */
-/* Mengirimkan indeks elemen B terakhir */
-IdxType GetLastBan (Bangunan B);
-
-// * Mengirimkan Jumlah maksimal tentara pada gedung (B,X)
-int GetMaxTentara(Bangunan B, IdxType X);
+/* ********** Test Indeks yang valid ********** */
+boolean IsIdxValid(TabInt T, IdxType i);
+/* Mengirimkan true jika i adalah indeks yang valid utk ukuran tabel */
+/* yaitu antara indeks yang terdefinisi utk container*/
+boolean IsIdxEff(TabInt T, IdxType i);
+/* Mengirimkan true jika i adalah indeks yang terdefinisi utk tabel */
+/* yaitu antara FirstIdx(T)..LastIdx(T) */
 
 /* ********** TEST KOSONG/PENUH ********** */
 /* *** Test tabel kosong *** */
-
-/* Mengirimkan true jika tabel B kosong, mengirimkan false jika tidak */
-boolean IsEmptyBan(Bangunan B);
-
+boolean IsEmpty(TabInt T);
+/* Mengirimkan true jika tabel T kosong, mengirimkan false jika tidak */
 /* *** Test tabel penuh *** */
-
-/* Mengirimkan true jika tabel B penuh, mengirimkan false jika tidak */
-boolean IsFullBan(Bangunan B);
-// ? Entah perlu fungsi ini gak ya?
+boolean IsFull(TabInt T);
+/* Mengirimkan true jika tabel T penuh, mengirimkan false jika tidak */
 
 /* ********** BACA dan TULIS dengan INPUT/OUTPUT device ********** */
 /* *** Mendefinisikan isi tabel dari pembacaan *** */
+void BacaIsi(TabInt *T);
+/* I.S. T sembarang dan sudah dialokasikan sebelumnya */
+/* F.S. Tabel T terdefinisi */
+/* Proses : membaca banyaknya elemen T dan mengisi nilainya */
+/* 1. Baca banyaknya elemen diakhiri enter, misalnya N */
+/*    Pembacaan diulangi sampai didapat N yang benar yaitu 0 <= N <= MaxElement(T) */
+/*    Jika N tidak valid, tidak diberikan pesan kesalahan */
+/* 2. Jika 0 < N <= MaxElement(T); Lakukan N kali: Baca elemen mulai dari indeks
+      IdxMin satu per satu diakhiri enter */
+/*    Jika N = 0; hanya terbentuk T kosong */
+void TulisIsiTab(TabInt T);
+/* Proses : Menuliskan isi tabel dengan traversal, tabel ditulis di antara kurung siku;
+   antara dua elemen dipisahkan dengan separator "koma", tanpa tambahan karakter di depan,
+   di tengah, atau di belakang, termasuk spasi dan enter */
+/* I.S. T boleh kosong */
+/* F.S. Jika T tidak kosong: [e1,e2,...,en] */
+/* Contoh : jika ada tiga elemen bernilai 1, 20, 30 akan dicetak: [1,20,30] */
+/* Jika tabel kosong : menulis [] */
 
-/* I.S. B sembarang */
-/* F.S. Tabel B terdefinisi */
-/* Prekondisi : Banyaknya elemen B itu valid */
-/* Proses : membaca banyaknya elemen B dan mengisi semua nilainya dengan Mesin Kata */
-void BacaBangunan(Bangunan * B);
+/* ********** OPERATOR ARITMATIKA ********** */
+/* *** Aritmatika tabel : Penjumlahan, pengurangan, perkalian, ... *** */
+TabInt PlusMinusTab(TabInt T1, TabInt T2, boolean plus);
+/* Prekondisi : T1 dan T2 memiliki Neff sama dan tidak kosong */
+/* Jika plus = true, mengirimkan  T1+T2, yaitu setiap elemen T1 dan T2 pada indeks yang sama dijumlahkan */
+/* Jika plus = false, mengirimkan T1-T2, yaitu setiap elemen T1 dikurangi elemen T2 pada indeks yang sama */
 
-/*********************** Tentara Attack ****************************/
+/* ********** OPERATOR RELASIONAL ********** */
+/* *** Operasi pembandingan tabel : < =, > *** */
+boolean IsEQ(TabInt T1, TabInt T2);
+/* Mengirimkan true jika T1 sama dengan T2 yaitu jika Neff T1 = T2 dan semua elemennya sama */
 
-/* Mengecek apakah bangunan ke-X memiliki jumlah tentara yang >= N */
-/* Jika iya maka True dan sebaliknya */
-boolean CheckAttackTentara(Bangunan B, IdxType X, int N);
+/* ********** SEARCHING ********** */
+/* ***  Perhatian : Tabel boleh kosong!! *** */
+IdxType SearchA(TabInt T, ElType X);
+/* Search apakah ada elemen tabel T yang bernilai X */
+/* Jika ada, menghasilkan indeks i terkecil, dengan elemen ke-i = X */
+/* Jika tidak ada, mengirimkan IdxUndef */
+/* Menghasilkan indeks tak terdefinisi (IdxUndef) jika tabel T kosong */
+/* Skema Searching yang digunakan bebas */
+boolean SearchB(TabInt T, ElType X);
+/* Search apakah ada elemen tabel T yang bernilai X */
+/* Jika ada, menghasilkan true, jika tidak ada menghasilkan false */
+/* Skema searching yang digunakan bebas */
 
-/* I.S. Bangunan B terdefinisi
-        X pasti ada di dalam List
-        Jumlah N pasti normal (sudah dicek pakai CheckAttackTentara) */
-/* F.S. Bangunan ke-X mengalami pengurangan jumlah tentara sebesar N */
-void TentaraAttack(Bangunan * B, IdxType X, int N);
+/* ********** NILAI EKSTREM ********** */
+void MaxMin(TabInt T, ElType *Max, ElType *Min);
+/* I.S. Tabel T tidak kosong */
+/* F.S. Max berisi nilai maksimum T;
+        Min berisi nilai minimum T */
 
-/*********************** Tentara Invaded **************************/
+/* ********** OPERASI LAIN ********** */
+void CopyTab(TabInt Tin, TabInt *Tout);
+/* I.S. Tin terdefinisi tidak kosong, Tout sembarang */
+/* F.S. Tout berisi salinan dari Tin (identik, Neff dan MaxEl sama) */
+/* Proses : Menyalin isi Tin ke Tout */
+ElType SumTab(TabInt T);
+/* Menghasilkan hasil penjumlahan semua elemen T */
+/* Jika T kosong menghasilkan 0 */
+int CountX(TabInt T, ElType X);
+/* Menghasilkan berapa banyak kemunculan X di T */
+/* Jika T kosong menghasilkan 0 */
+boolean IsAllGenap(TabInt T);
+/* Menghailkan true jika semua elemen T genap. T boleh kosong */
 
-/* I.S. Bangunan B terdefinisi
-        i pasti ada di dalam indeks bangunan B
-        Skill Shield itu aktif sekali          */
-/* F.S. Bangunan ke-i mengalami pengurangan jumlah tentara (mungkin minus)
-      dengan perhitungan adanya pertahanan */
-void InvadedShield(Bangunan * B, IdxType i, int N);
+/* ********** SORTING ********** */
+void Sort(TabInt *T, boolean asc);
+/* I.S. T boleh kosong */
+/* F.S. Jika asc = true, T terurut membesar */
+/*      Jika asc = false, T terurut mengecil */
+/* Proses : Mengurutkan T dengan salah satu algoritma sorting,
+   algoritma bebas */
 
-/* I.S. Bangunan B terdefinisi
-      i pasti ada di dalam indeks bangunan B
-      p adalah indeks bangunan milik Pemain yang dipilih untuk Attack
-      e adalah indeks bangunan milik Lawan yang dipilih untuk di-Attack
-      Mengetahui skill-skill tertentu aktif atau tidak*/
-/* F.S. Bangunan ke-i mengalami pengurangan jumlah tentara (mungkin minus) */
-void TentaraInvaded(Bangunan * B, boolean Critical_Hit, boolean Attack_Up, boolean Shield, IdxType p, IdxType e, int N);
+/* ********** MENAMBAH DAN MENGHAPUS ELEMEN DI AKHIR ********** */
+/* *** Menambahkan elemen terakhir *** */
+void AddAsLastEl(TabInt *T, ElType X);
+/* Proses: Menambahkan X sebagai elemen terakhir tabel */
+/* I.S. Tabel T boleh kosong, tetapi tidak penuh */
+/* F.S. X adalah elemen terakhir T yang baru */
+/* ********** MENGHAPUS ELEMEN ********** */
+void DelLastEl(TabInt *T, ElType *X);
+/* Proses : Menghapus elemen terakhir tabel */
+/* I.S. Tabel tidak kosong */
+/* F.S. X adalah nilai elemen terakhir T sebelum penghapusan, */
+/*      Banyaknya elemen tabel berkurang satu */
+/*      Tabel T mungkin menjadi kosong */
 
-/* Mengecek apakah Bangunan ke-i memiliki jumlah tentara yang <= 0 */
-/* Jika iya maka true dan sebaliknya */
-boolean CanCapture(Bangunan B, IdxType i);
+/* ********* MENGUBAH UKURAN ARRAY ********* */
+void GrowTab(TabInt *T, int num);
+/* Proses : Menambahkan max element sebanyak num */
+/* I.S. Tabel sudah terdefinisi */
+/* F.S. Ukuran tabel bertambah sebanyak num */
 
-/* I.S. Bangunan B terdefinisi
-      X pasti ada di dalam List */
-/* F.S. Bangunan ke-X yang memiliki jumlah tentara <= 0 dimutlakkan
-      nilai jumlahnya */
-void TentaraAbsolute(Bangunan * B, IdxType X);
+void ShrinkTab(TabInt *T, int num);
+/* Proses : Mengurangi max element sebanyak num */
+/* I.S. Tabel sudah terdefinisi, ukuran MaxEl > num, dan Neff < MaxEl - num. */
+/* F.S. Ukuran tabel berkurang sebanyak num. */
 
-/*************************** Level-Up Bangunan ********************************/
-
-/* Mengecek apakah bangunan tertentu sudah melewati jumlah yang seharusnya
-atau belum */
-/* Jika iya maka True dan sebaliknya */
-boolean CheckLevelUp(Bangunan B, IdxType X);
-// ! Jika udah level 4 maka tidak bisa Level Up lagi
-
-/* I.S. Bangunan B terdefinisi
-      Bangunan ke-X sudah pasti bisa Level-Up */
-/* F.S. Bangunan ke-X mengalami pengurangan jumlah tentara sebesar 1/2 dari
-      jumlah maksimum tentara gedungnya
-      Bangunan ke-X mengalami penaikan 1 level. */
-void LevelUp(Bangunan * B, IdxType X);
-
-// * I.S. Bangunan B terdefinisi
-// * F.S. Bangunan ke-X mengalami pengembalian level menjadi level 1
-void ResetLevel(Bangunan *B, IdxType X);
-
-/* Me-copy data-data bangunan */
-Bangunan CopyBangunan(Bangunan B);
+void CompactTab(TabInt *T);
+/* Proses : Mengurangi max element sehingga Neff = MaxEl */
+/* I.S. Tabel tidak kosong */
+/* F.S. Ukuran MaxEl = Neff */
 
 #endif
